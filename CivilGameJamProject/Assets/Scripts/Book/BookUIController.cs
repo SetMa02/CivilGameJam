@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using CivilGame.Audio;
 
 namespace CivilGame.Book
 {
@@ -34,13 +35,23 @@ namespace CivilGame.Book
         [SerializeField] private Button _prevPageButton;
         [SerializeField] private Button _nextPageButton;
 
+        [Header("Audio")]
+        [SerializeField] private AudioClip _pageFoldClip;
+        [SerializeField] private AudioClip _bookCloseClip;
+        [SerializeField] private AudioSource _audioSource;
+
         public bool IsOpen => _bookRootPanel != null && _bookRootPanel.activeSelf;
 
         private void Awake()
         {
+            if (_audioSource == null)
+            {
+                _audioSource = GetComponent<AudioSource>();
+            }
+
             if (_outsideClickBackdrop != null)
             {
-                _outsideClickBackdrop.onClick.AddListener(CloseBook);
+                _outsideClickBackdrop.onClick.AddListener(() => CloseBook(true));
             }
 
             if (_prevPageButton != null)
@@ -56,14 +67,14 @@ namespace CivilGame.Book
 
         private void Start()
         {
-            CloseBook();
+            CloseBook(false);
         }
 
         private void OnDestroy()
         {
             if (_outsideClickBackdrop != null)
             {
-                _outsideClickBackdrop.onClick.RemoveListener(CloseBook);
+                _outsideClickBackdrop.onClick.RemoveAllListeners();
             }
 
             if (_prevPageButton != null)
@@ -84,13 +95,25 @@ namespace CivilGame.Book
                 _bookRootPanel.SetActive(true);
             }
             UpdatePageDisplay();
+            PlayPageFoldSound();
         }
 
         public void CloseBook()
         {
+            CloseBook(true);
+        }
+
+        public void CloseBook(bool playSound)
+        {
+            bool wasOpen = IsOpen;
             if (_bookRootPanel != null)
             {
                 _bookRootPanel.SetActive(false);
+            }
+
+            if (wasOpen && playSound)
+            {
+                PlayBookCloseSound();
             }
         }
 
@@ -100,6 +123,7 @@ namespace CivilGame.Book
             {
                 _currentPageIndex++;
                 UpdatePageDisplay();
+                PlayPageFoldSound();
             }
         }
 
@@ -109,6 +133,37 @@ namespace CivilGame.Book
             {
                 _currentPageIndex--;
                 UpdatePageDisplay();
+                PlayPageFoldSound();
+            }
+        }
+
+        private void PlayPageFoldSound()
+        {
+            if (_audioSource != null && _pageFoldClip != null)
+            {
+                float prev = _audioSource.pitch;
+                _audioSource.pitch = Random.Range(0.96f, 1.04f);
+                _audioSource.PlayOneShot(_pageFoldClip, 0.9f);
+                _audioSource.pitch = prev;
+            }
+            else if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayPageFold();
+            }
+        }
+
+        private void PlayBookCloseSound()
+        {
+            if (_audioSource != null && _bookCloseClip != null)
+            {
+                float prev = _audioSource.pitch;
+                _audioSource.pitch = Random.Range(0.97f, 1.03f);
+                _audioSource.PlayOneShot(_bookCloseClip, 0.9f);
+                _audioSource.pitch = prev;
+            }
+            else if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayBookClose();
             }
         }
 
@@ -188,3 +243,4 @@ namespace CivilGame.Book
         }
     }
 }
+

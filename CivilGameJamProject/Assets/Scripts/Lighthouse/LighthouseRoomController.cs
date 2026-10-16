@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using CivilGame.Audio;
 
 namespace CivilGame.Lighthouse
 {
@@ -26,10 +27,20 @@ namespace CivilGame.Lighthouse
         [SerializeField] private Button _navLeftButton;
         [SerializeField] private Button _navRightButton;
 
+        [Header("Audio")]
+        [SerializeField] private AudioClip _stepsClip;
+        [SerializeField] private AudioSource _audioSource;
+
         private LighthouseView _currentView = LighthouseView.Hall;
+        private bool _isInitialized = false;
 
         private void Awake()
         {
+            if (_audioSource == null)
+            {
+                _audioSource = GetComponent<AudioSource>();
+            }
+
             if (_navLeftButton != null)
             {
                 _navLeftButton.onClick.AddListener(OnLeftButtonClicked);
@@ -43,7 +54,8 @@ namespace CivilGame.Lighthouse
 
         private void Start()
         {
-            SetView(LighthouseView.Hall);
+            SetView(LighthouseView.Hall, false);
+            _isInitialized = true;
         }
 
         private void OnDestroy()
@@ -63,11 +75,11 @@ namespace CivilGame.Lighthouse
         {
             if (_currentView == LighthouseView.Hall)
             {
-                SetView(LighthouseView.LeftWindow);
+                SetView(LighthouseView.LeftWindow, true);
             }
             else if (_currentView == LighthouseView.RightWindow)
             {
-                SetView(LighthouseView.Hall);
+                SetView(LighthouseView.Hall, true);
             }
         }
 
@@ -75,16 +87,26 @@ namespace CivilGame.Lighthouse
         {
             if (_currentView == LighthouseView.Hall)
             {
-                SetView(LighthouseView.RightWindow);
+                SetView(LighthouseView.RightWindow, true);
             }
             else if (_currentView == LighthouseView.LeftWindow)
             {
-                SetView(LighthouseView.Hall);
+                SetView(LighthouseView.Hall, true);
             }
         }
 
         public void SetView(LighthouseView view)
         {
+            SetView(view, _isInitialized);
+        }
+
+        public void SetView(LighthouseView view, bool playSound)
+        {
+            if (_currentView != view && playSound)
+            {
+                PlayStepsSound();
+            }
+
             _currentView = view;
 
             switch (_currentView)
@@ -126,6 +148,21 @@ namespace CivilGame.Lighthouse
             }
         }
 
+        private void PlayStepsSound()
+        {
+            if (_audioSource != null && _stepsClip != null)
+            {
+                float prevPitch = _audioSource.pitch;
+                _audioSource.pitch = Random.Range(0.95f, 1.05f);
+                _audioSource.PlayOneShot(_stepsClip, 0.85f);
+                _audioSource.pitch = prevPitch;
+            }
+            else if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySteps();
+            }
+        }
+
         private void UpdateBackgroundScale(Sprite sprite)
         {
             if (Camera.main == null || sprite == null || _backgroundRenderer == null) return;
@@ -138,3 +175,4 @@ namespace CivilGame.Lighthouse
         }
     }
 }
+
