@@ -1,0 +1,4 @@
+repository "CivilGameJamProject/CivilGameJamProject@10170619474780@cloud"
+  path "/"
+    br "/main"
+    co "/main"
