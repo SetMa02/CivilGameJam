@@ -58,6 +58,11 @@ namespace CivilGame.Lighthouse
             transform.localScale = Vector3.Lerp(transform.localScale, _targetScale, Time.deltaTime * _animationSpeed);
         }
 
+        [Header("Click Events")]
+        [SerializeField] private UnityEngine.Events.UnityEvent _onClick;
+
+        public UnityEngine.Events.UnityEvent OnClick => _onClick;
+
         private void CheckMouseHover()
         {
             if (_collider == null) return;
@@ -68,9 +73,11 @@ namespace CivilGame.Lighthouse
             }
 
             Vector2 mouseScreenPos = Vector2.zero;
+            bool mouseWasPressed = false;
             if (Mouse.current != null)
             {
                 mouseScreenPos = Mouse.current.position.ReadValue();
+                mouseWasPressed = Mouse.current.leftButton.wasPressedThisFrame;
             }
 
             Vector3 worldPos = _mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPos.x, mouseScreenPos.y, -_mainCamera.transform.position.z));
@@ -82,6 +89,11 @@ namespace CivilGame.Lighthouse
             {
                 _isHovered = hoveringNow;
                 SetHoverState(_isHovered);
+            }
+
+            if (hoveringNow && mouseWasPressed)
+            {
+                _onClick?.Invoke();
             }
         }
 
