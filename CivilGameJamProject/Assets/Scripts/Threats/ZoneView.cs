@@ -30,25 +30,25 @@ namespace CivilGame.Threats
 
             if (_zoneLabel != null)
             {
-                _zoneLabel.text = model.zoneName.ToUpper();
+                _zoneLabel.text = CivilGame.Localization.LocalizationManager.GetZoneName(model.zoneType).ToUpper();
             }
 
             if (_statusLabel != null)
             {
                 if (model.isDestroyed)
                 {
-                    _statusLabel.text = "<color=#ef4444>[УНИЧТОЖЕНО]</color>";
+                    _statusLabel.text = CivilGame.Localization.LocalizationManager.Get("status.destroyed");
                 }
                 else if (model.activeThreat != null)
                 {
-                    string threatName = model.activeThreat.definition.displayName;
+                    string threatName = CivilGame.Localization.LocalizationManager.GetThreatName(model.activeThreat.definition.type);
                     string stageDesc = model.activeThreat.GetStageDescription();
                     string colorTag = model.activeThreat.IsFinalStage ? "<color=#ef4444>" : "<color=#fef08a>";
                     _statusLabel.text = $"{colorTag}<b>{threatName}</b>\n{stageDesc}</color>";
                 }
                 else
                 {
-                    _statusLabel.text = "<color=#94a3b8>Спокойно</color>";
+                    _statusLabel.text = CivilGame.Localization.LocalizationManager.Get("status.calm");
                 }
             }
         }

@@ -165,7 +165,7 @@ namespace CivilGame.Phone
             if (limitReached)
             {
                 int max = DayCycleManager.Instance?.MaxDispatchesPerDay ?? 1;
-                ShowFeedback($"<color=#94a3b8>[Лимит вызовов ({max}/{max}) исчерпан. Ожидайте завтра или откройте SHOP.]</color>");
+                ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.limit_reached", max));
             }
         }
 
@@ -173,7 +173,7 @@ namespace CivilGame.Phone
         {
             if (DayCycleManager.Instance != null && DayCycleManager.Instance.HasDispatchedToday)
             {
-                ShowFeedback("<color=#f87171>Штаб сообщает: на сегодня лимит вызовов исчерпан! Ожидайте следующий день или используйте SHOP.</color>");
+                ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.limit_reached_alert"));
                 return;
             }
 
@@ -297,11 +297,11 @@ namespace CivilGame.Phone
             {
                 dcm.EnableSecondReportCall();
                 UpdateShopButtonsState();
-                ShowFeedback("<color=#4ade80>Успешно! Дополнительный вызов отряда разблокирован на сегодня.</color>");
+                ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_success_call"));
             }
             else
             {
-                ShowFeedback("<color=#f87171>Недостаточно средств ($200)!</color>");
+                ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_insufficient_funds", PriceSecondCall));
             }
         }
 
@@ -312,12 +312,12 @@ namespace CivilGame.Phone
             var destroyed = dcm.GetDestroyedZones();
             if (destroyed.Count == 0)
             {
-                ShowFeedback("<color=#94a3b8>Нет разрушенных регионов для восстановления.</color>");
+                ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_no_destroyed"));
                 return;
             }
 
             _currentShopAction = ShopActionType.RestoreDestroyed;
-            OpenShopTargetZoneSelection("Select DESTROYED zone to restore ($250):", destroyed);
+            OpenShopTargetZoneSelection(CivilGame.Localization.LocalizationManager.Get("phone.shop_prompt_restore"), destroyed);
         }
 
         private void OnBuyPauseGrowth()
@@ -327,12 +327,12 @@ namespace CivilGame.Phone
             var threatened = dcm.GetThreatenedZones();
             if (threatened.Count == 0)
             {
-                ShowFeedback("<color=#94a3b8>Сейчас нет регионов под угрозой.</color>");
+                ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_no_threatened"));
                 return;
             }
 
             _currentShopAction = ShopActionType.PauseThreatGrowth;
-            OpenShopTargetZoneSelection("Select THREATENED zone to freeze for 1 day ($350):", threatened);
+            OpenShopTargetZoneSelection(CivilGame.Localization.LocalizationManager.Get("phone.shop_prompt_pause"), threatened);
         }
 
         private void OnBuyRollback()
@@ -342,12 +342,12 @@ namespace CivilGame.Phone
             var threatened = dcm.GetThreatenedZones();
             if (threatened.Count == 0)
             {
-                ShowFeedback("<color=#94a3b8>Сейчас нет регионов под угрозой.</color>");
+                ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_no_threatened"));
                 return;
             }
 
             _currentShopAction = ShopActionType.RollbackThreat;
-            OpenShopTargetZoneSelection("Select THREATENED zone to roll back by 1 ($500):", threatened);
+            OpenShopTargetZoneSelection(CivilGame.Localization.LocalizationManager.Get("phone.shop_prompt_rollback"), threatened);
         }
 
         private void OpenShopTargetZoneSelection(string prompt, List<ZoneModel> zones)
@@ -430,21 +430,25 @@ namespace CivilGame.Phone
                 var tTmp = tGo.AddComponent<TextMeshProUGUI>();
                 if (fontAsset != null) tTmp.font = fontAsset;
 
+                string zName = CivilGame.Localization.LocalizationManager.GetZoneName(zoneCapture.zoneType);
                 string extraInfo = "";
                 if (_currentShopAction == ShopActionType.RestoreDestroyed)
                 {
-                    extraInfo = " [DESTROYED]";
+                    extraInfo = $" {CivilGame.Localization.LocalizationManager.Get("status.tag_destroyed")}";
                 }
                 else if (_currentShopAction == ShopActionType.PauseThreatGrowth && zoneCapture.activeThreat != null)
                 {
-                    extraInfo = $" [{zoneCapture.activeThreat.definition.displayName}]";
+                    string threatName = CivilGame.Localization.LocalizationManager.GetThreatName(zoneCapture.activeThreat.definition.type);
+                    extraInfo = $" [{threatName}]";
                 }
                 else if (_currentShopAction == ShopActionType.RollbackThreat && zoneCapture.activeThreat != null)
                 {
-                    extraInfo = $" [{zoneCapture.activeThreat.definition.displayName} - Stage {zoneCapture.activeThreat.currentStage}]";
+                    string threatName = CivilGame.Localization.LocalizationManager.GetThreatName(zoneCapture.activeThreat.definition.type);
+                    string stagePrefix = CivilGame.Localization.LocalizationManager.Get("status.stage_prefix", zoneCapture.activeThreat.currentStage);
+                    extraInfo = $" [{threatName} - {stagePrefix}]";
                 }
 
-                tTmp.text = $"{zoneCapture.zoneName}{extraInfo}";
+                tTmp.text = $"{zName}{extraInfo}";
                 tTmp.fontSize = 17;
                 tTmp.fontStyle = FontStyles.Bold;
                 tTmp.alignment = TextAlignmentOptions.Center;
@@ -469,17 +473,19 @@ namespace CivilGame.Phone
         {
             if (DayCycleManager.Instance == null || MoneySystem.Instance == null) return;
 
+            string zoneName = CivilGame.Localization.LocalizationManager.GetZoneName(zoneType);
+
             if (_currentShopAction == ShopActionType.RestoreDestroyed)
             {
                 if (MoneySystem.Instance.SpendMoney(PriceRestoreArea))
                 {
                     DayCycleManager.Instance.RestoreDestroyedZone(zoneType);
                     ShowShop();
-                    ShowFeedback($"<color=#4ade80>Успешно! Регион {zoneType} полностью восстановлен!</color>");
+                    ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_success_restore", zoneName));
                 }
                 else
                 {
-                    ShowFeedback("<color=#f87171>Недостаточно средств ($250)!</color>");
+                    ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_insufficient_funds", PriceRestoreArea));
                 }
             }
             else if (_currentShopAction == ShopActionType.PauseThreatGrowth)
@@ -488,11 +494,11 @@ namespace CivilGame.Phone
                 {
                     DayCycleManager.Instance.PauseThreatGrowthForZone(zoneType);
                     ShowShop();
-                    ShowFeedback($"<color=#4ade80>Успешно! Развитие угрозы в регионе {zoneType} заморожено на 1 день!</color>");
+                    ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_success_pause", zoneName));
                 }
                 else
                 {
-                    ShowFeedback("<color=#f87171>Недостаточно средств ($350)!</color>");
+                    ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_insufficient_funds", PricePauseGrowth));
                 }
             }
             else if (_currentShopAction == ShopActionType.RollbackThreat)
@@ -501,11 +507,11 @@ namespace CivilGame.Phone
                 {
                     DayCycleManager.Instance.RollbackThreatLevel(zoneType);
                     ShowShop();
-                    ShowFeedback($"<color=#4ade80>Успешно! Уровень угрозы в регионе {zoneType} снижен на 1!</color>");
+                    ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_success_rollback", zoneName));
                 }
                 else
                 {
-                    ShowFeedback("<color=#f87171>Недостаточно средств ($500)!</color>");
+                    ShowFeedback(CivilGame.Localization.LocalizationManager.Get("phone.shop_insufficient_funds", PriceRollback));
                 }
             }
 
