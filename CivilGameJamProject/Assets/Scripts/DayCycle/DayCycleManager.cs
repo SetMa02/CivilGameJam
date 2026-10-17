@@ -89,10 +89,14 @@ namespace CivilGame.DayCycle
             _dispatchesUsedToday = 0;
             _pauseThreatGrowthNextDay = false;
             _pendingDispatches.Clear();
+
+            CivilGame.Localization.LocalizationManager.OnLanguageChanged += HandleLanguageChanged;
         }
 
         private void OnDestroy()
         {
+            CivilGame.Localization.LocalizationManager.OnLanguageChanged -= HandleLanguageChanged;
+
             if (_bedObject != null)
             {
                 _bedObject.OnClick.RemoveListener(TrySleep);
@@ -102,6 +106,11 @@ namespace CivilGame.DayCycle
             {
                 _restartButton.onClick.RemoveListener(RestartGame);
             }
+        }
+
+        private void HandleLanguageChanged(CivilGame.Localization.GameLanguage newLang)
+        {
+            UpdateUIAndViews();
         }
 
         private void Start()
@@ -125,27 +134,20 @@ namespace CivilGame.DayCycle
         {
             _threatDefinitions = new List<ThreatDefinition>
             {
-                // Засуха (3 стадии: Степь/Поле, Лес)
-                new ThreatDefinition(ThreatType.Drought, "Засуха", 3, ZoneType.Forest, ZoneType.Field),
-
-                // Пожар (3 стадии: Степь/Поле, Лес)
-                new ThreatDefinition(ThreatType.Wildfire, "Лесной пожар", 3, ZoneType.Forest, ZoneType.Field),
-
-                // Оползень (2 стадии: Горы - решается срочно!)
-                new ThreatDefinition(ThreatType.Landslide, "Оползень", 2, ZoneType.Mountains),
-
-                // Цунами (2 стадии: Море - решается срочно!)
-                new ThreatDefinition(ThreatType.Tsunami, "Цунами", 2, ZoneType.Sea)
+                new ThreatDefinition(ThreatType.Drought, "Drought", 3, ZoneType.Forest, ZoneType.Field),
+                new ThreatDefinition(ThreatType.Wildfire, "Wildfire", 3, ZoneType.Forest, ZoneType.Field),
+                new ThreatDefinition(ThreatType.Landslide, "Landslide", 2, ZoneType.Mountains),
+                new ThreatDefinition(ThreatType.Tsunami, "Tsunami", 2, ZoneType.Sea)
             };
         }
 
         private void InitializeZones()
         {
             _zones.Clear();
-            _zones[ZoneType.Sea] = new ZoneModel(ZoneType.Sea, "Море");
-            _zones[ZoneType.Mountains] = new ZoneModel(ZoneType.Mountains, "Горы");
-            _zones[ZoneType.Forest] = new ZoneModel(ZoneType.Forest, "Лес");
-            _zones[ZoneType.Field] = new ZoneModel(ZoneType.Field, "Поле");
+            _zones[ZoneType.Sea] = new ZoneModel(ZoneType.Sea, "Sea");
+            _zones[ZoneType.Mountains] = new ZoneModel(ZoneType.Mountains, "Mountains");
+            _zones[ZoneType.Forest] = new ZoneModel(ZoneType.Forest, "Forest");
+            _zones[ZoneType.Field] = new ZoneModel(ZoneType.Field, "Field");
         }
 
         public void RegisterZoneView(ZoneView view)
@@ -230,13 +232,14 @@ namespace CivilGame.DayCycle
 
             if (_fadeDayAnnouncementText != null)
             {
+                string dayHeader = CivilGame.Localization.LocalizationManager.Get("hud.day", _currentDay);
                 if (!string.IsNullOrEmpty(_lastNightReport))
                 {
-                    _fadeDayAnnouncementText.text = $"ДЕНЬ {_currentDay}\n\n<size=20><color=#e2e8f0>{_lastNightReport}</color></size>";
+                    _fadeDayAnnouncementText.text = $"{dayHeader}\n\n<size=20><color=#e2e8f0>{_lastNightReport}</color></size>";
                 }
                 else
                 {
-                    _fadeDayAnnouncementText.text = $"ДЕНЬ {_currentDay}";
+                    _fadeDayAnnouncementText.text = dayHeader;
                 }
             }
 
@@ -493,7 +496,7 @@ namespace CivilGame.DayCycle
         {
             if (_dayCounterText != null)
             {
-                _dayCounterText.text = $"ДЕНЬ {_currentDay}";
+                _dayCounterText.text = CivilGame.Localization.LocalizationManager.Get("hud.day", _currentDay);
             }
 
             foreach (var view in _zoneViews)
@@ -527,27 +530,29 @@ namespace CivilGame.DayCycle
 
             if (_dispatchesUsedToday >= _maxDispatchesPerDay)
             {
-                resultMessage = $"Штаб сообщает: на сегодня лимит ({_maxDispatchesPerDay} в день) исчерпан! Дождитесь следующего дня или купите второй вызов в магазине.";
+                resultMessage = CivilGame.Localization.LocalizationManager.Get("phone.limit_reached_alert");
                 return false;
             }
 
             if (!_zones.TryGetValue(zoneType, out ZoneModel zone))
             {
-                resultMessage = "Зона не найдена!";
+                resultMessage = "Zone not found!";
                 return false;
             }
 
             if (zone.isDestroyed)
             {
-                resultMessage = $"Зона {zone.zoneName} уже уничтожена! Отряд не может быть отправлен туда.";
+                string zName = CivilGame.Localization.LocalizationManager.GetZoneName(zone.zoneType);
+                resultMessage = $"Zone {zName} is already destroyed! Squad cannot be dispatched there.";
                 return false;
             }
 
             _dispatchesUsedToday++;
             _pendingDispatches.Add(new SquadDispatchOrder(squadType, zoneType));
 
-            string squadName = GetSquadName(squadType);
-            resultMessage = $"Запрос принят штабом!\nОтряд <b>{squadName}</b> направлен в сектор <b>{zone.zoneName}</b> (Отправлено сегодня: {_dispatchesUsedToday}/{_maxDispatchesPerDay}).\nРезультаты операций станут известны завтра утром.";
+            string squadName = CivilGame.Localization.LocalizationManager.GetSquadName(squadType);
+            string zoneName = CivilGame.Localization.LocalizationManager.GetZoneName(zone.zoneType);
+            resultMessage = CivilGame.Localization.LocalizationManager.Get("dispatch.accepted", squadName, zoneName, _dispatchesUsedToday, _maxDispatchesPerDay);
             Debug.Log($"[DayCycle] {resultMessage}");
             return true;
         }
@@ -566,21 +571,22 @@ namespace CivilGame.DayCycle
             {
                 if (!_zones.TryGetValue(order.zone, out ZoneModel zone))
                 {
-                    reportBuilder.AppendLine("• ОТЧЁТ: Координаты зоны были утеряны.");
+                    reportBuilder.AppendLine(CivilGame.Localization.LocalizationManager.Get("report.lost_coords"));
                     continue;
                 }
 
-                string squadName = GetSquadName(order.squad);
+                string squadName = CivilGame.Localization.LocalizationManager.GetSquadName(order.squad);
+                string zoneName = CivilGame.Localization.LocalizationManager.GetZoneName(zone.zoneType);
 
                 if (zone.isDestroyed)
                 {
-                    reportBuilder.AppendLine($"• ОТЧЁТ: Отряд {squadName} прибыл в {zone.zoneName}, но сектор уже был разрушен.");
+                    reportBuilder.AppendLine(CivilGame.Localization.LocalizationManager.Get("report.already_destroyed", squadName, zoneName));
                     continue;
                 }
 
                 if (zone.activeThreat == null)
                 {
-                    reportBuilder.AppendLine($"• ОТЧЁТ: Отряд {squadName} обследовал сектор {zone.zoneName}. Угроз не обнаружено.");
+                    reportBuilder.AppendLine(CivilGame.Localization.LocalizationManager.Get("report.no_threats", squadName, zoneName));
                     continue;
                 }
 
@@ -589,7 +595,7 @@ namespace CivilGame.DayCycle
 
                 if (isEffective)
                 {
-                    string threatName = threat.definition.displayName;
+                    string threatName = CivilGame.Localization.LocalizationManager.GetThreatName(threat.definition.type);
                     zone.activeThreat = null;
                     // Зона получает иммунитет на текущий новый день
                     zone.immuneUntilDay = _currentDay;
@@ -615,11 +621,11 @@ namespace CivilGame.DayCycle
                         CivilGame.Audio.AudioManager.Instance.SetFireActive(false);
                     }
 
-                    reportBuilder.AppendLine($"• <color=#86efac>УСПЕХ!</color> Отряд {squadName} ликвидировал '{threatName}' в секторе {zone.zoneName}! (+${MoneySystem.Instance?.rewardPerResolvedThreat ?? 200})");
+                    reportBuilder.AppendLine(CivilGame.Localization.LocalizationManager.Get("report.success", squadName, threatName, zoneName, MoneySystem.Instance?.rewardPerResolvedThreat ?? 200));
                 }
                 else
                 {
-                    reportBuilder.AppendLine($"• <color=#f87171>ПРОВАЛ!</color> Отряд {squadName} не справился с угрозой в секторе {zone.zoneName}!");
+                    reportBuilder.AppendLine(CivilGame.Localization.LocalizationManager.Get("report.failure", squadName, zoneName));
                 }
             }
 

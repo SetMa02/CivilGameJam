@@ -62,29 +62,7 @@ namespace CivilGame.Threats
 
         public string GetStageDescription()
         {
-            switch (definition.type)
-            {
-                case ThreatType.Drought:
-                    if (currentStage == 1) return "Этап 1: Пожелтение листьев";
-                    if (currentStage == 2) return "Этап 2: Сухие ветки и трещины";
-                    return "Этап 3: Критическая засуха!";
-
-                case ThreatType.Wildfire:
-                    if (currentStage == 1) return "Этап 1: Дымок над кронами";
-                    if (currentStage == 2) return "Этап 2: Очаги открытого пламени";
-                    return "Этап 3: Верховой пожар!";
-
-                case ThreatType.Landslide:
-                    if (currentStage == 1) return "Этап 1: Подземные толчки, осыпание камней";
-                    return "Этап 2: Сход породы! Немедленная угроза!";
-
-                case ThreatType.Tsunami:
-                    if (currentStage == 1) return "Этап 1: Резкий отлив воды";
-                    return "Этап 2: Гигантская волна на горизонте!";
-
-                default:
-                    return $"Стадия {currentStage}";
-            }
+            return CivilGame.Localization.LocalizationManager.GetThreatStageDescription(definition.type, currentStage);
         }
     }
 

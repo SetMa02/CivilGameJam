@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+using CivilGame.Localization;
 
 namespace CivilGame.UI
 {
@@ -20,6 +22,13 @@ namespace CivilGame.UI
         [SerializeField] private UnityEngine.UI.Button _closeSettingsButton;
         [SerializeField] private UnityEngine.UI.Slider _volumeSlider;
         [SerializeField] private UnityEngine.UI.Toggle _fullscreenToggle;
+
+        [Header("Language Selection")]
+        [SerializeField] private UnityEngine.UI.Button _englishButton;
+        [SerializeField] private UnityEngine.UI.Button _turkishButton;
+
+        private readonly Color _activeLangColor = new Color(0.20f, 0.42f, 0.72f, 1f);
+        private readonly Color _inactiveLangColor = new Color(0.14f, 0.18f, 0.25f, 1f);
 
         private void Awake()
         {
@@ -55,10 +64,27 @@ namespace CivilGame.UI
                 _fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggled);
             }
 
+            if (_englishButton != null)
+            {
+                _englishButton.onClick.AddListener(OnEnglishClicked);
+            }
+
+            if (_turkishButton != null)
+            {
+                _turkishButton.onClick.AddListener(OnTurkishClicked);
+            }
+
             if (_settingsPanel != null)
             {
                 _settingsPanel.SetActive(false);
             }
+
+            UpdateLanguageButtons();
+        }
+
+        private void Start()
+        {
+            UpdateLanguageButtons();
         }
 
         private void OnDestroy()
@@ -92,6 +118,16 @@ namespace CivilGame.UI
             {
                 _fullscreenToggle.onValueChanged.RemoveListener(OnFullscreenToggled);
             }
+
+            if (_englishButton != null)
+            {
+                _englishButton.onClick.RemoveListener(OnEnglishClicked);
+            }
+
+            if (_turkishButton != null)
+            {
+                _turkishButton.onClick.RemoveListener(OnTurkishClicked);
+            }
         }
 
         public void OnNewGameClicked()
@@ -106,6 +142,7 @@ namespace CivilGame.UI
             if (_settingsPanel != null)
             {
                 _settingsPanel.SetActive(true);
+                UpdateLanguageButtons();
             }
         }
 
@@ -114,6 +151,41 @@ namespace CivilGame.UI
             if (_settingsPanel != null)
             {
                 _settingsPanel.SetActive(false);
+            }
+        }
+
+        public void OnEnglishClicked()
+        {
+            LocalizationManager.CurrentLanguage = GameLanguage.English;
+            UpdateLanguageButtons();
+        }
+
+        public void OnTurkishClicked()
+        {
+            LocalizationManager.CurrentLanguage = GameLanguage.Turkish;
+            UpdateLanguageButtons();
+        }
+
+        private void UpdateLanguageButtons()
+        {
+            var cur = LocalizationManager.CurrentLanguage;
+
+            if (_englishButton != null)
+            {
+                var img = _englishButton.GetComponent<UnityEngine.UI.Image>();
+                if (img != null)
+                {
+                    img.color = cur == GameLanguage.English ? _activeLangColor : _inactiveLangColor;
+                }
+            }
+
+            if (_turkishButton != null)
+            {
+                var img = _turkishButton.GetComponent<UnityEngine.UI.Image>();
+                if (img != null)
+                {
+                    img.color = cur == GameLanguage.Turkish ? _activeLangColor : _inactiveLangColor;
+                }
             }
         }
 
@@ -138,3 +210,4 @@ namespace CivilGame.UI
         }
     }
 }
+
