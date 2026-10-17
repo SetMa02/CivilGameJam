@@ -19,16 +19,6 @@ namespace CivilGame.Threats
         Tsunami     // Цунами (2 стадии: Желтый -> Красный)
     }
 
-    public enum SquadType
-    {
-        Irrigators,         // Оросители (Засуха 1-2 этапы)
-        Lumberjacks,        // Лесорубы (Пожар 1 этап)
-        Firefighters,       // Пожарные (Пожар 2 этап)
-        RescueHelicopter,   // Спасательный вертолет (Пожар и Оползень на критических этапах)
-        MountainClimbers,   // Альпинисты (Оползень 1 этап)
-        Divers              // Дайверы (Цунами 1 этап)
-    }
-
     [System.Serializable]
     public class ThreatDefinition
     {
@@ -95,7 +85,6 @@ namespace CivilGame.Threats
         public string zoneName;
         public bool isDestroyed;
         public ActiveThreat activeThreat;
-        public int immuneUntilDay; // День, до которого действует иммунитет
 
         public ZoneModel(ZoneType zoneType, string zoneName)
         {
@@ -103,7 +92,6 @@ namespace CivilGame.Threats
             this.zoneName = zoneName;
             this.isDestroyed = false;
             this.activeThreat = null;
-            this.immuneUntilDay = 0;
         }
 
         public Color GetIndicatorColor()
