@@ -28,7 +28,9 @@ namespace CivilGame.Lighthouse
         [SerializeField] private GameObject _leftWindowObjects;
         [Tooltip("Zone indicator objects on Right Window (Sea, Mountains)")]
         [SerializeField] private GameObject _rightWindowObjects;
-        [Tooltip("Multi-layer parallax window root for Right Window (WINDOWRIGHT)")]
+        [Tooltip("Multi-layer parallax window root for Left Window (LeftWindow)")]
+        [SerializeField] private GameObject _leftWindowParallaxRoot;
+        [Tooltip("Multi-layer parallax window root for Right Window (RightWindow)")]
         [SerializeField] private GameObject _rightWindowParallaxRoot;
 
         [Header("Navigation Buttons")]
@@ -126,6 +128,7 @@ namespace CivilGame.Lighthouse
                         _backgroundRenderer.sprite = _hallSprite;
                         UpdateBackgroundScale(_hallSprite);
                     }
+                    if (_leftWindowParallaxRoot != null) _leftWindowParallaxRoot.SetActive(false);
                     if (_rightWindowParallaxRoot != null) _rightWindowParallaxRoot.SetActive(false);
                     if (_hallDeskObjects != null) _hallDeskObjects.SetActive(true);
                     if (_hallBedObject != null) _hallBedObject.SetActive(true);
@@ -145,12 +148,19 @@ namespace CivilGame.Lighthouse
                     break;
 
                 case LighthouseView.LeftWindow:
-                    if (_backgroundRenderer != null && _leftWindowSprite != null)
+                    // When parallax left window is available, hide flat background and activate parallax root
+                    if (_leftWindowParallaxRoot != null)
+                    {
+                        if (_backgroundRenderer != null) _backgroundRenderer.gameObject.SetActive(false);
+                        _leftWindowParallaxRoot.SetActive(true);
+                    }
+                    else if (_backgroundRenderer != null && _leftWindowSprite != null)
                     {
                         _backgroundRenderer.gameObject.SetActive(true);
                         _backgroundRenderer.sprite = _leftWindowSprite;
                         UpdateBackgroundScale(_leftWindowSprite);
                     }
+
                     if (_rightWindowParallaxRoot != null) _rightWindowParallaxRoot.SetActive(false);
                     if (_hallDeskObjects != null) _hallDeskObjects.SetActive(false);
                     if (_hallBedObject != null) _hallBedObject.SetActive(false);
@@ -160,18 +170,18 @@ namespace CivilGame.Lighthouse
                     if (_navLeftButton != null) _navLeftButton.gameObject.SetActive(false);
                     if (_navRightButton != null) _navRightButton.gameObject.SetActive(true);
 
-                    // Disable parallax for flat left window
+                    // Enable parallax for Left Window
                     var pCtrlLeft = CivilGame.CameraEffects.WindowParallaxController.Instance != null 
                         ? CivilGame.CameraEffects.WindowParallaxController.Instance 
                         : FindAnyObjectByType<CivilGame.CameraEffects.WindowParallaxController>();
                     if (pCtrlLeft != null)
                     {
-                        pCtrlLeft.SetParallaxActive(false);
+                        pCtrlLeft.SetParallaxActive(true);
                     }
                     break;
 
                 case LighthouseView.RightWindow:
-                    // When parallax window is available, hide flat background and activate parallax root
+                    // When parallax right window is available, hide flat background and activate parallax root
                     if (_rightWindowParallaxRoot != null)
                     {
                         if (_backgroundRenderer != null) _backgroundRenderer.gameObject.SetActive(false);
@@ -184,6 +194,7 @@ namespace CivilGame.Lighthouse
                         UpdateBackgroundScale(_rightWindowSprite);
                     }
 
+                    if (_leftWindowParallaxRoot != null) _leftWindowParallaxRoot.SetActive(false);
                     if (_hallDeskObjects != null) _hallDeskObjects.SetActive(false);
                     if (_hallBedObject != null) _hallBedObject.SetActive(false);
                     if (_leftWindowObjects != null) _leftWindowObjects.SetActive(false);

@@ -20,6 +20,7 @@ namespace CivilGame.CameraEffects
         private Transform _cameraTransform;
 
         public bool IsParallaxEnabled => _isParallaxEnabled;
+        public bool IsLockedBySequence { get; set; } = false;
 
         private void Awake()
         {
@@ -41,7 +42,7 @@ namespace CivilGame.CameraEffects
 
         private void Update()
         {
-            if (_cameraTransform == null) return;
+            if (_cameraTransform == null || IsLockedBySequence) return;
 
             if (_isParallaxEnabled && Mouse.current != null)
             {
@@ -67,6 +68,15 @@ namespace CivilGame.CameraEffects
         public void SetParallaxActive(bool active)
         {
             _isParallaxEnabled = active;
+        }
+
+        public void ResetToCenterImmediate()
+        {
+            if (_cameraTransform != null)
+            {
+                _cameraTransform.position = _originalCameraPos;
+                _targetCameraPos = _originalCameraPos;
+            }
         }
     }
 }
