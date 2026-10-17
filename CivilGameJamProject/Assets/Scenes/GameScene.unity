@@ -4022,6 +4022,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CivilGame.Threats.SeaZoneVisualController
   _waterRenderer: {fileID: 409042864}
+  _waterAnimator: {fileID: 409042866}
+  _tsunamiBoolParam: IsTsunami
   _healthySprite: {fileID: 21300000, guid: 5dd3b2316c0bdd648af0a62eadd67f80, type: 3}
   _tsunamiStage1Sprite: {fileID: 0}
   _tsunamiStage2Sprite: {fileID: 21300000, guid: 3feff8012cabf1f46abbddb9d5322683, type: 3}
@@ -13595,6 +13597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1492741281}
+  - component: {fileID: 1492741282}
   m_Layer: 0
   m_Name: LeftWindow
   m_TagString: Untagged
@@ -13625,6 +13628,28 @@ Transform:
   - {fileID: 1696779996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1492741282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492741280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1f6621c617ed343a2590577bacb7af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CivilGame.Threats.ForestZoneVisualController
+  _farForestRenderer: {fileID: 690553509}
+  _nearForestRenderer: {fileID: 2030602536}
+  _backgroundRenderer: {fileID: 2086746532}
+  _farForestHealthy: {fileID: -1675474330359187382, guid: b7074a249685f554ab6c1b1dcfd23785, type: 3}
+  _farForestDrought: {fileID: 6380503907359864392, guid: d7f8d5d0efeebdb40855e67b15178e87, type: 3}
+  _nearForestHealthy: {fileID: 3539530114273166945, guid: 6bf413b2549ed5b4c8189f184e451f68, type: 3}
+  _nearForestDrought: {fileID: 588994449767421896, guid: e352ddf2441701f44bf096e92ca9a07c, type: 3}
+  _backgroundHealthy: {fileID: -3603074228625773940, guid: ada2ff2d21d07eb4088911b51c86ab6a, type: 3}
+  _backgroundDrought: {fileID: 5390235071564997209, guid: 1b119ba0d36355c4e87e81bf0f9dd7e3, type: 3}
+  _allowFieldDroughtToAffectSky: 1
 --- !u!1 &1494977049
 GameObject:
   m_ObjectHideFlags: 0
@@ -13979,7 +14004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1525831984
 Transform:
   m_ObjectHideFlags: 0
@@ -23254,7 +23279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2041570088
 SpriteRenderer:
   serializedVersion: 3
