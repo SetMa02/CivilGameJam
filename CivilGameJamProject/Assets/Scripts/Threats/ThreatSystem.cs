@@ -96,6 +96,7 @@ namespace CivilGame.Threats
         public bool isDestroyed;
         public ActiveThreat activeThreat;
         public int immuneUntilDay;
+        public bool isFrozenForNextDay;
 
         public ZoneModel(ZoneType zoneType, string zoneName)
         {
@@ -104,6 +105,7 @@ namespace CivilGame.Threats
             this.isDestroyed = false;
             this.activeThreat = null;
             this.immuneUntilDay = 0;
+            this.isFrozenForNextDay = false;
         }
 
         public Color GetIndicatorColor()

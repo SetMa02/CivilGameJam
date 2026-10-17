@@ -35,7 +35,9 @@ namespace CivilGame.DayCycle
         private bool _isGameOver = false;
 
         // One squad dispatch per day & delayed results
-        private bool _hasDispatchedToday = false;
+        private int _maxDispatchesPerDay = 1;
+        private int _dispatchesUsedToday = 0;
+        private bool _pauseThreatGrowthNextDay = false;
         private bool _hasPendingDispatch = false;
         private SquadType _pendingSquad;
         private ZoneType _pendingZone;
@@ -44,7 +46,9 @@ namespace CivilGame.DayCycle
         public int CurrentDay => _currentDay;
         public bool IsTransitioning => _isTransitioning;
         public bool IsGameOver => _isGameOver;
-        public bool HasDispatchedToday => _hasDispatchedToday;
+        public int MaxDispatchesPerDay => _maxDispatchesPerDay;
+        public int DispatchesUsedToday => _dispatchesUsedToday;
+        public bool HasDispatchedToday => _dispatchesUsedToday >= _maxDispatchesPerDay;
         public string LastNightReport => _lastNightReport;
 
         private void Awake()
@@ -70,7 +74,9 @@ namespace CivilGame.DayCycle
             InitializeZones();
 
             _currentDay = 1;
-            _hasDispatchedToday = false;
+            _maxDispatchesPerDay = 1;
+            _dispatchesUsedToday = 0;
+            _pauseThreatGrowthNextDay = false;
             _hasPendingDispatch = false;
         }
 
@@ -184,8 +190,16 @@ namespace CivilGame.DayCycle
                 }
             }
 
-            // 2. Продвигаем существующие нерешенные угрозы
-            AdvanceExistingThreats();
+            // 2. Продвигаем существующие нерешенные угрозы (если не куплена заморозка)
+            if (!_pauseThreatGrowthNextDay)
+            {
+                AdvanceExistingThreats();
+            }
+            else
+            {
+                Debug.Log("[DayCycle] Развитие угроз было заморожено на этот день!");
+                _pauseThreatGrowthNextDay = false; // Действует 1 день
+            }
 
             // 3. Проверяем Game Over (все ли зоны уничтожены)
             CheckGameOver();
@@ -196,8 +210,9 @@ namespace CivilGame.DayCycle
                 SpawnThreatsForCurrentDay();
             }
 
-            // Новый день: сбрасываем дневной лимит
-            _hasDispatchedToday = false;
+            // Новый день: сбрасываем дневной лимит использования
+            _dispatchesUsedToday = 0;
+            _maxDispatchesPerDay = 1; // Улучшение на второй вызов действует внутри дня покупки
 
             UpdateUIAndViews();
 
@@ -306,6 +321,13 @@ namespace CivilGame.DayCycle
             {
                 ZoneModel zone = kvp.Value;
                 if (zone.isDestroyed || zone.activeThreat == null) continue;
+
+                if (zone.isFrozenForNextDay)
+                {
+                    zone.isFrozenForNextDay = false;
+                    Debug.Log($"[DayCycle] Зона {zone.zoneName}: развитие угрозы заморожено на этот день!");
+                    continue;
+                }
 
                 if (zone.activeThreat.IsFinalStage)
                 {
@@ -447,9 +469,9 @@ namespace CivilGame.DayCycle
                 InitializeZones();
             }
 
-            if (_hasDispatchedToday)
+            if (_dispatchesUsedToday >= _maxDispatchesPerDay)
             {
-                resultMessage = "Штаб сообщает: на сегодня лимит исчерпан (1 отряд в день)! Дождитесь следующего дня.";
+                resultMessage = $"Штаб сообщает: на сегодня лимит ({_maxDispatchesPerDay} в день) исчерпан! Дождитесь следующего дня или купите второй вызов в магазине.";
                 return false;
             }
 
@@ -465,7 +487,7 @@ namespace CivilGame.DayCycle
                 return false;
             }
 
-            _hasDispatchedToday = true;
+            _dispatchesUsedToday++;
             _hasPendingDispatch = true;
             _pendingSquad = squadType;
             _pendingZone = zoneType;
@@ -516,6 +538,12 @@ namespace CivilGame.DayCycle
                 // Зона получает иммунитет на текущий новый день
                 zone.immuneUntilDay = _currentDay;
 
+                // Награда за успешную ликвидацию бедствия
+                if (MoneySystem.Instance != null)
+                {
+                    MoneySystem.Instance.AddMoneyAmount(MoneySystem.Instance.rewardPerResolvedThreat);
+                }
+
                 // Check if all fires resolved
                 bool anyFireRemaining = false;
                 foreach (var z in _zones.Values)
@@ -531,7 +559,7 @@ namespace CivilGame.DayCycle
                     CivilGame.Audio.AudioManager.Instance.SetFireActive(false);
                 }
 
-                _lastNightReport = $"<color=#86efac>УСПЕХ!</color> Отряд {squadName} успешно ликвидировал угрозу '{threatName}' в секторе {zone.zoneName}!";
+                _lastNightReport = $"<color=#86efac>УСПЕХ!</color> Отряд {squadName} успешно ликвидировал угрозу '{threatName}' в секторе {zone.zoneName}! (+${MoneySystem.Instance?.rewardPerResolvedThreat ?? 200})";
                 Debug.Log($"[DayCycle] {_lastNightReport}");
             }
             else
@@ -540,6 +568,98 @@ namespace CivilGame.DayCycle
                 Debug.Log($"[DayCycle] {_lastNightReport}");
             }
         }
+
+        #region Shop Capabilities
+
+        public bool EnableSecondReportCall()
+        {
+            if (_maxDispatchesPerDay >= 2) return false;
+            _maxDispatchesPerDay = 2;
+            Debug.Log("[Shop] Second report call purchased! Max dispatches today = 2.");
+            return true;
+        }
+
+        public List<ZoneModel> GetDestroyedZones()
+        {
+            var list = new List<ZoneModel>();
+            foreach (var kvp in _zones)
+            {
+                if (kvp.Value.isDestroyed)
+                {
+                    list.Add(kvp.Value);
+                }
+            }
+            return list;
+        }
+
+        public List<ZoneModel> GetThreatenedZones()
+        {
+            var list = new List<ZoneModel>();
+            foreach (var kvp in _zones)
+            {
+                if (!kvp.Value.isDestroyed && kvp.Value.activeThreat != null)
+                {
+                    list.Add(kvp.Value);
+                }
+            }
+            return list;
+        }
+
+        public bool RestoreDestroyedZone(ZoneType type)
+        {
+            if (_zones.TryGetValue(type, out ZoneModel zone) && zone.isDestroyed)
+            {
+                zone.isDestroyed = false;
+                zone.activeThreat = null;
+                zone.immuneUntilDay = _currentDay; // 1 день защиты
+                UpdateUIAndViews();
+                Debug.Log($"[Shop] Зона {zone.zoneName} полностью восстановлена!");
+                return true;
+            }
+            return false;
+        }
+
+        public void PauseThreatGrowthForOneDay()
+        {
+            _pauseThreatGrowthNextDay = true;
+            Debug.Log("[Shop] Развитие угроз приостановлено на 1 день.");
+        }
+
+        public bool PauseThreatGrowthForZone(ZoneType type)
+        {
+            if (_zones.TryGetValue(type, out ZoneModel zone) && !zone.isDestroyed && zone.activeThreat != null)
+            {
+                zone.isFrozenForNextDay = true;
+                Debug.Log($"[Shop] Развитие угрозы в зоне {zone.zoneName} приостановлено на 1 день.");
+                return true;
+            }
+            return false;
+        }
+
+        public bool RollbackThreatLevel(ZoneType type)
+        {
+            if (_zones.TryGetValue(type, out ZoneModel zone) && !zone.isDestroyed && zone.activeThreat != null)
+            {
+                if (zone.activeThreat.currentStage <= 1)
+                {
+                    // Угроза 1-го уровня устраняется полностью
+                    zone.activeThreat = null;
+                    zone.immuneUntilDay = _currentDay;
+                    Debug.Log($"[Shop] Угроза 1-го уровня в {zone.zoneName} полностью устранена!");
+                }
+                else
+                {
+                    // Понижение на 1 уровень
+                    zone.activeThreat.currentStage--;
+                    Debug.Log($"[Shop] Угроза в {zone.zoneName} снижена до этапа {zone.activeThreat.currentStage}.");
+                }
+                UpdateUIAndViews();
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
 
         public static string GetSquadName(SquadType squad)
         {
