@@ -167,20 +167,59 @@ namespace CivilGame.DayCycle
         {
             _isTransitioning = true;
 
-            // Fade Out (экран темнеет)
+            // Блокируем параллакс мыши на время перехода
+            var parallaxCtrl = CivilGame.CameraEffects.WindowParallaxController.Instance != null 
+                ? CivilGame.CameraEffects.WindowParallaxController.Instance 
+                : FindAnyObjectByType<CivilGame.CameraEffects.WindowParallaxController>();
+            if (parallaxCtrl != null)
+            {
+                parallaxCtrl.IsLockedBySequence = true;
+                parallaxCtrl.SetParallaxActive(false);
+            }
+
+            var cam = Camera.main;
+            Vector3 camOriginPos = cam != null ? cam.transform.position : new Vector3(0f, 0f, -10f);
+
+            // 1. КИНЕМАТОГРАФИЧНЫЙ «ВЛЁТ» В КРОВАТЬ
+            // Центр коллайдера кровати: (-7.09, -2.39, 0), камера подлетает почти в упор (Z = -2.2)
+            Vector3 bedTargetPos = new Vector3(-6.8f, -2.2f, -2.2f);
+            float diveDuration = 1.35f;
+            float diveElapsed = 0f;
+
             if (_fadeCanvasGroup != null)
             {
                 _fadeCanvasGroup.blocksRaycasts = true;
-                float duration = 0.75f;
-                float elapsed = 0f;
+                _fadeCanvasGroup.alpha = 0f;
+            }
 
-                while (elapsed < duration)
+            while (diveElapsed < diveDuration)
+            {
+                diveElapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(diveElapsed / diveDuration);
+                // Плавное ускорение влёта (SmoothStep / EaseInCubic)
+                float moveCurve = t * t * (3f - 2f * t);
+
+                if (cam != null)
                 {
-                    elapsed += Time.deltaTime;
-                    _fadeCanvasGroup.alpha = Mathf.Clamp01(elapsed / duration);
-                    yield return null;
+                    cam.transform.position = Vector3.Lerp(camOriginPos, bedTargetPos, moveCurve);
                 }
-                _fadeCanvasGroup.alpha = 1f;
+
+                // Затемнение экрана начинается во второй половине влёта (после 45% пути)
+                if (_fadeCanvasGroup != null)
+                {
+                    float fadeProgress = Mathf.Clamp01((t - 0.45f) / 0.55f);
+                    _fadeCanvasGroup.alpha = fadeProgress;
+                }
+
+                yield return null;
+            }
+
+            if (_fadeCanvasGroup != null) _fadeCanvasGroup.alpha = 1f;
+
+            // Возвращаем камеру на исходную позицию, пока экран полностью черный
+            if (cam != null)
+            {
+                cam.transform.position = camOriginPos;
             }
 
             // --- НОЧНАЯ ФАЗА ---
@@ -227,13 +266,13 @@ namespace CivilGame.DayCycle
 
             UpdateUIAndViews();
 
-            // Пауза в темноте
-            yield return new WaitForSeconds(1.2f);
+            // Продлённая пауза глубокого «сна» (2.8 секунды в темноте для спокойного чтения отчёта)
+            yield return new WaitForSeconds(2.8f);
 
-            // Fade In (экран светлеет)
+            // Fade In (экран плавно светлеет, утро наступает)
             if (_fadeCanvasGroup != null)
             {
-                float duration = 0.75f;
+                float duration = 1.0f;
                 float elapsed = 0f;
 
                 while (elapsed < duration)
@@ -244,6 +283,12 @@ namespace CivilGame.DayCycle
                 }
                 _fadeCanvasGroup.alpha = 0f;
                 _fadeCanvasGroup.blocksRaycasts = false;
+            }
+
+            // Снимаем блокировку параллакса
+            if (parallaxCtrl != null)
+            {
+                parallaxCtrl.IsLockedBySequence = false;
             }
 
             // --- УТРЕННИЕ ЗВУКИ И ЭФФЕКТЫ УГРОЗ ---

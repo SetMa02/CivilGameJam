@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using CivilGame.Audio;
@@ -41,8 +42,15 @@ namespace CivilGame.Lighthouse
         [SerializeField] private AudioClip _stepsClip;
         [SerializeField] private AudioSource _audioSource;
 
+        [Header("Room Transition Animation")]
+        [SerializeField] private float _transitionDuration = 0.38f;
+
         private LighthouseView _currentView = LighthouseView.Hall;
         private bool _isInitialized = false;
+        private Coroutine _viewTransitionCoroutine;
+        private bool _isSwitchingView = false;
+
+        public bool IsSwitchingView => _isSwitchingView;
 
         private void Awake()
         {
@@ -83,6 +91,8 @@ namespace CivilGame.Lighthouse
 
         public void OnLeftButtonClicked()
         {
+            if (_isSwitchingView) return;
+
             if (_currentView == LighthouseView.Hall)
             {
                 SetView(LighthouseView.LeftWindow, true);
@@ -95,6 +105,8 @@ namespace CivilGame.Lighthouse
 
         public void OnRightButtonClicked()
         {
+            if (_isSwitchingView) return;
+
             if (_currentView == LighthouseView.Hall)
             {
                 SetView(LighthouseView.RightWindow, true);
@@ -112,11 +124,118 @@ namespace CivilGame.Lighthouse
 
         public void SetView(LighthouseView view, bool playSound)
         {
-            if (_currentView != view && playSound)
+            if (_currentView == view && _isInitialized) return;
+
+            if (playSound && _isInitialized)
             {
                 PlayStepsSound();
             }
 
+            if (_viewTransitionCoroutine != null)
+            {
+                StopCoroutine(_viewTransitionCoroutine);
+            }
+
+            if (_isInitialized)
+            {
+                _viewTransitionCoroutine = StartCoroutine(TransitionToViewRoutine(_currentView, view));
+            }
+            else
+            {
+                ApplyViewInstant(view);
+            }
+        }
+
+        private IEnumerator TransitionToViewRoutine(LighthouseView oldView, LighthouseView newView)
+        {
+            _isSwitchingView = true;
+            _currentView = newView;
+
+            var cam = Camera.main;
+            var parallaxCtrl = CivilGame.CameraEffects.WindowParallaxController.Instance != null 
+                ? CivilGame.CameraEffects.WindowParallaxController.Instance 
+                : FindAnyObjectByType<CivilGame.CameraEffects.WindowParallaxController>();
+
+            if (parallaxCtrl != null)
+            {
+                parallaxCtrl.IsLockedBySequence = true;
+                parallaxCtrl.SetParallaxActive(false);
+            }
+
+            // Направление поворота головы смотрителя (-1 влево, +1 вправо)
+            float panDirection = 0f;
+            if (oldView == LighthouseView.Hall && newView == LighthouseView.RightWindow) panDirection = -1f;
+            else if (oldView == LighthouseView.RightWindow && newView == LighthouseView.Hall) panDirection = 1f;
+            else if (oldView == LighthouseView.Hall && newView == LighthouseView.LeftWindow) panDirection = 1f;
+            else if (oldView == LighthouseView.LeftWindow && newView == LighthouseView.Hall) panDirection = -1f;
+
+            Vector3 startPos = cam != null ? cam.transform.position : new Vector3(0f, 0f, -10f);
+            Quaternion startRot = cam != null ? cam.transform.rotation : Quaternion.identity;
+
+            float halfDuration = _transitionDuration * 0.5f;
+            float elapsed = 0f;
+
+            Vector3 midPanPos = new Vector3(panDirection * 1.35f, -0.15f, -10.3f);
+            Quaternion midPanRot = Quaternion.Euler(0f, -panDirection * 7.5f, -panDirection * 1.5f);
+
+            // Фаза 1: Камера динамично поворачивается в сторону шага
+            while (elapsed < halfDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / halfDuration);
+                float ease = t * t * (3f - 2f * t);
+
+                if (cam != null)
+                {
+                    cam.transform.position = Vector3.Lerp(startPos, midPanPos, ease);
+                    cam.transform.rotation = Quaternion.Slerp(startRot, midPanRot, ease);
+                }
+                yield return null;
+            }
+
+            // Переключаем комнату в момент максимального поворота
+            ApplyViewInstant(newView);
+
+            // Фаза 2: Камера плавно возвращается и центрируется на новом виде
+            elapsed = 0f;
+            Vector3 centerPos = new Vector3(0f, 0f, -10f);
+            Quaternion centerRot = Quaternion.identity;
+
+            while (elapsed < halfDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / halfDuration);
+                float ease = t * t * (3f - 2f * t);
+
+                if (cam != null)
+                {
+                    cam.transform.position = Vector3.Lerp(midPanPos, centerPos, ease);
+                    cam.transform.rotation = Quaternion.Slerp(midPanRot, centerRot, ease);
+                }
+                yield return null;
+            }
+
+            if (cam != null)
+            {
+                cam.transform.position = centerPos;
+                cam.transform.rotation = centerRot;
+            }
+
+            if (parallaxCtrl != null)
+            {
+                parallaxCtrl.IsLockedBySequence = false;
+                if (newView == LighthouseView.RightWindow || newView == LighthouseView.LeftWindow)
+                {
+                    parallaxCtrl.SetParallaxActive(true);
+                }
+            }
+
+            _isSwitchingView = false;
+            _viewTransitionCoroutine = null;
+        }
+
+        private void ApplyViewInstant(LighthouseView view)
+        {
             _currentView = view;
 
             switch (_currentView)
@@ -148,7 +267,6 @@ namespace CivilGame.Lighthouse
                     break;
 
                 case LighthouseView.LeftWindow:
-                    // When parallax left window is available, hide flat background and activate parallax root
                     if (_leftWindowParallaxRoot != null)
                     {
                         if (_backgroundRenderer != null) _backgroundRenderer.gameObject.SetActive(false);
@@ -181,7 +299,6 @@ namespace CivilGame.Lighthouse
                     break;
 
                 case LighthouseView.RightWindow:
-                    // When parallax right window is available, hide flat background and activate parallax root
                     if (_rightWindowParallaxRoot != null)
                     {
                         if (_backgroundRenderer != null) _backgroundRenderer.gameObject.SetActive(false);
