@@ -24,10 +24,12 @@ namespace CivilGame.Lighthouse
         [SerializeField] private GameObject _hallDeskObjects;
         [Tooltip("Bed primitive in Hall view")]
         [SerializeField] private GameObject _hallBedObject;
-        [Tooltip("Zone indicator objects on Left Window (Sea, Mountains)")]
+        [Tooltip("Zone indicator objects on Left Window (Forest, Field)")]
         [SerializeField] private GameObject _leftWindowObjects;
-        [Tooltip("Zone indicator objects on Right Window (Forest, Field)")]
+        [Tooltip("Zone indicator objects on Right Window (Sea, Mountains)")]
         [SerializeField] private GameObject _rightWindowObjects;
+        [Tooltip("Multi-layer parallax window root for Right Window (WINDOWRIGHT)")]
+        [SerializeField] private GameObject _rightWindowParallaxRoot;
 
         [Header("Navigation Buttons")]
         [SerializeField] private Button _navLeftButton;
@@ -120,23 +122,36 @@ namespace CivilGame.Lighthouse
                 case LighthouseView.Hall:
                     if (_backgroundRenderer != null && _hallSprite != null)
                     {
+                        _backgroundRenderer.gameObject.SetActive(true);
                         _backgroundRenderer.sprite = _hallSprite;
                         UpdateBackgroundScale(_hallSprite);
                     }
+                    if (_rightWindowParallaxRoot != null) _rightWindowParallaxRoot.SetActive(false);
                     if (_hallDeskObjects != null) _hallDeskObjects.SetActive(true);
                     if (_hallBedObject != null) _hallBedObject.SetActive(true);
                     if (_leftWindowObjects != null) _leftWindowObjects.SetActive(false);
                     if (_rightWindowObjects != null) _rightWindowObjects.SetActive(false);
                     if (_navLeftButton != null) _navLeftButton.gameObject.SetActive(true);
                     if (_navRightButton != null) _navRightButton.gameObject.SetActive(true);
+
+                    // Disable parallax in Hall
+                    var pCtrlHall = CivilGame.CameraEffects.WindowParallaxController.Instance != null 
+                        ? CivilGame.CameraEffects.WindowParallaxController.Instance 
+                        : FindAnyObjectByType<CivilGame.CameraEffects.WindowParallaxController>();
+                    if (pCtrlHall != null)
+                    {
+                        pCtrlHall.SetParallaxActive(false);
+                    }
                     break;
 
                 case LighthouseView.LeftWindow:
                     if (_backgroundRenderer != null && _leftWindowSprite != null)
                     {
+                        _backgroundRenderer.gameObject.SetActive(true);
                         _backgroundRenderer.sprite = _leftWindowSprite;
                         UpdateBackgroundScale(_leftWindowSprite);
                     }
+                    if (_rightWindowParallaxRoot != null) _rightWindowParallaxRoot.SetActive(false);
                     if (_hallDeskObjects != null) _hallDeskObjects.SetActive(false);
                     if (_hallBedObject != null) _hallBedObject.SetActive(false);
                     if (_leftWindowObjects != null) _leftWindowObjects.SetActive(true);
@@ -144,14 +159,31 @@ namespace CivilGame.Lighthouse
                     // From Left Window, player looks right to return to Hall
                     if (_navLeftButton != null) _navLeftButton.gameObject.SetActive(false);
                     if (_navRightButton != null) _navRightButton.gameObject.SetActive(true);
+
+                    // Disable parallax for flat left window
+                    var pCtrlLeft = CivilGame.CameraEffects.WindowParallaxController.Instance != null 
+                        ? CivilGame.CameraEffects.WindowParallaxController.Instance 
+                        : FindAnyObjectByType<CivilGame.CameraEffects.WindowParallaxController>();
+                    if (pCtrlLeft != null)
+                    {
+                        pCtrlLeft.SetParallaxActive(false);
+                    }
                     break;
 
                 case LighthouseView.RightWindow:
-                    if (_backgroundRenderer != null && _rightWindowSprite != null)
+                    // When parallax window is available, hide flat background and activate parallax root
+                    if (_rightWindowParallaxRoot != null)
                     {
+                        if (_backgroundRenderer != null) _backgroundRenderer.gameObject.SetActive(false);
+                        _rightWindowParallaxRoot.SetActive(true);
+                    }
+                    else if (_backgroundRenderer != null && _rightWindowSprite != null)
+                    {
+                        _backgroundRenderer.gameObject.SetActive(true);
                         _backgroundRenderer.sprite = _rightWindowSprite;
                         UpdateBackgroundScale(_rightWindowSprite);
                     }
+
                     if (_hallDeskObjects != null) _hallDeskObjects.SetActive(false);
                     if (_hallBedObject != null) _hallBedObject.SetActive(false);
                     if (_leftWindowObjects != null) _leftWindowObjects.SetActive(false);
@@ -159,6 +191,15 @@ namespace CivilGame.Lighthouse
                     // From Right Window, player looks left to return to Hall
                     if (_navLeftButton != null) _navLeftButton.gameObject.SetActive(true);
                     if (_navRightButton != null) _navRightButton.gameObject.SetActive(false);
+
+                    // Enable parallax in Right Window
+                    var pCtrl = CivilGame.CameraEffects.WindowParallaxController.Instance != null 
+                        ? CivilGame.CameraEffects.WindowParallaxController.Instance 
+                        : FindAnyObjectByType<CivilGame.CameraEffects.WindowParallaxController>();
+                    if (pCtrl != null)
+                    {
+                        pCtrl.SetParallaxActive(true);
+                    }
                     break;
             }
         }
