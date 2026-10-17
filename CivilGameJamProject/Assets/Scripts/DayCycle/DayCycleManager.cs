@@ -34,13 +34,24 @@ namespace CivilGame.DayCycle
         private bool _isTransitioning = false;
         private bool _isGameOver = false;
 
-        // One squad dispatch per day & delayed results
+        [System.Serializable]
+        public struct SquadDispatchOrder
+        {
+            public SquadType squad;
+            public ZoneType zone;
+
+            public SquadDispatchOrder(SquadType squad, ZoneType zone)
+            {
+                this.squad = squad;
+                this.zone = zone;
+            }
+        }
+
+        // Squad dispatches per day & delayed results
         private int _maxDispatchesPerDay = 1;
         private int _dispatchesUsedToday = 0;
         private bool _pauseThreatGrowthNextDay = false;
-        private bool _hasPendingDispatch = false;
-        private SquadType _pendingSquad;
-        private ZoneType _pendingZone;
+        private List<SquadDispatchOrder> _pendingDispatches = new List<SquadDispatchOrder>();
         private string _lastNightReport = "";
 
         public int CurrentDay => _currentDay;
@@ -77,7 +88,7 @@ namespace CivilGame.DayCycle
             _maxDispatchesPerDay = 1;
             _dispatchesUsedToday = 0;
             _pauseThreatGrowthNextDay = false;
-            _hasPendingDispatch = false;
+            _pendingDispatches.Clear();
         }
 
         private void OnDestroy()
@@ -488,85 +499,89 @@ namespace CivilGame.DayCycle
             }
 
             _dispatchesUsedToday++;
-            _hasPendingDispatch = true;
-            _pendingSquad = squadType;
-            _pendingZone = zoneType;
+            _pendingDispatches.Add(new SquadDispatchOrder(squadType, zoneType));
 
             string squadName = GetSquadName(squadType);
-            resultMessage = $"Запрос принят штабом!\nОтряд <b>{squadName}</b> направлен в сектор <b>{zone.zoneName}</b>.\nРезультаты операции станут известны завтра утром.";
+            resultMessage = $"Запрос принят штабом!\nОтряд <b>{squadName}</b> направлен в сектор <b>{zone.zoneName}</b> (Отправлено сегодня: {_dispatchesUsedToday}/{_maxDispatchesPerDay}).\nРезультаты операций станут известны завтра утром.";
             Debug.Log($"[DayCycle] {resultMessage}");
             return true;
         }
 
-        private void ResolvePendingDispatch()
+        public void ResolvePendingDispatch()
         {
-            if (!_hasPendingDispatch)
+            if (_pendingDispatches.Count == 0)
             {
                 _lastNightReport = "";
                 return;
             }
 
-            _hasPendingDispatch = false;
+            var reportBuilder = new System.Text.StringBuilder();
 
-            if (!_zones.TryGetValue(_pendingZone, out ZoneModel zone))
+            foreach (var order in _pendingDispatches)
             {
-                _lastNightReport = "ОТЧЁТ: Координаты зоны были утеряны.";
-                return;
-            }
-
-            string squadName = GetSquadName(_pendingSquad);
-
-            if (zone.isDestroyed)
-            {
-                _lastNightReport = $"ОТЧЁТ: Отряд {squadName} прибыл в {zone.zoneName}, но сектор уже был разрушен.";
-                return;
-            }
-
-            if (zone.activeThreat == null)
-            {
-                _lastNightReport = $"ОТЧЁТ: Отряд {squadName} обследовал сектор {zone.zoneName}. Угроз не обнаружено.";
-                return;
-            }
-
-            var threat = zone.activeThreat;
-            bool isEffective = IsSquadEffective(_pendingSquad, threat);
-
-            if (isEffective)
-            {
-                string threatName = threat.definition.displayName;
-                zone.activeThreat = null;
-                // Зона получает иммунитет на текущий новый день
-                zone.immuneUntilDay = _currentDay;
-
-                // Награда за успешную ликвидацию бедствия
-                if (MoneySystem.Instance != null)
+                if (!_zones.TryGetValue(order.zone, out ZoneModel zone))
                 {
-                    MoneySystem.Instance.AddMoneyAmount(MoneySystem.Instance.rewardPerResolvedThreat);
+                    reportBuilder.AppendLine("• ОТЧЁТ: Координаты зоны были утеряны.");
+                    continue;
                 }
 
-                // Check if all fires resolved
-                bool anyFireRemaining = false;
-                foreach (var z in _zones.Values)
+                string squadName = GetSquadName(order.squad);
+
+                if (zone.isDestroyed)
                 {
-                    if (z.activeThreat != null && z.activeThreat.definition.type == ThreatType.Wildfire && z.activeThreat.currentStage >= 2)
+                    reportBuilder.AppendLine($"• ОТЧЁТ: Отряд {squadName} прибыл в {zone.zoneName}, но сектор уже был разрушен.");
+                    continue;
+                }
+
+                if (zone.activeThreat == null)
+                {
+                    reportBuilder.AppendLine($"• ОТЧЁТ: Отряд {squadName} обследовал сектор {zone.zoneName}. Угроз не обнаружено.");
+                    continue;
+                }
+
+                var threat = zone.activeThreat;
+                bool isEffective = IsSquadEffective(order.squad, threat);
+
+                if (isEffective)
+                {
+                    string threatName = threat.definition.displayName;
+                    zone.activeThreat = null;
+                    // Зона получает иммунитет на текущий новый день
+                    zone.immuneUntilDay = _currentDay;
+
+                    // Награда за успешную ликвидацию бедствия
+                    if (MoneySystem.Instance != null)
                     {
-                        anyFireRemaining = true;
-                        break;
+                        MoneySystem.Instance.AddMoneyAmount(MoneySystem.Instance.rewardPerResolvedThreat);
                     }
-                }
-                if (!anyFireRemaining && CivilGame.Audio.AudioManager.Instance != null)
-                {
-                    CivilGame.Audio.AudioManager.Instance.SetFireActive(false);
-                }
 
-                _lastNightReport = $"<color=#86efac>УСПЕХ!</color> Отряд {squadName} успешно ликвидировал угрозу '{threatName}' в секторе {zone.zoneName}! (+${MoneySystem.Instance?.rewardPerResolvedThreat ?? 200})";
-                Debug.Log($"[DayCycle] {_lastNightReport}");
+                    // Check if all fires resolved
+                    bool anyFireRemaining = false;
+                    foreach (var z in _zones.Values)
+                    {
+                        if (z.activeThreat != null && z.activeThreat.definition.type == ThreatType.Wildfire && z.activeThreat.currentStage >= 2)
+                        {
+                            anyFireRemaining = true;
+                            break;
+                        }
+                    }
+                    if (!anyFireRemaining && CivilGame.Audio.AudioManager.Instance != null)
+                    {
+                        CivilGame.Audio.AudioManager.Instance.SetFireActive(false);
+                    }
+
+                    reportBuilder.AppendLine($"• <color=#86efac>УСПЕХ!</color> Отряд {squadName} ликвидировал '{threatName}' в секторе {zone.zoneName}! (+${MoneySystem.Instance?.rewardPerResolvedThreat ?? 200})");
+                }
+                else
+                {
+                    reportBuilder.AppendLine($"• <color=#f87171>ПРОВАЛ!</color> Отряд {squadName} не справился с угрозой в секторе {zone.zoneName}!");
+                }
             }
-            else
-            {
-                _lastNightReport = $"<color=#f87171>ПРОВАЛ!</color> Отряд {squadName} не смог ликвидировать угрозу в секторе {zone.zoneName}!";
-                Debug.Log($"[DayCycle] {_lastNightReport}");
-            }
+
+            _lastNightReport = reportBuilder.ToString().TrimEnd();
+            Debug.Log($"[DayCycle] {_lastNightReport}");
+
+            _pendingDispatches.Clear();
         }
 
         #region Shop Capabilities
@@ -581,6 +596,12 @@ namespace CivilGame.DayCycle
 
         public List<ZoneModel> GetDestroyedZones()
         {
+            if (_zones.Count == 0)
+            {
+                InitializeThreatDefinitions();
+                InitializeZones();
+            }
+
             var list = new List<ZoneModel>();
             foreach (var kvp in _zones)
             {
@@ -594,6 +615,12 @@ namespace CivilGame.DayCycle
 
         public List<ZoneModel> GetThreatenedZones()
         {
+            if (_zones.Count == 0)
+            {
+                InitializeThreatDefinitions();
+                InitializeZones();
+            }
+
             var list = new List<ZoneModel>();
             foreach (var kvp in _zones)
             {
@@ -607,6 +634,12 @@ namespace CivilGame.DayCycle
 
         public bool RestoreDestroyedZone(ZoneType type)
         {
+            if (_zones.Count == 0)
+            {
+                InitializeThreatDefinitions();
+                InitializeZones();
+            }
+
             if (_zones.TryGetValue(type, out ZoneModel zone) && zone.isDestroyed)
             {
                 zone.isDestroyed = false;
@@ -627,6 +660,12 @@ namespace CivilGame.DayCycle
 
         public bool PauseThreatGrowthForZone(ZoneType type)
         {
+            if (_zones.Count == 0)
+            {
+                InitializeThreatDefinitions();
+                InitializeZones();
+            }
+
             if (_zones.TryGetValue(type, out ZoneModel zone) && !zone.isDestroyed && zone.activeThreat != null)
             {
                 zone.isFrozenForNextDay = true;
@@ -638,6 +677,12 @@ namespace CivilGame.DayCycle
 
         public bool RollbackThreatLevel(ZoneType type)
         {
+            if (_zones.Count == 0)
+            {
+                InitializeThreatDefinitions();
+                InitializeZones();
+            }
+
             if (_zones.TryGetValue(type, out ZoneModel zone) && !zone.isDestroyed && zone.activeThreat != null)
             {
                 if (zone.activeThreat.currentStage <= 1)

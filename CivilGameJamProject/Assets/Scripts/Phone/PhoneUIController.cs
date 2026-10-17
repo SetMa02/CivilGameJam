@@ -86,35 +86,45 @@ namespace CivilGame.Phone
             }
             Instance = this;
 
+            WireListeners();
+        }
+
+        private void WireListeners()
+        {
             // Wire main buttons
-            if (_outsideCloseButton != null) _outsideCloseButton.onClick.AddListener(ClosePhone);
-            if (_reportButton != null) _reportButton.onClick.AddListener(OnReportClicked);
-            if (_shopButton != null) _shopButton.onClick.AddListener(OnShopClicked);
-            if (_squadBackButton != null) _squadBackButton.onClick.AddListener(ShowMainMenu);
-            if (_zoneBackButton != null) _zoneBackButton.onClick.AddListener(ShowSquadSelection);
-            if (_shopBackButton != null) _shopBackButton.onClick.AddListener(ShowMainMenu);
-            if (_shopZoneBackButton != null) _shopZoneBackButton.onClick.AddListener(ShowShop);
+            if (_outsideCloseButton != null) { _outsideCloseButton.onClick.RemoveAllListeners(); _outsideCloseButton.onClick.AddListener(ClosePhone); }
+            if (_reportButton != null) { _reportButton.onClick.RemoveAllListeners(); _reportButton.onClick.AddListener(OnReportClicked); }
+            if (_shopButton != null) { _shopButton.onClick.RemoveAllListeners(); _shopButton.onClick.AddListener(OnShopClicked); }
+            if (_squadBackButton != null) { _squadBackButton.onClick.RemoveAllListeners(); _squadBackButton.onClick.AddListener(ShowMainMenu); }
+            if (_zoneBackButton != null) { _zoneBackButton.onClick.RemoveAllListeners(); _zoneBackButton.onClick.AddListener(ShowSquadSelection); }
+            if (_shopBackButton != null) { _shopBackButton.onClick.RemoveAllListeners(); _shopBackButton.onClick.AddListener(ShowMainMenu); }
+            if (_shopZoneBackButton != null) { _shopZoneBackButton.onClick.RemoveAllListeners(); _shopZoneBackButton.onClick.AddListener(ShowShop); }
 
             // Wire squad buttons
-            if (_irrigatorsBtn != null) _irrigatorsBtn.onClick.AddListener(() => OnSquadChosen(SquadType.Irrigators, "Irrigators"));
-            if (_lumberjacksBtn != null) _lumberjacksBtn.onClick.AddListener(() => OnSquadChosen(SquadType.Lumberjacks, "Lumberjacks"));
-            if (_firefightersBtn != null) _firefightersBtn.onClick.AddListener(() => OnSquadChosen(SquadType.Firefighters, "Firefighters"));
-            if (_rescueHeliBtn != null) _rescueHeliBtn.onClick.AddListener(() => OnSquadChosen(SquadType.RescueHelicopter, "Rescue Helicopter"));
-            if (_climbersBtn != null) _climbersBtn.onClick.AddListener(() => OnSquadChosen(SquadType.MountainClimbers, "Mountain Climbers"));
-            if (_diversBtn != null) _diversBtn.onClick.AddListener(() => OnSquadChosen(SquadType.Divers, "Divers"));
+            if (_irrigatorsBtn != null) { _irrigatorsBtn.onClick.RemoveAllListeners(); _irrigatorsBtn.onClick.AddListener(() => OnSquadChosen(SquadType.Irrigators, "Irrigators")); }
+            if (_lumberjacksBtn != null) { _lumberjacksBtn.onClick.RemoveAllListeners(); _lumberjacksBtn.onClick.AddListener(() => OnSquadChosen(SquadType.Lumberjacks, "Lumberjacks")); }
+            if (_firefightersBtn != null) { _firefightersBtn.onClick.RemoveAllListeners(); _firefightersBtn.onClick.AddListener(() => OnSquadChosen(SquadType.Firefighters, "Firefighters")); }
+            if (_rescueHeliBtn != null) { _rescueHeliBtn.onClick.RemoveAllListeners(); _rescueHeliBtn.onClick.AddListener(() => OnSquadChosen(SquadType.RescueHelicopter, "Rescue Helicopter")); }
+            if (_climbersBtn != null) { _climbersBtn.onClick.RemoveAllListeners(); _climbersBtn.onClick.AddListener(() => OnSquadChosen(SquadType.MountainClimbers, "Mountain Climbers")); }
+            if (_diversBtn != null) { _diversBtn.onClick.RemoveAllListeners(); _diversBtn.onClick.AddListener(() => OnSquadChosen(SquadType.Divers, "Divers")); }
 
             // Wire zone buttons
-            if (_mountainsBtn != null) _mountainsBtn.onClick.AddListener(() => OnZoneChosen(ZoneType.Mountains));
-            if (_seaBtn != null) _seaBtn.onClick.AddListener(() => OnZoneChosen(ZoneType.Sea));
-            if (_forestBtn != null) _forestBtn.onClick.AddListener(() => OnZoneChosen(ZoneType.Forest));
-            if (_fieldBtn != null) _fieldBtn.onClick.AddListener(() => OnZoneChosen(ZoneType.Field));
+            if (_mountainsBtn != null) { _mountainsBtn.onClick.RemoveAllListeners(); _mountainsBtn.onClick.AddListener(() => OnZoneChosen(ZoneType.Mountains)); }
+            if (_seaBtn != null) { _seaBtn.onClick.RemoveAllListeners(); _seaBtn.onClick.AddListener(() => OnZoneChosen(ZoneType.Sea)); }
+            if (_forestBtn != null) { _forestBtn.onClick.RemoveAllListeners(); _forestBtn.onClick.AddListener(() => OnZoneChosen(ZoneType.Forest)); }
+            if (_fieldBtn != null) { _fieldBtn.onClick.RemoveAllListeners(); _fieldBtn.onClick.AddListener(() => OnZoneChosen(ZoneType.Field)); }
 
             // Wire shop purchase buttons
-            if (_buySecondCallBtn != null) _buySecondCallBtn.onClick.AddListener(OnBuySecondCall);
-            if (_buyRestoreAreaBtn != null) _buyRestoreAreaBtn.onClick.AddListener(OnBuyRestoreArea);
-            if (_buyPauseGrowthBtn != null) _buyPauseGrowthBtn.onClick.AddListener(OnBuyPauseGrowth);
-            if (_buyRollbackBtn != null) _buyRollbackBtn.onClick.AddListener(OnBuyRollback);
+            if (_buySecondCallBtn != null) { _buySecondCallBtn.onClick.RemoveAllListeners(); _buySecondCallBtn.onClick.AddListener(OnBuySecondCall); }
+            if (_buyRestoreAreaBtn != null) { _buyRestoreAreaBtn.onClick.RemoveAllListeners(); _buyRestoreAreaBtn.onClick.AddListener(OnBuyRestoreArea); }
+            if (_buyPauseGrowthBtn != null) { _buyPauseGrowthBtn.onClick.RemoveAllListeners(); _buyPauseGrowthBtn.onClick.AddListener(OnBuyPauseGrowth); }
+            if (_buyRollbackBtn != null) { _buyRollbackBtn.onClick.RemoveAllListeners(); _buyRollbackBtn.onClick.AddListener(OnBuyRollback); }
         }
+
+        public void TriggerBuySecondCall() => OnBuySecondCall();
+        public void TriggerBuyRestoreArea() => OnBuyRestoreArea();
+        public void TriggerBuyPauseGrowth() => OnBuyPauseGrowth();
+        public void TriggerBuyRollback() => OnBuyRollback();
 
         private void Start()
         {
@@ -134,7 +144,7 @@ namespace CivilGame.Phone
             ClearFeedback();
         }
 
-        private void ShowMainMenu()
+        public void ShowMainMenu()
         {
             if (_mainMenuPanel != null) _mainMenuPanel.SetActive(true);
             if (_squadSelectPanel != null) _squadSelectPanel.SetActive(false);
@@ -159,7 +169,7 @@ namespace CivilGame.Phone
             }
         }
 
-        private void OnReportClicked()
+        public void OnReportClicked()
         {
             if (DayCycleManager.Instance != null && DayCycleManager.Instance.HasDispatchedToday)
             {
@@ -170,7 +180,7 @@ namespace CivilGame.Phone
             ShowSquadSelection();
         }
 
-        private void ShowSquadSelection()
+        public void ShowSquadSelection()
         {
             if (_mainMenuPanel != null) _mainMenuPanel.SetActive(false);
             if (_squadSelectPanel != null) _squadSelectPanel.SetActive(true);
@@ -221,7 +231,7 @@ namespace CivilGame.Phone
 
         #region Shop
 
-        private void OnShopClicked()
+        public void OnShopClicked()
         {
             ShowShop();
         }
@@ -279,11 +289,13 @@ namespace CivilGame.Phone
 
         private void OnBuySecondCall()
         {
-            if (MoneySystem.Instance == null || DayCycleManager.Instance == null) return;
+            var dcm = DayCycleManager.Instance != null ? DayCycleManager.Instance : FindAnyObjectByType<DayCycleManager>();
+            var ms = MoneySystem.Instance != null ? MoneySystem.Instance : FindAnyObjectByType<MoneySystem>();
+            if (ms == null || dcm == null) return;
 
-            if (MoneySystem.Instance.SpendMoney(PriceSecondCall))
+            if (ms.SpendMoney(PriceSecondCall))
             {
-                DayCycleManager.Instance.EnableSecondReportCall();
+                dcm.EnableSecondReportCall();
                 UpdateShopButtonsState();
                 ShowFeedback("<color=#4ade80>Успешно! Дополнительный вызов отряда разблокирован на сегодня.</color>");
             }
@@ -295,8 +307,9 @@ namespace CivilGame.Phone
 
         private void OnBuyRestoreArea()
         {
-            if (DayCycleManager.Instance == null) return;
-            var destroyed = DayCycleManager.Instance.GetDestroyedZones();
+            var dcm = DayCycleManager.Instance != null ? DayCycleManager.Instance : FindAnyObjectByType<DayCycleManager>();
+            if (dcm == null) return;
+            var destroyed = dcm.GetDestroyedZones();
             if (destroyed.Count == 0)
             {
                 ShowFeedback("<color=#94a3b8>Нет разрушенных регионов для восстановления.</color>");
@@ -309,8 +322,9 @@ namespace CivilGame.Phone
 
         private void OnBuyPauseGrowth()
         {
-            if (DayCycleManager.Instance == null) return;
-            var threatened = DayCycleManager.Instance.GetThreatenedZones();
+            var dcm = DayCycleManager.Instance != null ? DayCycleManager.Instance : FindAnyObjectByType<DayCycleManager>();
+            if (dcm == null) return;
+            var threatened = dcm.GetThreatenedZones();
             if (threatened.Count == 0)
             {
                 ShowFeedback("<color=#94a3b8>Сейчас нет регионов под угрозой.</color>");
@@ -323,8 +337,9 @@ namespace CivilGame.Phone
 
         private void OnBuyRollback()
         {
-            if (DayCycleManager.Instance == null) return;
-            var threatened = DayCycleManager.Instance.GetThreatenedZones();
+            var dcm = DayCycleManager.Instance != null ? DayCycleManager.Instance : FindAnyObjectByType<DayCycleManager>();
+            if (dcm == null) return;
+            var threatened = dcm.GetThreatenedZones();
             if (threatened.Count == 0)
             {
                 ShowFeedback("<color=#94a3b8>Сейчас нет регионов под угрозой.</color>");
@@ -352,39 +367,63 @@ namespace CivilGame.Phone
         {
             if (_shopZoneButtonsContainer == null) return;
 
-            // Clear previous dynamic buttons
+            // Clear previous dynamic zone buttons (preserve prompt and back button)
             for (int i = _shopZoneButtonsContainer.childCount - 1; i >= 0; i--)
             {
-                Destroy(_shopZoneButtonsContainer.GetChild(i).gameObject);
+                var child = _shopZoneButtonsContainer.GetChild(i);
+                if (child.name.StartsWith("ZoneBtn_"))
+                {
+#if UNITY_EDITOR
+                    if (!Application.isPlaying)
+                    {
+                        DestroyImmediate(child.gameObject);
+                    }
+                    else
+                    {
+                        Destroy(child.gameObject);
+                    }
+#else
+                    Destroy(child.gameObject);
+#endif
+                }
             }
 
-            var roundedSprite = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/UI/Sprites/RoundedRect.png");
-            var fontAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<TMP_FontAsset>("Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset");
+            Sprite roundedSprite = _buySecondCallBtn != null && _buySecondCallBtn.image != null ? _buySecondCallBtn.image.sprite : null;
+            TMP_FontAsset fontAsset = _shopZonePromptText != null ? _shopZonePromptText.font : null;
+
+            int insertIndex = 1; // Insert right after prompt (index 0) and before back button
 
             foreach (var z in zones)
             {
                 var zoneCapture = z;
                 GameObject bGo = new GameObject($"ZoneBtn_{zoneCapture.zoneType}", typeof(RectTransform));
                 bGo.transform.SetParent(_shopZoneButtonsContainer, false);
+                bGo.transform.SetSiblingIndex(insertIndex++);
 
-                var bImg = bGo.AddComponent<Image>();
+                var bRt = bGo.GetComponent<RectTransform>();
+                bRt.anchorMin = new Vector2(0.5f, 0.5f);
+                bRt.anchorMax = new Vector2(0.5f, 0.5f);
+                bRt.pivot = new Vector2(0.5f, 0.5f);
+                bRt.sizeDelta = new Vector2(480, 54);
+
+                var bImg = bGo.AddComponent<UnityEngine.UI.Image>();
                 if (roundedSprite != null)
                 {
                     bImg.sprite = roundedSprite;
-                    bImg.type = Image.Type.Sliced;
+                    bImg.type = UnityEngine.UI.Image.Type.Sliced;
                 }
-                bImg.color = new Color(0.16f, 0.22f, 0.32f);
+                bImg.color = new Color(0.16f, 0.24f, 0.35f);
 
-                var btn = bGo.AddComponent<Button>();
+                var btn = bGo.AddComponent<UnityEngine.UI.Button>();
                 var colors = btn.colors;
-                colors.normalColor = new Color(0.16f, 0.22f, 0.32f);
-                colors.highlightedColor = new Color(0.24f, 0.34f, 0.48f);
-                colors.pressedColor = new Color(0.10f, 0.14f, 0.22f);
+                colors.normalColor = new Color(0.16f, 0.24f, 0.35f);
+                colors.highlightedColor = new Color(0.24f, 0.36f, 0.52f);
+                colors.pressedColor = new Color(0.10f, 0.16f, 0.24f);
                 btn.colors = colors;
 
-                var le = bGo.AddComponent<LayoutElement>();
-                le.preferredHeight = 52;
-                le.minHeight = 52;
+                var le = bGo.AddComponent<UnityEngine.UI.LayoutElement>();
+                le.preferredHeight = 54;
+                le.minHeight = 54;
 
                 GameObject tGo = new GameObject("Label", typeof(RectTransform));
                 tGo.transform.SetParent(bGo.transform, false);
@@ -394,7 +433,7 @@ namespace CivilGame.Phone
                 string extraInfo = "";
                 if (_currentShopAction == ShopActionType.RestoreDestroyed)
                 {
-                    extraInfo = " [РАЗРУШЕН]";
+                    extraInfo = " [DESTROYED]";
                 }
                 else if (_currentShopAction == ShopActionType.PauseThreatGrowth && zoneCapture.activeThreat != null)
                 {
@@ -402,7 +441,7 @@ namespace CivilGame.Phone
                 }
                 else if (_currentShopAction == ShopActionType.RollbackThreat && zoneCapture.activeThreat != null)
                 {
-                    extraInfo = $" [{zoneCapture.activeThreat.definition.displayName} - Этап {zoneCapture.activeThreat.currentStage}]";
+                    extraInfo = $" [{zoneCapture.activeThreat.definition.displayName} - Stage {zoneCapture.activeThreat.currentStage}]";
                 }
 
                 tTmp.text = $"{zoneCapture.zoneName}{extraInfo}";
@@ -415,10 +454,15 @@ namespace CivilGame.Phone
                 var tRt = tGo.GetComponent<RectTransform>();
                 tRt.anchorMin = Vector2.zero;
                 tRt.anchorMax = Vector2.one;
-                tRt.sizeDelta = Vector2.zero;
+                tRt.offsetMin = Vector2.zero;
+                tRt.offsetMax = Vector2.zero;
+                tRt.pivot = new Vector2(0.5f, 0.5f);
 
                 btn.onClick.AddListener(() => OnShopZoneSelected(zoneCapture.zoneType));
             }
+
+            // Force layout rebuild
+            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(_shopZoneButtonsContainer.GetComponent<RectTransform>());
         }
 
         private void OnShopZoneSelected(ZoneType zoneType)

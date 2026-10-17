@@ -4,7 +4,22 @@ using TMPro;
 
 public class MoneySystem : MonoBehaviour
 {
-    public static MoneySystem Instance { get; private set; }
+    private static MoneySystem _instance;
+    public static MoneySystem Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindAnyObjectByType<MoneySystem>();
+            }
+            return _instance;
+        }
+        private set
+        {
+            _instance = value;
+        }
+    }
 
     [Header("Balance")]
     public int money = 500; // Starting money for testing and gameplay
