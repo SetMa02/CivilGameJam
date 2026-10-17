@@ -22,6 +22,12 @@ namespace CivilGame.Lighthouse
         [SerializeField] private SpriteRenderer _backgroundRenderer;
         [Tooltip("Interactive objects only visible in Hall view (Book, Phone)")]
         [SerializeField] private GameObject _hallDeskObjects;
+        [Tooltip("Bed primitive in Hall view")]
+        [SerializeField] private GameObject _hallBedObject;
+        [Tooltip("Zone indicator objects on Left Window (Sea, Mountains)")]
+        [SerializeField] private GameObject _leftWindowObjects;
+        [Tooltip("Zone indicator objects on Right Window (Forest, Field)")]
+        [SerializeField] private GameObject _rightWindowObjects;
 
         [Header("Navigation Buttons")]
         [SerializeField] private Button _navLeftButton;
@@ -118,6 +124,9 @@ namespace CivilGame.Lighthouse
                         UpdateBackgroundScale(_hallSprite);
                     }
                     if (_hallDeskObjects != null) _hallDeskObjects.SetActive(true);
+                    if (_hallBedObject != null) _hallBedObject.SetActive(true);
+                    if (_leftWindowObjects != null) _leftWindowObjects.SetActive(false);
+                    if (_rightWindowObjects != null) _rightWindowObjects.SetActive(false);
                     if (_navLeftButton != null) _navLeftButton.gameObject.SetActive(true);
                     if (_navRightButton != null) _navRightButton.gameObject.SetActive(true);
                     break;
@@ -129,6 +138,9 @@ namespace CivilGame.Lighthouse
                         UpdateBackgroundScale(_leftWindowSprite);
                     }
                     if (_hallDeskObjects != null) _hallDeskObjects.SetActive(false);
+                    if (_hallBedObject != null) _hallBedObject.SetActive(false);
+                    if (_leftWindowObjects != null) _leftWindowObjects.SetActive(true);
+                    if (_rightWindowObjects != null) _rightWindowObjects.SetActive(false);
                     // From Left Window, player looks right to return to Hall
                     if (_navLeftButton != null) _navLeftButton.gameObject.SetActive(false);
                     if (_navRightButton != null) _navRightButton.gameObject.SetActive(true);
@@ -141,6 +153,9 @@ namespace CivilGame.Lighthouse
                         UpdateBackgroundScale(_rightWindowSprite);
                     }
                     if (_hallDeskObjects != null) _hallDeskObjects.SetActive(false);
+                    if (_hallBedObject != null) _hallBedObject.SetActive(false);
+                    if (_leftWindowObjects != null) _leftWindowObjects.SetActive(false);
+                    if (_rightWindowObjects != null) _rightWindowObjects.SetActive(true);
                     // From Right Window, player looks left to return to Hall
                     if (_navLeftButton != null) _navLeftButton.gameObject.SetActive(true);
                     if (_navRightButton != null) _navRightButton.gameObject.SetActive(false);
