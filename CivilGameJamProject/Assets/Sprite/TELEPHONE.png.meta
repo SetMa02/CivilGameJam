@@ -1,0 +1,5293 @@
+fileFormatVersion: 2
+guid: 1af8158ee85d1bd4c90dabc80b721ed3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6125522845955580787
+    second: TELEPHONE_0
+  - first:
+      213: -1490075398276274390
+    second: TELEPHONE_1
+  - first:
+      213: -4029681630036846304
+    second: TELEPHONE_2
+  - first:
+      213: -5089671182313992143
+    second: TELEPHONE_3
+  - first:
+      213: -5553435943608099759
+    second: TELEPHONE_4
+  - first:
+      213: 5789838559847775470
+    second: TELEPHONE_5
+  - first:
+      213: 6483563528531199418
+    second: TELEPHONE_6
+  - first:
+      213: 916607970034235974
+    second: TELEPHONE_7
+  - first:
+      213: 3131534345637058381
+    second: TELEPHONE_8
+  - first:
+      213: -719815799518261684
+    second: TELEPHONE_9
+  - first:
+      213: 4295583958347830278
+    second: TELEPHONE_10
+  - first:
+      213: -7806786807778632272
+    second: TELEPHONE_11
+  - first:
+      213: -371452531059073515
+    second: TELEPHONE_12
+  - first:
+      213: 1519910969284514049
+    second: TELEPHONE_13
+  - first:
+      213: 791252017318179537
+    second: TELEPHONE_14
+  - first:
+      213: -8382588128176214373
+    second: TELEPHONE_15
+  - first:
+      213: -3556970818353533093
+    second: TELEPHONE_16
+  - first:
+      213: 5363789860257242496
+    second: TELEPHONE_17
+  - first:
+      213: -3510970814025096556
+    second: TELEPHONE_18
+  - first:
+      213: 4091526923312665524
+    second: TELEPHONE_19
+  - first:
+      213: 7924811472300953882
+    second: TELEPHONE_20
+  - first:
+      213: -8090797353584914165
+    second: TELEPHONE_21
+  - first:
+      213: 9076190925152374246
+    second: TELEPHONE_22
+  - first:
+      213: 8049190957080060107
+    second: TELEPHONE_23
+  - first:
+      213: -5409250290843277532
+    second: TELEPHONE_24
+  - first:
+      213: -5439117588450024887
+    second: TELEPHONE_25
+  - first:
+      213: -5518345948946386988
+    second: TELEPHONE_26
+  - first:
+      213: -3835991807877756716
+    second: TELEPHONE_27
+  - first:
+      213: -6228719695761442287
+    second: TELEPHONE_28
+  - first:
+      213: -2915355981019750820
+    second: TELEPHONE_29
+  - first:
+      213: -3497456233813572644
+    second: TELEPHONE_30
+  - first:
+      213: 7307905405980050696
+    second: TELEPHONE_31
+  - first:
+      213: 3538063221811561173
+    second: TELEPHONE_32
+  - first:
+      213: 2790580752268425315
+    second: TELEPHONE_33
+  - first:
+      213: -2162110210260597031
+    second: TELEPHONE_34
+  - first:
+      213: 7190335568002231886
+    second: TELEPHONE_35
+  - first:
+      213: -4864548352495421589
+    second: TELEPHONE_36
+  - first:
+      213: 2642792464425852566
+    second: TELEPHONE_37
+  - first:
+      213: 4310496332520038050
+    second: TELEPHONE_38
+  - first:
+      213: 332224711298767615
+    second: TELEPHONE_39
+  - first:
+      213: 7294692512512491709
+    second: TELEPHONE_40
+  - first:
+      213: -2747821896778610710
+    second: TELEPHONE_41
+  - first:
+      213: -7594766322978533091
+    second: TELEPHONE_42
+  - first:
+      213: -2952165428692988485
+    second: TELEPHONE_43
+  - first:
+      213: 4309911691851211343
+    second: TELEPHONE_44
+  - first:
+      213: 4811241291523075684
+    second: TELEPHONE_45
+  - first:
+      213: -7074336071464000252
+    second: TELEPHONE_46
+  - first:
+      213: -7878198731841301715
+    second: TELEPHONE_47
+  - first:
+      213: -678911139436519497
+    second: TELEPHONE_48
+  - first:
+      213: -8054107303997580880
+    second: TELEPHONE_49
+  - first:
+      213: -3220556334655197441
+    second: TELEPHONE_50
+  - first:
+      213: 2712940531685943293
+    second: TELEPHONE_51
+  - first:
+      213: -1487471334742660256
+    second: TELEPHONE_52
+  - first:
+      213: 3629112867391418796
+    second: TELEPHONE_53
+  - first:
+      213: -3075961857326078309
+    second: TELEPHONE_54
+  - first:
+      213: 6493415570899410974
+    second: TELEPHONE_55
+  - first:
+      213: 9079328203147078650
+    second: TELEPHONE_56
+  - first:
+      213: -6875384884745918725
+    second: TELEPHONE_57
+  - first:
+      213: 5827710385570246971
+    second: TELEPHONE_58
+  - first:
+      213: -2603793865056540394
+    second: TELEPHONE_59
+  - first:
+      213: -1742101467247145140
+    second: TELEPHONE_60
+  - first:
+      213: 9053378864450108516
+    second: TELEPHONE_61
+  - first:
+      213: -759355555281133517
+    second: TELEPHONE_62
+  - first:
+      213: 312553067784043646
+    second: TELEPHONE_63
+  - first:
+      213: 4229791392478144716
+    second: TELEPHONE_64
+  - first:
+      213: 4658064421363594969
+    second: TELEPHONE_65
+  - first:
+      213: -2561907849694338267
+    second: TELEPHONE_66
+  - first:
+      213: -4815653608919240497
+    second: TELEPHONE_67
+  - first:
+      213: -1120489389595268629
+    second: TELEPHONE_68
+  - first:
+      213: 8825716193870713649
+    second: TELEPHONE_69
+  - first:
+      213: 6637961840098648771
+    second: TELEPHONE_70
+  - first:
+      213: 5346911990548978219
+    second: TELEPHONE_71
+  - first:
+      213: 7452894701970333812
+    second: TELEPHONE_72
+  - first:
+      213: 2770774729145212471
+    second: TELEPHONE_73
+  - first:
+      213: 3599964902122537679
+    second: TELEPHONE_74
+  - first:
+      213: -412091361991595916
+    second: TELEPHONE_75
+  - first:
+      213: -1756112231408674561
+    second: TELEPHONE_76
+  - first:
+      213: -1936411507700087889
+    second: TELEPHONE_77
+  - first:
+      213: 7699966953212233467
+    second: TELEPHONE_78
+  - first:
+      213: -782297604800019680
+    second: TELEPHONE_79
+  - first:
+      213: 9027196409515016813
+    second: TELEPHONE_80
+  - first:
+      213: -9151608425939748087
+    second: TELEPHONE_81
+  - first:
+      213: 8912089614679375775
+    second: TELEPHONE_82
+  - first:
+      213: -1792245848368802972
+    second: TELEPHONE_83
+  - first:
+      213: 6595850854698944847
+    second: TELEPHONE_84
+  - first:
+      213: 7181492423613384770
+    second: TELEPHONE_85
+  - first:
+      213: 3998256496631765075
+    second: TELEPHONE_86
+  - first:
+      213: 3076117124873897909
+    second: TELEPHONE_87
+  - first:
+      213: 2253003475727642827
+    second: TELEPHONE_88
+  - first:
+      213: -8427338554355709739
+    second: TELEPHONE_89
+  - first:
+      213: -1529245973926707872
+    second: TELEPHONE_90
+  - first:
+      213: -9100975546030951785
+    second: TELEPHONE_91
+  - first:
+      213: -6310243069704526452
+    second: TELEPHONE_92
+  - first:
+      213: 6000872702499086116
+    second: TELEPHONE_93
+  - first:
+      213: 6886662930077061318
+    second: TELEPHONE_94
+  - first:
+      213: -5698780328590946323
+    second: TELEPHONE_95
+  - first:
+      213: -3162156042683803915
+    second: TELEPHONE_96
+  - first:
+      213: 6054500072857040458
+    second: TELEPHONE_97
+  - first:
+      213: 7292040782740005755
+    second: TELEPHONE_98
+  - first:
+      213: -5775189003385890272
+    second: TELEPHONE_99
+  - first:
+      213: 2193221129282711062
+    second: TELEPHONE_100
+  - first:
+      213: 3365074127815905785
+    second: TELEPHONE_101
+  - first:
+      213: 6029625943493268667
+    second: TELEPHONE_102
+  - first:
+      213: 5827571966758065704
+    second: TELEPHONE_103
+  - first:
+      213: 3616408182086013508
+    second: TELEPHONE_104
+  - first:
+      213: 724996084377921693
+    second: TELEPHONE_105
+  - first:
+      213: -5135749076745341911
+    second: TELEPHONE_106
+  - first:
+      213: 462155144536475782
+    second: TELEPHONE_107
+  - first:
+      213: 1850864081436887505
+    second: TELEPHONE_108
+  - first:
+      213: 3397454260689912418
+    second: TELEPHONE_109
+  - first:
+      213: -6042648318744325745
+    second: TELEPHONE_110
+  - first:
+      213: 15790066901410552
+    second: TELEPHONE_111
+  - first:
+      213: -748284323050957691
+    second: TELEPHONE_112
+  - first:
+      213: -6284036602654196869
+    second: TELEPHONE_113
+  - first:
+      213: -1827704576661624512
+    second: TELEPHONE_114
+  - first:
+      213: 6376794251529242692
+    second: TELEPHONE_115
+  - first:
+      213: -9144488314183262757
+    second: TELEPHONE_116
+  - first:
+      213: -3343482465847996480
+    second: TELEPHONE_117
+  - first:
+      213: -5477182662139467914
+    second: TELEPHONE_118
+  - first:
+      213: -808441768893413496
+    second: TELEPHONE_119
+  - first:
+      213: 3168666947449183726
+    second: TELEPHONE_120
+  - first:
+      213: -3436982626769024845
+    second: TELEPHONE_121
+  - first:
+      213: 6763488612142781728
+    second: TELEPHONE_122
+  - first:
+      213: -1024542862362224641
+    second: TELEPHONE_123
+  - first:
+      213: -5317314533044352832
+    second: TELEPHONE_124
+  - first:
+      213: 6616844332735687930
+    second: TELEPHONE_125
+  - first:
+      213: -6249857500454550885
+    second: TELEPHONE_126
+  - first:
+      213: 8475909603630157658
+    second: TELEPHONE_127
+  - first:
+      213: 406621011195218262
+    second: TELEPHONE_128
+  - first:
+      213: 1870718190473221832
+    second: TELEPHONE_129
+  - first:
+      213: 3410785998214718430
+    second: TELEPHONE_130
+  - first:
+      213: -1213463268577235290
+    second: TELEPHONE_131
+  - first:
+      213: 6437029212763436900
+    second: TELEPHONE_132
+  - first:
+      213: -5316242243767623198
+    second: TELEPHONE_133
+  - first:
+      213: 3877980543577124908
+    second: TELEPHONE_134
+  - first:
+      213: 3320478792747708179
+    second: TELEPHONE_135
+  - first:
+      213: -6874335403370174023
+    second: TELEPHONE_136
+  - first:
+      213: 8532301543219611694
+    second: TELEPHONE_137
+  - first:
+      213: 3046594649317787755
+    second: TELEPHONE_138
+  - first:
+      213: 2639081559273080690
+    second: TELEPHONE_139
+  - first:
+      213: 4573466970721568975
+    second: TELEPHONE_140
+  - first:
+      213: -1399073713541753577
+    second: TELEPHONE_141
+  - first:
+      213: 7756374722171268103
+    second: TELEPHONE_142
+  - first:
+      213: -1102882655079925952
+    second: TELEPHONE_143
+  - first:
+      213: -6165345231500082795
+    second: TELEPHONE_144
+  - first:
+      213: -7330927896890699634
+    second: TELEPHONE_145
+  - first:
+      213: -8642886044544864842
+    second: TELEPHONE_146
+  - first:
+      213: 4616072561357673807
+    second: TELEPHONE_147
+  - first:
+      213: 941667102301709070
+    second: TELEPHONE_148
+  - first:
+      213: -7805232242867720986
+    second: TELEPHONE_149
+  - first:
+      213: 8498655999741360353
+    second: TELEPHONE_150
+  - first:
+      213: -3653606809783836083
+    second: TELEPHONE_151
+  - first:
+      213: 5935577402045147860
+    second: TELEPHONE_152
+  - first:
+      213: 3652172440592633014
+    second: TELEPHONE_153
+  - first:
+      213: -5878263157932993989
+    second: TELEPHONE_154
+  - first:
+      213: 8850131168427562062
+    second: TELEPHONE_155
+  - first:
+      213: 9089077531227335826
+    second: TELEPHONE_156
+  - first:
+      213: 6522362358729521339
+    second: TELEPHONE_157
+  - first:
+      213: 9126774137788929989
+    second: TELEPHONE_158
+  - first:
+      213: 2423754222771171680
+    second: TELEPHONE_159
+  - first:
+      213: -7275805963322077140
+    second: TELEPHONE_160
+  - first:
+      213: -4518620735278470364
+    second: TELEPHONE_161
+  - first:
+      213: 7654672306535726463
+    second: TELEPHONE_162
+  - first:
+      213: -6035499951016455544
+    second: TELEPHONE_163
+  - first:
+      213: -8735740906965922192
+    second: TELEPHONE_164
+  - first:
+      213: -5733236924284683864
+    second: TELEPHONE_165
+  - first:
+      213: 5840549434798830567
+    second: TELEPHONE_166
+  - first:
+      213: -3790702883947260069
+    second: TELEPHONE_167
+  - first:
+      213: 3934963651482226467
+    second: TELEPHONE_168
+  - first:
+      213: 2889881903595382868
+    second: TELEPHONE_169
+  - first:
+      213: -6111201087464136801
+    second: TELEPHONE_170
+  - first:
+      213: -6465910409805309607
+    second: TELEPHONE_171
+  - first:
+      213: -5855817113427595599
+    second: TELEPHONE_172
+  - first:
+      213: 7113505527170257057
+    second: TELEPHONE_173
+  - first:
+      213: 7000838395158847402
+    second: TELEPHONE_174
+  - first:
+      213: -8098383673926325640
+    second: TELEPHONE_175
+  - first:
+      213: -6097393340608435049
+    second: TELEPHONE_176
+  - first:
+      213: -1855681066881210933
+    second: TELEPHONE_177
+  - first:
+      213: 8188826052562689423
+    second: TELEPHONE_178
+  - first:
+      213: -1927061773806545763
+    second: TELEPHONE_179
+  - first:
+      213: -8195604925751194088
+    second: TELEPHONE_180
+  - first:
+      213: -6112516611110241606
+    second: TELEPHONE_181
+  - first:
+      213: -3323132104642422390
+    second: TELEPHONE_182
+  - first:
+      213: -4501375984477506501
+    second: TELEPHONE_183
+  - first:
+      213: -8647609375458263693
+    second: TELEPHONE_184
+  - first:
+      213: 3333394486662467429
+    second: TELEPHONE_185
+  - first:
+      213: 8674576716792337231
+    second: TELEPHONE_186
+  - first:
+      213: -6919517670273130930
+    second: TELEPHONE_187
+  - first:
+      213: -1270890792580901622
+    second: TELEPHONE_188
+  - first:
+      213: 479813795701645315
+    second: TELEPHONE_189
+  - first:
+      213: 3038783380949842139
+    second: TELEPHONE_190
+  - first:
+      213: -3100793070246439550
+    second: TELEPHONE_191
+  - first:
+      213: 4550414080177300273
+    second: TELEPHONE_192
+  - first:
+      213: 4235734850572490105
+    second: TELEPHONE_193
+  - first:
+      213: -2825050240847872390
+    second: TELEPHONE_194
+  - first:
+      213: 640820642746959906
+    second: TELEPHONE_195
+  - first:
+      213: 7491216913617135036
+    second: TELEPHONE_196
+  - first:
+      213: -4768352445849202796
+    second: TELEPHONE_197
+  - first:
+      213: 8644870513816417219
+    second: TELEPHONE_198
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TELEPHONE_0
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 626
+        width: 23
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373e8b0f29a320550800000000000000
+      internalID: 6125522845955580787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_1
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 465
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27a13de150325be0800000000000000
+      internalID: -1490075398276274390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_2
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 490
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0299cbb58e1b318c0800000000000000
+      internalID: -4029681630036846304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_3
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 483
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 130d1a2a60bdd59b0800000000000000
+      internalID: -5089671182313992143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_4
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 490
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15c5a52ce6b3ee2b0800000000000000
+      internalID: -5553435943608099759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_5
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 490
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eecf59a8e73a95050800000000000000
+      internalID: 5789838559847775470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_6
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 470
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab5c7c48dae3af950800000000000000
+      internalID: 6483563528531199418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_7
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 481
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64abe24a71278bc00800000000000000
+      internalID: 916607970034235974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_8
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 488
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d47d1a155e1757b20800000000000000
+      internalID: 3131534345637058381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_9
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 480
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4e00061853b206f0800000000000000
+      internalID: -719815799518261684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_10
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 483
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6045034e9dafc9b30800000000000000
+      internalID: 4295583958347830278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_11
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 477
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bd162da2c8b8a390800000000000000
+      internalID: -7806786807778632272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_12
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 475
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51edd4b14e558daf0800000000000000
+      internalID: -371452531059073515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_13
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 420
+        width: 217
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1015c6649fec71510800000000000000
+      internalID: 1519910969284514049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_14
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 462
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d2bf0c74871bfa00800000000000000
+      internalID: 791252017318179537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_15
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 466
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9e66a1a2801bab80800000000000000
+      internalID: -8382588128176214373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_16
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 471
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f6b97e2e913aec0800000000000000
+      internalID: -3556970818353533093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_17
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 466
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d99769572007a40800000000000000
+      internalID: 5363789860257242496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_18
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 427
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 492254585a6864fc0800000000000000
+      internalID: -3510970814025096556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_19
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 472
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b39ff41f0608c830800000000000000
+      internalID: 4091526923312665524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_20
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 464
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11507eeb069afd60800000000000000
+      internalID: 7924811472300953882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_21
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 464
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0196ed7ca6b7bf80800000000000000
+      internalID: -8090797353584914165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_22
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 416
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6edc4570f8b15fd70800000000000000
+      internalID: 9076190925152374246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_23
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 448
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc02b0e678874bf60800000000000000
+      internalID: 8049190957080060107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_24
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 455
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427ab19158b7ee4b0800000000000000
+      internalID: -5409250290843277532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_25
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 433
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9426bd8fe5f5484b0800000000000000
+      internalID: -5439117588450024887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_26
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 454
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dfa55dc895ea63b0800000000000000
+      internalID: -5518345948946386988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_27
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 437
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8432256c1d3cac0800000000000000
+      internalID: -3835991807877756716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_28
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 447
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11af8a810742f89a0800000000000000
+      internalID: -6228719695761442287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_29
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 442
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ed1857e239a87d0800000000000000
+      internalID: -2915355981019750820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_30
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 432
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd3011ee51a867fc0800000000000000
+      internalID: -3497456233813572644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_31
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 458
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805099f6f35ea6560800000000000000
+      internalID: 7307905405980050696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_32
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 436
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d2c3f831c9b91130800000000000000
+      internalID: 3538063221811561173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_33
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 458
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3687008b8622ab620800000000000000
+      internalID: 2790580752268425315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_34
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 455
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d60c281834aef1e0800000000000000
+      internalID: -2162110210260597031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_35
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 435
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e21a26a1439c360800000000000000
+      internalID: 7190335568002231886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_36
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 428
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b677cc00c07ad7cb0800000000000000
+      internalID: -4864548352495421589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_37
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 456
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69e9e298eb51da420800000000000000
+      internalID: 2642792464425852566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_38
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 448
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae1b719395f1db30800000000000000
+      internalID: 4310496332520038050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_39
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 450
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffad19e5d9c4c9400800000000000000
+      internalID: 332224711298767615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_40
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 422
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db04202f034fb3560800000000000000
+      internalID: 7294692512512491709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_41
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 433
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae788702b86cdd9d0800000000000000
+      internalID: -2747821896778610710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_42
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 454
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11d3ce9448f99690800000000000000
+      internalID: -7594766322978533091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_43
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 441
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbdc0901f2dc707d0800000000000000
+      internalID: -2952165428692988485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_44
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 455
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f42281e49d1efcb30800000000000000
+      internalID: 4309911691851211343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_45
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 454
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46eaceda676f4c240800000000000000
+      internalID: 4811241291523075684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_46
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 446
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 405e7ae03d8e2dd90800000000000000
+      internalID: -7074336071464000252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_47
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 416
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d239aae6ef30ba290800000000000000
+      internalID: -7878198731841301715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_48
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 435
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bf94db6ae50496f0800000000000000
+      internalID: -678911139436519497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_49
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 430
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9585a54101a3090800000000000000
+      internalID: -8054107303997580880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_50
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 418
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe2ebda3194e43d0800000000000000
+      internalID: -3220556334655197441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_51
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 428
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df766ef2a0d46a520800000000000000
+      internalID: 2712940531685943293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_52
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 416
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06b6617b3b07b5be0800000000000000
+      internalID: -1487471334742660256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_53
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 413
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca13aaecce23d5230800000000000000
+      internalID: 3629112867391418796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_54
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 415
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b96ad67ecfcff45d0800000000000000
+      internalID: -3075961857326078309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_55
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 429
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e102372ee0f3d1a50800000000000000
+      internalID: 6493415570899410974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_56
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 419
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb64cb75e0400e70800000000000000
+      internalID: 9079328203147078650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_57
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 421
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf621aaefd9b590a0800000000000000
+      internalID: -6875384884745918725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_58
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 424
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b31f4c918bf20e050800000000000000
+      internalID: 5827710385570246971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_59
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 422
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 619a6f476477ddbd0800000000000000
+      internalID: -2603793865056540394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_60
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 430
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4f0c0212ffc2d7e0800000000000000
+      internalID: -1742101467247145140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_61
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 424
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46cf3904c1014ad70800000000000000
+      internalID: 9053378864450108516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_62
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 382
+        width: 15
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 330af3d452a3675f0800000000000000
+      internalID: -759355555281133517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_63
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 404
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7cf9b2fb59665400800000000000000
+      internalID: 312553067784043646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_64
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 393
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc82aae6cdc33ba30800000000000000
+      internalID: 4229791392478144716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_65
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 417
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d6334869e4c4a040800000000000000
+      internalID: 4658064421363594969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_66
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 389
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5232faf5266427cd0800000000000000
+      internalID: -2561907849694338267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_67
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 409
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc07a0f9e8c5b2db0800000000000000
+      internalID: -4815653608919240497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_68
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 413
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be9649636d83370f0800000000000000
+      internalID: -1120489389595268629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_69
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 403
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13393102e1e3b7a70800000000000000
+      internalID: 8825716193870713649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_70
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 405
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2ada7cf17ce1c50800000000000000
+      internalID: 6637961840098648771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_71
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 403
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ad2f1502c043a40800000000000000
+      internalID: 5346911990548978219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_72
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 403
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 470255b8e300e6760800000000000000
+      internalID: 7452894701970333812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_73
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 401
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e545b9fe4c37620800000000000000
+      internalID: 2770774729145212471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_74
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 394
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc243ea4105a5f130800000000000000
+      internalID: 3599964902122537679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_75
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 381
+        width: 14
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 478eb71f615f74af0800000000000000
+      internalID: -412091361991595916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_76
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 412
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff8da25da3901a7e0800000000000000
+      internalID: -1756112231408674561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_77
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 416
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3ce884efb7025e0800000000000000
+      internalID: -1936411507700087889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_78
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 384
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf64674d527cbda60800000000000000
+      internalID: 7699966953212233467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_79
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 416
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02381452978b425f0800000000000000
+      internalID: -782297604800019680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_80
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 407
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6203da6e4b074d70800000000000000
+      internalID: 9027196409515016813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_81
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 408
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90bb368bf94fef080800000000000000
+      internalID: -9151608425939748087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_82
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 414
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f7969494a1eab70800000000000000
+      internalID: 8912089614679375775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_83
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 400
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4631fc985e9a027e0800000000000000
+      internalID: -1792245848368802972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_84
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 400
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4989c1f76b298b50800000000000000
+      internalID: 6595850854698944847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_85
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 412
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24882a26f49c9a360800000000000000
+      internalID: 7181492423613384770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_86
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 386
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35852aa9919ac7730800000000000000
+      internalID: 3998256496631765075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_87
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 388
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b7ca932a3090ba20800000000000000
+      internalID: 3076117124873897909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_88
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 392
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc0777869b6444f10800000000000000
+      internalID: 2253003475727642827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_89
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 387
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d88ca91c341c0b80800000000000000
+      internalID: -8427338554355709739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_90
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 354
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06df6e593e607cae0800000000000000
+      internalID: -1529245973926707872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_91
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 387
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792fe4db5f6d2b180800000000000000
+      internalID: -9100975546030951785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_92
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 396
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8524e77c538d68a0800000000000000
+      internalID: -6310243069704526452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_93
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 395
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42fdbcecde1674350800000000000000
+      internalID: 6000872702499086116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_94
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 383
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c01813a277529f50800000000000000
+      internalID: 6886662930077061318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_95
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 378
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: def4a5d0c7dd9e0b0800000000000000
+      internalID: -5698780328590946323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_96
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 382
+        width: 10
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f61a7f35d3cd14d0800000000000000
+      internalID: -3162156042683803915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_97
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 393
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a467837fcb7e50450800000000000000
+      internalID: 6054500072857040458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_98
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 374
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7321eef478823560800000000000000
+      internalID: 7292040782740005755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_99
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 389
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a117e13386adfa0800000000000000
+      internalID: -5775189003385890272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_100
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 382
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ee6c43ff2ef6e10800000000000000
+      internalID: 2193221129282711062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_101
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 379
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f1135f171523be20800000000000000
+      internalID: 3365074127815905785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_102
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 371
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4556a69d88da350800000000000000
+      internalID: 6029625943493268667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_103
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 357
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82693a5f3d1bfd050800000000000000
+      internalID: 5827571966758065704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_104
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 374
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4429d00c410103230800000000000000
+      internalID: 3616408182086013508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_105
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 376
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9825e8f814bf0a00800000000000000
+      internalID: 724996084377921693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_106
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 356
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924bd01dc672ab8b0800000000000000
+      internalID: -5135749076745341911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_107
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 359
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6884735c7a7e96600800000000000000
+      internalID: 462155144536475782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_108
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 370
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9439563179fa910800000000000000
+      internalID: 1850864081436887505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_109
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 372
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2624f0d46ae262f20800000000000000
+      internalID: 3397454260689912418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_110
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 378
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8112a29e53342ca0800000000000000
+      internalID: -6042648318744325745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_111
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 380
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f263a07bf8183000800000000000000
+      internalID: 15790066901410552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_112
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 358
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 584dd8d6f5f8d95f0800000000000000
+      internalID: -748284323050957691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_113
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 373
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7b7e3f010e9ac8a0800000000000000
+      internalID: -6284036602654196869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_114
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 354
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0496ab10f50b2a6e0800000000000000
+      internalID: -1827704576661624512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_115
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 361
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4484728069cee7850800000000000000
+      internalID: 6376794251529242692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_116
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 329
+        width: 13
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdd556ce350481180800000000000000
+      internalID: -9144488314183262757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_117
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 346
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf026e69609991d0800000000000000
+      internalID: -3343482465847996480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_118
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 365
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 677af3d53632df3b0800000000000000
+      internalID: -5477182662139467914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_119
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 355
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88705879e76d7c4f0800000000000000
+      internalID: -808441768893413496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_120
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 362
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eedda36eccd59fb20800000000000000
+      internalID: 3168666947449183726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_121
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 343
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b84e38c2826d40d0800000000000000
+      internalID: -3436982626769024845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_122
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 350
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0259b29ee0dbcdd50800000000000000
+      internalID: 6763488612142781728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_123
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 356
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff7dcb7e1b718c1f0800000000000000
+      internalID: -1024542862362224641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_124
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 344
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c88ed2ca9a1536b0800000000000000
+      internalID: -5317314533044352832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_125
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 359
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc64c2fcd0c3db50800000000000000
+      internalID: 6616844332735687930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_126
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 342
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92889c67bb0449a0800000000000000
+      internalID: -6249857500454550885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_127
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 329
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f82b090ea70a570800000000000000
+      internalID: 8475909603630157658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_128
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 347
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6594082c7ab94a500800000000000000
+      internalID: 406621011195218262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_129
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 332
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c69402684026f910800000000000000
+      internalID: 1870718190473221832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_130
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 350
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed3e6745bcb855f20800000000000000
+      internalID: 3410785998214718430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_131
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 347
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ae28702699e82fe0800000000000000
+      internalID: -1213463268577235290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_132
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 325
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467b393d6fbe45950800000000000000
+      internalID: 6437029212763436900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_133
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 331
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e12e4098d9e836b0800000000000000
+      internalID: -5316242243767623198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_134
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 340
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c207ac902ca51d530800000000000000
+      internalID: 3877980543577124908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_135
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 349
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31fe1fd8ed5b41e20800000000000000
+      internalID: 3320478792747708179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_136
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 337
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b9aa375f547990a0800000000000000
+      internalID: -6874335403370174023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_137
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 336
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e284f182c03d86670800000000000000
+      internalID: 8532301543219611694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_138
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 336
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68413721bda74a20800000000000000
+      internalID: 3046594649317787755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_139
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 332
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27781c912b6ef9420800000000000000
+      internalID: 2639081559273080690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_140
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 342
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc847d58af7387f30800000000000000
+      internalID: 4573466970721568975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_141
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 330
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 715d1c1cedd759ce0800000000000000
+      internalID: -1399073713541753577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_142
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 325
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70c66dbf6bd24ab60800000000000000
+      internalID: 7756374722171268103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_143
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 320
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047750b8116c1b0f0800000000000000
+      internalID: -1102882655079925952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_144
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 332
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5910ac66d2b407aa0800000000000000
+      internalID: -6165345231500082795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_145
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 315
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8014df2bef434a90800000000000000
+      internalID: -7330927896890699634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_146
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 324
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bde8b83fec4e0880800000000000000
+      internalID: -8642886044544864842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_147
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 307
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f45d62d99859f0040800000000000000
+      internalID: 4616072561357673807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_148
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 334
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e036d598d39711d00800000000000000
+      internalID: 941667102301709070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_149
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 324
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eca17601ae3ea390800000000000000
+      internalID: -7805232242867720986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_150
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 309
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e873dc9a9a41f570800000000000000
+      internalID: 8498655999741360353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_151
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 320
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d42e2e1d6f7cb4dc0800000000000000
+      internalID: -3653606809783836083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_152
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 321
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4daacb9f2386f5250800000000000000
+      internalID: 5935577402045147860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_153
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 317
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bccef31c7f1fa230800000000000000
+      internalID: 3652172440592633014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_154
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 304
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b32532f5dc63c6ea0800000000000000
+      internalID: -5878263157932993989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_155
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 310
+        width: 33
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e44dcbd586bf1da70800000000000000
+      internalID: 8850131168427562062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_156
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 308
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c2ac0dbd3e22e70800000000000000
+      internalID: 9089077531227335826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_157
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 321
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb8b3702206148a50800000000000000
+      internalID: 6522362358729521339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_158
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 302
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7912cf8b0d8ae70800000000000000
+      internalID: 9126774137788929989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_159
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 314
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061f02fbf97e2a120800000000000000
+      internalID: 2423754222771171680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_160
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 317
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c20d4857605270b90800000000000000
+      internalID: -7275805963322077140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_161
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 306
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42b2307c162aa41c0800000000000000
+      internalID: -4518620735278470364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_162
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 281
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7df41718ebda3a60800000000000000
+      internalID: 7654672306535726463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_163
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 290
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882d6c1a5c89d3ca0800000000000000
+      internalID: -6035499951016455544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_164
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 299
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e8276dde964c680800000000000000
+      internalID: -8735740906965922192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_165
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 288
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a9bbd2b4637f60b0800000000000000
+      internalID: -5733236924284683864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_166
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 293
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e3fa4234cccd0150800000000000000
+      internalID: 5840549434798830567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_167
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 299
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b575641afc7b46bc0800000000000000
+      internalID: -3790702883947260069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_168
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 294
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f0caab79ccb9630800000000000000
+      internalID: 3934963651482226467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_169
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 289
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 458e1a2b74cea1820800000000000000
+      internalID: 2889881903595382868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_170
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 293
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f18be4df6a03ba0800000000000000
+      internalID: -6111201087464136801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_171
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 299
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 959dd0a7db87446a0800000000000000
+      internalID: -6465910409805309607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_172
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 288
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1beae7c5c55fbbea0800000000000000
+      internalID: -5855817113427595599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_173
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 295
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0d2c6869f38b260800000000000000
+      internalID: 7113505527170257057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_174
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 272
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aafdb59ad69f72160800000000000000
+      internalID: 7000838395158847402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_175
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 281
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87a6cc4a4f2cc9f80800000000000000
+      internalID: -8098383673926325640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_176
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 284
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ca335ef05b16ba0800000000000000
+      internalID: -6097393340608435049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_177
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 276
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc5a028c6eb4f36e0800000000000000
+      internalID: -1855681066881210933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_178
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 287
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d967698ed84a170800000000000000
+      internalID: 8188826052562689423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_179
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 283
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d94d608d683b145e0800000000000000
+      internalID: -1927061773806545763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_180
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 280
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81e88210ebc534e80800000000000000
+      internalID: -8195604925751194088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_181
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 277
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aba7917178afb2ba0800000000000000
+      internalID: -6112516611110241606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_182
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 275
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a89971125fcd1e1d0800000000000000
+      internalID: -3323132104642422390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_183
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 289
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b347eb43466e781c0800000000000000
+      internalID: -4501375984477506501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_184
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 273
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37df87b07158df780800000000000000
+      internalID: -8647609375458263693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_185
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 263
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56f03c1ef98924e20800000000000000
+      internalID: 3333394486662467429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_186
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 259
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4318456099426870800000000000000
+      internalID: 8674576716792337231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_187
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 274
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ed45e075fe8ff90800000000000000
+      internalID: -6919517670273130930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_188
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 278
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0596efbe83ec5ee0800000000000000
+      internalID: -1270890792580901622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_189
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 270
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300e023ea14a8a600800000000000000
+      internalID: 479813795701645315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_190
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 269
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd830e2826deb2a20800000000000000
+      internalID: 3038783380949842139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_191
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 268
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 285d7fd9125c7f4d0800000000000000
+      internalID: -3100793070246439550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_192
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 268
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13367ed2f71562f30800000000000000
+      internalID: 4550414080177300273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_193
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 257
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9759d1b976a58ca30800000000000000
+      internalID: 4235734850572490105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_194
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 252
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e71a116c76bc8d0800000000000000
+      internalID: -2825050240847872390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_195
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 261
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2288ba7baf6a4e800800000000000000
+      internalID: 640820642746959906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_196
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 255
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb52c8fb71626f760800000000000000
+      internalID: 7491216913617135036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_197
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 250
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49f0b4dd6b863ddb0800000000000000
+      internalID: -4768352445849202796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TELEPHONE_198
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 246
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c3b6490eefb8f770800000000000000
+      internalID: 8644870513816417219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TELEPHONE_0: 6125522845955580787
+      TELEPHONE_1: -1490075398276274390
+      TELEPHONE_10: 4295583958347830278
+      TELEPHONE_100: 2193221129282711062
+      TELEPHONE_101: 3365074127815905785
+      TELEPHONE_102: 6029625943493268667
+      TELEPHONE_103: 5827571966758065704
+      TELEPHONE_104: 3616408182086013508
+      TELEPHONE_105: 724996084377921693
+      TELEPHONE_106: -5135749076745341911
+      TELEPHONE_107: 462155144536475782
+      TELEPHONE_108: 1850864081436887505
+      TELEPHONE_109: 3397454260689912418
+      TELEPHONE_11: -7806786807778632272
+      TELEPHONE_110: -6042648318744325745
+      TELEPHONE_111: 15790066901410552
+      TELEPHONE_112: -748284323050957691
+      TELEPHONE_113: -6284036602654196869
+      TELEPHONE_114: -1827704576661624512
+      TELEPHONE_115: 6376794251529242692
+      TELEPHONE_116: -9144488314183262757
+      TELEPHONE_117: -3343482465847996480
+      TELEPHONE_118: -5477182662139467914
+      TELEPHONE_119: -808441768893413496
+      TELEPHONE_12: -371452531059073515
+      TELEPHONE_120: 3168666947449183726
+      TELEPHONE_121: -3436982626769024845
+      TELEPHONE_122: 6763488612142781728
+      TELEPHONE_123: -1024542862362224641
+      TELEPHONE_124: -5317314533044352832
+      TELEPHONE_125: 6616844332735687930
+      TELEPHONE_126: -6249857500454550885
+      TELEPHONE_127: 8475909603630157658
+      TELEPHONE_128: 406621011195218262
+      TELEPHONE_129: 1870718190473221832
+      TELEPHONE_13: 1519910969284514049
+      TELEPHONE_130: 3410785998214718430
+      TELEPHONE_131: -1213463268577235290
+      TELEPHONE_132: 6437029212763436900
+      TELEPHONE_133: -5316242243767623198
+      TELEPHONE_134: 3877980543577124908
+      TELEPHONE_135: 3320478792747708179
+      TELEPHONE_136: -6874335403370174023
+      TELEPHONE_137: 8532301543219611694
+      TELEPHONE_138: 3046594649317787755
+      TELEPHONE_139: 2639081559273080690
+      TELEPHONE_14: 791252017318179537
+      TELEPHONE_140: 4573466970721568975
+      TELEPHONE_141: -1399073713541753577
+      TELEPHONE_142: 7756374722171268103
+      TELEPHONE_143: -1102882655079925952
+      TELEPHONE_144: -6165345231500082795
+      TELEPHONE_145: -7330927896890699634
+      TELEPHONE_146: -8642886044544864842
+      TELEPHONE_147: 4616072561357673807
+      TELEPHONE_148: 941667102301709070
+      TELEPHONE_149: -7805232242867720986
+      TELEPHONE_15: -8382588128176214373
+      TELEPHONE_150: 8498655999741360353
+      TELEPHONE_151: -3653606809783836083
+      TELEPHONE_152: 5935577402045147860
+      TELEPHONE_153: 3652172440592633014
+      TELEPHONE_154: -5878263157932993989
+      TELEPHONE_155: 8850131168427562062
+      TELEPHONE_156: 9089077531227335826
+      TELEPHONE_157: 6522362358729521339
+      TELEPHONE_158: 9126774137788929989
+      TELEPHONE_159: 2423754222771171680
+      TELEPHONE_16: -3556970818353533093
+      TELEPHONE_160: -7275805963322077140
+      TELEPHONE_161: -4518620735278470364
+      TELEPHONE_162: 7654672306535726463
+      TELEPHONE_163: -6035499951016455544
+      TELEPHONE_164: -8735740906965922192
+      TELEPHONE_165: -5733236924284683864
+      TELEPHONE_166: 5840549434798830567
+      TELEPHONE_167: -3790702883947260069
+      TELEPHONE_168: 3934963651482226467
+      TELEPHONE_169: 2889881903595382868
+      TELEPHONE_17: 5363789860257242496
+      TELEPHONE_170: -6111201087464136801
+      TELEPHONE_171: -6465910409805309607
+      TELEPHONE_172: -5855817113427595599
+      TELEPHONE_173: 7113505527170257057
+      TELEPHONE_174: 7000838395158847402
+      TELEPHONE_175: -8098383673926325640
+      TELEPHONE_176: -6097393340608435049
+      TELEPHONE_177: -1855681066881210933
+      TELEPHONE_178: 8188826052562689423
+      TELEPHONE_179: -1927061773806545763
+      TELEPHONE_18: -3510970814025096556
+      TELEPHONE_180: -8195604925751194088
+      TELEPHONE_181: -6112516611110241606
+      TELEPHONE_182: -3323132104642422390
+      TELEPHONE_183: -4501375984477506501
+      TELEPHONE_184: -8647609375458263693
+      TELEPHONE_185: 3333394486662467429
+      TELEPHONE_186: 8674576716792337231
+      TELEPHONE_187: -6919517670273130930
+      TELEPHONE_188: -1270890792580901622
+      TELEPHONE_189: 479813795701645315
+      TELEPHONE_19: 4091526923312665524
+      TELEPHONE_190: 3038783380949842139
+      TELEPHONE_191: -3100793070246439550
+      TELEPHONE_192: 4550414080177300273
+      TELEPHONE_193: 4235734850572490105
+      TELEPHONE_194: -2825050240847872390
+      TELEPHONE_195: 640820642746959906
+      TELEPHONE_196: 7491216913617135036
+      TELEPHONE_197: -4768352445849202796
+      TELEPHONE_198: 8644870513816417219
+      TELEPHONE_2: -4029681630036846304
+      TELEPHONE_20: 7924811472300953882
+      TELEPHONE_21: -8090797353584914165
+      TELEPHONE_22: 9076190925152374246
+      TELEPHONE_23: 8049190957080060107
+      TELEPHONE_24: -5409250290843277532
+      TELEPHONE_25: -5439117588450024887
+      TELEPHONE_26: -5518345948946386988
+      TELEPHONE_27: -3835991807877756716
+      TELEPHONE_28: -6228719695761442287
+      TELEPHONE_29: -2915355981019750820
+      TELEPHONE_3: -5089671182313992143
+      TELEPHONE_30: -3497456233813572644
+      TELEPHONE_31: 7307905405980050696
+      TELEPHONE_32: 3538063221811561173
+      TELEPHONE_33: 2790580752268425315
+      TELEPHONE_34: -2162110210260597031
+      TELEPHONE_35: 7190335568002231886
+      TELEPHONE_36: -4864548352495421589
+      TELEPHONE_37: 2642792464425852566
+      TELEPHONE_38: 4310496332520038050
+      TELEPHONE_39: 332224711298767615
+      TELEPHONE_4: -5553435943608099759
+      TELEPHONE_40: 7294692512512491709
+      TELEPHONE_41: -2747821896778610710
+      TELEPHONE_42: -7594766322978533091
+      TELEPHONE_43: -2952165428692988485
+      TELEPHONE_44: 4309911691851211343
+      TELEPHONE_45: 4811241291523075684
+      TELEPHONE_46: -7074336071464000252
+      TELEPHONE_47: -7878198731841301715
+      TELEPHONE_48: -678911139436519497
+      TELEPHONE_49: -8054107303997580880
+      TELEPHONE_5: 5789838559847775470
+      TELEPHONE_50: -3220556334655197441
+      TELEPHONE_51: 2712940531685943293
+      TELEPHONE_52: -1487471334742660256
+      TELEPHONE_53: 3629112867391418796
+      TELEPHONE_54: -3075961857326078309
+      TELEPHONE_55: 6493415570899410974
+      TELEPHONE_56: 9079328203147078650
+      TELEPHONE_57: -6875384884745918725
+      TELEPHONE_58: 5827710385570246971
+      TELEPHONE_59: -2603793865056540394
+      TELEPHONE_6: 6483563528531199418
+      TELEPHONE_60: -1742101467247145140
+      TELEPHONE_61: 9053378864450108516
+      TELEPHONE_62: -759355555281133517
+      TELEPHONE_63: 312553067784043646
+      TELEPHONE_64: 4229791392478144716
+      TELEPHONE_65: 4658064421363594969
+      TELEPHONE_66: -2561907849694338267
+      TELEPHONE_67: -4815653608919240497
+      TELEPHONE_68: -1120489389595268629
+      TELEPHONE_69: 8825716193870713649
+      TELEPHONE_7: 916607970034235974
+      TELEPHONE_70: 6637961840098648771
+      TELEPHONE_71: 5346911990548978219
+      TELEPHONE_72: 7452894701970333812
+      TELEPHONE_73: 2770774729145212471
+      TELEPHONE_74: 3599964902122537679
+      TELEPHONE_75: -412091361991595916
+      TELEPHONE_76: -1756112231408674561
+      TELEPHONE_77: -1936411507700087889
+      TELEPHONE_78: 7699966953212233467
+      TELEPHONE_79: -782297604800019680
+      TELEPHONE_8: 3131534345637058381
+      TELEPHONE_80: 9027196409515016813
+      TELEPHONE_81: -9151608425939748087
+      TELEPHONE_82: 8912089614679375775
+      TELEPHONE_83: -1792245848368802972
+      TELEPHONE_84: 6595850854698944847
+      TELEPHONE_85: 7181492423613384770
+      TELEPHONE_86: 3998256496631765075
+      TELEPHONE_87: 3076117124873897909
+      TELEPHONE_88: 2253003475727642827
+      TELEPHONE_89: -8427338554355709739
+      TELEPHONE_9: -719815799518261684
+      TELEPHONE_90: -1529245973926707872
+      TELEPHONE_91: -9100975546030951785
+      TELEPHONE_92: -6310243069704526452
+      TELEPHONE_93: 6000872702499086116
+      TELEPHONE_94: 6886662930077061318
+      TELEPHONE_95: -5698780328590946323
+      TELEPHONE_96: -3162156042683803915
+      TELEPHONE_97: 6054500072857040458
+      TELEPHONE_98: 7292040782740005755
+      TELEPHONE_99: -5775189003385890272
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

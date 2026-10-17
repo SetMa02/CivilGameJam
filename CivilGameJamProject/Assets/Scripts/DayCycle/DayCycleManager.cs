@@ -34,9 +34,18 @@ namespace CivilGame.DayCycle
         private bool _isTransitioning = false;
         private bool _isGameOver = false;
 
+        // One squad dispatch per day & delayed results
+        private bool _hasDispatchedToday = false;
+        private bool _hasPendingDispatch = false;
+        private SquadType _pendingSquad;
+        private ZoneType _pendingZone;
+        private string _lastNightReport = "";
+
         public int CurrentDay => _currentDay;
         public bool IsTransitioning => _isTransitioning;
         public bool IsGameOver => _isGameOver;
+        public bool HasDispatchedToday => _hasDispatchedToday;
+        public string LastNightReport => _lastNightReport;
 
         private void Awake()
         {
@@ -59,6 +68,10 @@ namespace CivilGame.DayCycle
 
             InitializeThreatDefinitions();
             InitializeZones();
+
+            _currentDay = 1;
+            _hasDispatchedToday = false;
+            _hasPendingDispatch = false;
         }
 
         private void OnDestroy()
@@ -156,27 +169,40 @@ namespace CivilGame.DayCycle
             // --- НОЧНАЯ ФАЗА ---
             _currentDay++;
 
+            // 1. Разрешаем отправленный днем отряд спасения
+            ResolvePendingDispatch();
+
             if (_fadeDayAnnouncementText != null)
             {
-                _fadeDayAnnouncementText.text = $"ДЕНЬ {_currentDay}";
+                if (!string.IsNullOrEmpty(_lastNightReport))
+                {
+                    _fadeDayAnnouncementText.text = $"ДЕНЬ {_currentDay}\n\n<size=20><color=#e2e8f0>{_lastNightReport}</color></size>";
+                }
+                else
+                {
+                    _fadeDayAnnouncementText.text = $"ДЕНЬ {_currentDay}";
+                }
             }
 
-            // 1. Продвигаем существующие нерешенные угрозы
+            // 2. Продвигаем существующие нерешенные угрозы
             AdvanceExistingThreats();
 
-            // 2. Проверяем Game Over (все ли зоны уничтожены)
+            // 3. Проверяем Game Over (все ли зоны уничтожены)
             CheckGameOver();
 
-            // 3. Спавним новые угрозы, если игра не окончена
+            // 4. Спавним новые угрозы, если игра не окончена
             if (!_isGameOver)
             {
                 SpawnThreatsForCurrentDay();
             }
 
+            // Новый день: сбрасываем дневной лимит
+            _hasDispatchedToday = false;
+
             UpdateUIAndViews();
 
-            // Небольшая пауза в темноте
-            yield return new WaitForSeconds(0.6f);
+            // Пауза в темноте
+            yield return new WaitForSeconds(1.2f);
 
             // Fade In (экран светлеет)
             if (_fadeCanvasGroup != null)
@@ -310,13 +336,14 @@ namespace CivilGame.DayCycle
                 countToSpawn++;
             }
 
-            // Находим свободные регионы, которые не уничтожены и где еще нет активной угрозы
+            // Находим свободные регионы, которые не уничтожены, где еще нет активной угрозы и не действует иммунитет
             List<ZoneModel> availableZones = new List<ZoneModel>();
             foreach (var kvp in _zones)
             {
-                if (!kvp.Value.isDestroyed && kvp.Value.activeThreat == null)
+                ZoneModel zone = kvp.Value;
+                if (!zone.isDestroyed && zone.activeThreat == null && _currentDay > zone.immuneUntilDay)
                 {
-                    availableZones.Add(kvp.Value);
+                    availableZones.Add(zone);
                 }
             }
 
@@ -402,8 +429,168 @@ namespace CivilGame.DayCycle
 
         public ZoneModel GetZoneModel(ZoneType type)
         {
+            if (_zones.Count == 0)
+            {
+                InitializeThreatDefinitions();
+                InitializeZones();
+            }
+
             _zones.TryGetValue(type, out ZoneModel model);
             return model;
+        }
+
+        public bool DispatchSquad(ZoneType zoneType, SquadType squadType, out string resultMessage)
+        {
+            if (_zones.Count == 0)
+            {
+                InitializeThreatDefinitions();
+                InitializeZones();
+            }
+
+            if (_hasDispatchedToday)
+            {
+                resultMessage = "Штаб сообщает: на сегодня лимит исчерпан (1 отряд в день)! Дождитесь следующего дня.";
+                return false;
+            }
+
+            if (!_zones.TryGetValue(zoneType, out ZoneModel zone))
+            {
+                resultMessage = "Зона не найдена!";
+                return false;
+            }
+
+            if (zone.isDestroyed)
+            {
+                resultMessage = $"Зона {zone.zoneName} уже уничтожена! Отряд не может быть отправлен туда.";
+                return false;
+            }
+
+            _hasDispatchedToday = true;
+            _hasPendingDispatch = true;
+            _pendingSquad = squadType;
+            _pendingZone = zoneType;
+
+            string squadName = GetSquadName(squadType);
+            resultMessage = $"Запрос принят штабом!\nОтряд <b>{squadName}</b> направлен в сектор <b>{zone.zoneName}</b>.\nРезультаты операции станут известны завтра утром.";
+            Debug.Log($"[DayCycle] {resultMessage}");
+            return true;
+        }
+
+        private void ResolvePendingDispatch()
+        {
+            if (!_hasPendingDispatch)
+            {
+                _lastNightReport = "";
+                return;
+            }
+
+            _hasPendingDispatch = false;
+
+            if (!_zones.TryGetValue(_pendingZone, out ZoneModel zone))
+            {
+                _lastNightReport = "ОТЧЁТ: Координаты зоны были утеряны.";
+                return;
+            }
+
+            string squadName = GetSquadName(_pendingSquad);
+
+            if (zone.isDestroyed)
+            {
+                _lastNightReport = $"ОТЧЁТ: Отряд {squadName} прибыл в {zone.zoneName}, но сектор уже был разрушен.";
+                return;
+            }
+
+            if (zone.activeThreat == null)
+            {
+                _lastNightReport = $"ОТЧЁТ: Отряд {squadName} обследовал сектор {zone.zoneName}. Угроз не обнаружено.";
+                return;
+            }
+
+            var threat = zone.activeThreat;
+            bool isEffective = IsSquadEffective(_pendingSquad, threat);
+
+            if (isEffective)
+            {
+                string threatName = threat.definition.displayName;
+                zone.activeThreat = null;
+                // Зона получает иммунитет на текущий новый день
+                zone.immuneUntilDay = _currentDay;
+
+                // Check if all fires resolved
+                bool anyFireRemaining = false;
+                foreach (var z in _zones.Values)
+                {
+                    if (z.activeThreat != null && z.activeThreat.definition.type == ThreatType.Wildfire && z.activeThreat.currentStage >= 2)
+                    {
+                        anyFireRemaining = true;
+                        break;
+                    }
+                }
+                if (!anyFireRemaining && CivilGame.Audio.AudioManager.Instance != null)
+                {
+                    CivilGame.Audio.AudioManager.Instance.SetFireActive(false);
+                }
+
+                _lastNightReport = $"<color=#86efac>УСПЕХ!</color> Отряд {squadName} успешно ликвидировал угрозу '{threatName}' в секторе {zone.zoneName}!";
+                Debug.Log($"[DayCycle] {_lastNightReport}");
+            }
+            else
+            {
+                _lastNightReport = $"<color=#f87171>ПРОВАЛ!</color> Отряд {squadName} не смог ликвидировать угрозу в секторе {zone.zoneName}!";
+                Debug.Log($"[DayCycle] {_lastNightReport}");
+            }
+        }
+
+        public static string GetSquadName(SquadType squad)
+        {
+            switch (squad)
+            {
+                case SquadType.Irrigators: return "Irrigators";
+                case SquadType.Lumberjacks: return "Lumberjacks";
+                case SquadType.Firefighters: return "Firefighters";
+                case SquadType.RescueHelicopter: return "Rescue Helicopter";
+                case SquadType.MountainClimbers: return "Mountain Climbers";
+                case SquadType.Divers: return "Divers";
+                default: return squad.ToString();
+            }
+        }
+
+        private bool IsSquadEffective(SquadType squad, ActiveThreat threat)
+        {
+            var type = threat.definition.type;
+            int stage = threat.currentStage;
+
+            switch (squad)
+            {
+                case SquadType.Irrigators:
+                    // Оросители: убирают засуху на первых этапах (этап 1 и 2)
+                    return type == ThreatType.Drought && (stage == 1 || stage == 2);
+
+                case SquadType.Lumberjacks:
+                    // Лесорубы: убирают пожар на первом этапе (этап 1)
+                    return type == ThreatType.Wildfire && stage == 1;
+
+                case SquadType.Firefighters:
+                    // Пожарные: убирают пожар на втором этапе (этап 2)
+                    return type == ThreatType.Wildfire && stage == 2;
+
+                case SquadType.RescueHelicopter:
+                    // Спасательный вертолет: убирает пожар и оползень на критических этапах
+                    if (type == ThreatType.Wildfire && stage >= 3) return true;
+                    if (type == ThreatType.Landslide && stage >= 2) return true;
+                    return false;
+
+                case SquadType.MountainClimbers:
+                    // Альпинисты: оползень на первых этапах (этап 1)
+                    return type == ThreatType.Landslide && stage == 1;
+
+                case SquadType.Divers:
+                    // Дайверы: убирают цунами на первых этапах (этап 1)
+                    return type == ThreatType.Tsunami && stage == 1;
+
+                default:
+                    return false;
+            }
         }
 
         public void RestartGame()
