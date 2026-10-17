@@ -75,6 +75,11 @@ namespace CivilGame.Localization
 
             // HUD & General Game
             { "hud.day", ("DAY {0}", "GÜN {0}") },
+            { "hud.pause", ("PAUSE", "DURAKLAT") },
+            { "pause.title", ("GAME PAUSED", "OYUN DURAKLATILDI") },
+            { "pause.resume", ("Resume", "Devam Et") },
+            { "pause.restart", ("Restart Day", "Günü Yeniden Başlat") },
+            { "pause.main_menu", ("Exit to Menu", "Ana Menüye Dön") },
             { "gameover.title", ("ALL ZONES DESTROYED\n<size=22><color=#f87171>The island has fallen. You failed to protect the lighthouse.</color></size>",
                                  "TÜM BÖLGELER YOK EDİLDİ\n<size=22><color=#f87171>Ada yok oldu. Deniz fenerini koruyamadınız.</color></size>") },
             { "gameover.restart", ("Restart", "Yeniden Başlat") },

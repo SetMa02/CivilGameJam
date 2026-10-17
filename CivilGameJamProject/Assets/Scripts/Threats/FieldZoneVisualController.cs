@@ -98,51 +98,26 @@ namespace CivilGame.Threats
                 return;
             }
 
-            // 3. Активная угроза: ПОЖАР
+            // 3. Активная угроза: ПОЖАР (спрайты при наличии, цвет управляется LeftWindowFireVisualController)
             if (fieldModel.activeThreat != null && fieldModel.activeThreat.definition.type == ThreatType.Wildfire)
             {
                 int stage = fieldModel.activeThreat.currentStage;
 
-                if (stage == 1)
+                if (stage == 1 && _fireStage1Sprite != null)
                 {
-                    if (_fireStage1Sprite != null)
-                    {
-                        _fieldRenderer.sprite = _fireStage1Sprite;
-                        _fieldRenderer.color = Color.white;
-                    }
-                    else
-                    {
-                        if (_healthySprite != null) _fieldRenderer.sprite = _healthySprite;
-                        if (_useColorTintFallback) _fieldRenderer.color = new Color(0.85f, 0.78f, 0.65f, 1f); // Дымчатый
-                    }
+                    _fieldRenderer.sprite = _fireStage1Sprite;
                 }
-                else if (stage == 2)
+                else if (stage == 2 && _fireStage2Sprite != null)
                 {
-                    if (_fireStage2Sprite != null)
-                    {
-                        _fieldRenderer.sprite = _fireStage2Sprite;
-                        _fieldRenderer.color = Color.white;
-                    }
-                    else
-                    {
-                        if (_droughtStage2Sprite != null) _fieldRenderer.sprite = _droughtStage2Sprite;
-                        else if (_healthySprite != null) _fieldRenderer.sprite = _healthySprite;
-                        if (_useColorTintFallback) _fieldRenderer.color = new Color(1f, 0.62f, 0.42f, 1f); // Огненный
-                    }
+                    _fieldRenderer.sprite = _fireStage2Sprite;
                 }
-                else if (stage >= 3)
+                else if (stage >= 3 && _fireStage3Sprite != null)
                 {
-                    if (_fireStage3Sprite != null)
-                    {
-                        _fieldRenderer.sprite = _fireStage3Sprite;
-                        _fieldRenderer.color = Color.white;
-                    }
-                    else
-                    {
-                        if (_droughtStage3Sprite != null) _fieldRenderer.sprite = _droughtStage3Sprite;
-                        else if (_healthySprite != null) _fieldRenderer.sprite = _healthySprite;
-                        if (_useColorTintFallback) _fieldRenderer.color = new Color(0.55f, 0.35f, 0.3f, 1f); // Обугленный
-                    }
+                    _fieldRenderer.sprite = _fireStage3Sprite;
+                }
+                else if (_healthySprite != null)
+                {
+                    _fieldRenderer.sprite = _healthySprite;
                 }
                 return;
             }
