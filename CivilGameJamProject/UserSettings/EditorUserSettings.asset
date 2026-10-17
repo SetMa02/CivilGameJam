@@ -5,6 +5,9 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
   m_ConfigSettings:
+    CanvasSettings-5d402855fbfc4f1ab7cb4db0aaaa1857:
+      value: 181359392654074d0c1d3f2b0a261d4a0d550068767c7e6063795171fba26e6eb6b778b9fa767d31062de93a173b157da8114b13b45158534040ab5847a9424648924e904c9a4a5089005e94804e81ad868587b98cb8b2888b87f5aba7a7bbe5b9b3a8c490a7f3cd8caefda5a0d0859e9084e7888ecbf6e5bbd1dad4acdcc7dddde29cc6dcc5828b95cfadb28091a4af94b3ab839ba1baa491918ef03aa8ed72243d38f4ecf4f487ffe33dcd223cc68a302dd63727c6cd8dcbc82ec2c493ddcd4fa5bb9a45909d896e8b439a42406c6c737a785469517b7519333d100d21637e1a042579237c65273b21346b4941794d071b2e0933365f443b314d041676150e01474b1651697b560929263101362c27002b14212c38382a2a14240470ba667ab37d76ebda17e838e6e9fe0de50d3bd9fbf6ff0f3f0b071c0824f217c7824e48df
+      flags: 0
     QuickInstaller_com.unity.purchasing_installRecorded:
       value: 2550581500
       flags: 0
@@ -20,8 +23,8 @@ EditorUserSettings:
     RecentlyUsedSceneGuid-1:
       value: 50540d000001595d0f0b0a2149260d44444e4c79292d7333297f4b6be3e46460
       flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 0053025e52515a5d5e5b0d7a46265c44401548727a2d70667f2f4d64e3b96d3c
+    UIAuthoring.EnableHierarchyIntegration:
+      value: 37434103
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
