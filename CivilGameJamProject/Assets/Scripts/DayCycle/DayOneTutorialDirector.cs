@@ -40,6 +40,18 @@ namespace CivilGame.DayCycle
         [SerializeField] private PhoneUIController _phoneCtrl;
         [SerializeField] private DayCycleManager _dayCycle;
 
+        [Header("Lucy World Presence")]
+        [SerializeField] private GameObject _lucyStandPoint;
+        [SerializeField] private SpriteRenderer _lucySpriteRenderer;
+        [SerializeField] private Sprite _defaultLucySprite;
+
+        [Header("Camera Focus on Lucy")]
+        [SerializeField] private Vector3 _cameraDefaultPos = new Vector3(0f, 0f, -11.44f);
+        [SerializeField] private float _cameraDefaultFov = 52f;
+        [SerializeField] private Vector3 _cameraZoomedPos = new Vector3(0.29f, -1.1f, -10.2f);
+        [SerializeField] private float _cameraZoomedFov = 44f;
+        [SerializeField] private float _cameraTransitionDuration = 0.55f;
+
         [Header("Tutorial Dialogue Customization (Day 1 & Day 2)")]
         [Tooltip("Replica 1: Welcome aboard, new ranger...")]
         [SerializeField] private DialogueLineData _line1 = new DialogueLineData();
@@ -84,6 +96,22 @@ namespace CivilGame.DayCycle
             if (_bookCtrl == null) _bookCtrl = FindAnyObjectByType<BookUIController>(FindObjectsInactive.Include);
             if (_phoneCtrl == null) _phoneCtrl = FindAnyObjectByType<PhoneUIController>(FindObjectsInactive.Include);
             if (_dayCycle == null) _dayCycle = DayCycleManager.Instance != null ? DayCycleManager.Instance : FindAnyObjectByType<DayCycleManager>(FindObjectsInactive.Include);
+
+            if (_lucyStandPoint == null)
+            {
+                var lspObj = GameObject.Find("LucyStandPoint");
+                if (lspObj != null) _lucyStandPoint = lspObj;
+            }
+
+            if (_lucyStandPoint != null && _lucySpriteRenderer == null)
+            {
+                _lucySpriteRenderer = _lucyStandPoint.GetComponent<SpriteRenderer>();
+            }
+
+            if (_defaultLucySprite == null && _lucySpriteRenderer != null)
+            {
+                _defaultLucySprite = _lucySpriteRenderer.sprite;
+            }
         }
 
         private void Start()
@@ -92,11 +120,74 @@ namespace CivilGame.DayCycle
 
             if (_isTutorialActive)
             {
+                if (_lucyStandPoint != null) _lucyStandPoint.SetActive(true);
                 StartCoroutine(RunDayOneSequenceRoutine());
             }
             else
             {
+                if (_lucyStandPoint != null) _lucyStandPoint.SetActive(false);
                 _currentState = TutorialState.Completed;
+            }
+        }
+
+        private void SetLucyWorldSprite(Sprite customSprite)
+        {
+            if (_lucySpriteRenderer == null && _lucyStandPoint != null)
+            {
+                _lucySpriteRenderer = _lucyStandPoint.GetComponent<SpriteRenderer>();
+            }
+
+            if (_lucySpriteRenderer != null)
+            {
+                _lucySpriteRenderer.sprite = (customSprite != null) ? customSprite : _defaultLucySprite;
+            }
+        }
+
+        private IEnumerator ZoomCameraToLucyRoutine()
+        {
+            yield return StartCoroutine(TransitionCameraRoutine(_cameraZoomedPos, _cameraZoomedFov, _cameraTransitionDuration));
+        }
+
+        private IEnumerator ResetCameraZoomRoutine()
+        {
+            yield return StartCoroutine(TransitionCameraRoutine(_cameraDefaultPos, _cameraDefaultFov, _cameraTransitionDuration));
+        }
+
+        private IEnumerator TransitionCameraRoutine(Vector3 targetPos, float targetFov, float duration)
+        {
+            var cam = Camera.main;
+            if (cam == null) yield break;
+
+            var parallaxCtrl = CivilGame.CameraEffects.WindowParallaxController.Instance != null 
+                ? CivilGame.CameraEffects.WindowParallaxController.Instance 
+                : FindAnyObjectByType<CivilGame.CameraEffects.WindowParallaxController>();
+
+            if (parallaxCtrl != null)
+            {
+                parallaxCtrl.IsLockedBySequence = true;
+            }
+
+            Vector3 startPos = cam.transform.position;
+            float startFov = cam.fieldOfView;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / duration);
+                float ease = t * t * (3f - 2f * t);
+
+                cam.transform.position = Vector3.Lerp(startPos, targetPos, ease);
+                cam.fieldOfView = Mathf.Lerp(startFov, targetFov, ease);
+                yield return null;
+            }
+
+            cam.transform.position = targetPos;
+            cam.fieldOfView = targetFov;
+
+            if (parallaxCtrl != null && targetPos == _cameraDefaultPos)
+            {
+                parallaxCtrl.IsLockedBySequence = false;
             }
         }
 
@@ -127,35 +218,46 @@ namespace CivilGame.DayCycle
 
             // --- REPLICA 1 ---
             _currentState = TutorialState.Intro1;
+            SetLucyWorldSprite(_line1.portrait);
+            yield return StartCoroutine(ZoomCameraToLucyRoutine());
+
             bool advance = false;
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line1"),
                 () => advance = true,
-                _line1);
+                _line1,
+                showUiPortrait: false);
             while (!advance) yield return null;
 
             // --- REPLICA 2 ---
             _currentState = TutorialState.Intro2;
+            SetLucyWorldSprite(_line2.portrait);
             advance = false;
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line2"),
                 () => advance = true,
-                _line2);
+                _line2,
+                showUiPortrait: false);
             while (!advance) yield return null;
 
             // --- REPLICA 3 (Prompt Left Window) ---
             _currentState = TutorialState.Intro3;
+            SetLucyWorldSprite(_line3.portrait);
             advance = false;
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line3"),
                 () => advance = true,
-                _line3);
+                _line3,
+                showUiPortrait: false);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
+
+            // Zoom camera back out so player sees window arrows and hall
+            yield return StartCoroutine(ResetCameraZoomRoutine());
 
             // --- WAIT FOR PLAYER TO ENTER LEFT WINDOW ---
             _currentState = TutorialState.WaitLeftWindow;
@@ -169,12 +271,14 @@ namespace CivilGame.DayCycle
 
             // --- REPLICA 4 (React to Left Window & Prompt Right Window) ---
             _currentState = TutorialState.LeftWindowReaction;
+            SetLucyWorldSprite(_line4.portrait);
             advance = false;
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line4"),
                 () => advance = true,
-                _line4);
+                _line4,
+                showUiPortrait: true);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
@@ -190,12 +294,14 @@ namespace CivilGame.DayCycle
 
             // --- REPLICA 5 (React to Right Window & Prompt Book) ---
             _currentState = TutorialState.RightWindowReaction;
+            SetLucyWorldSprite(_line5.portrait);
             advance = false;
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line5"),
                 () => advance = true,
-                _line5);
+                _line5,
+                showUiPortrait: true);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
@@ -238,15 +344,22 @@ namespace CivilGame.DayCycle
 
             // --- REPLICA 6 (Prompt Phone Call) ---
             _currentState = TutorialState.BookReaction;
+            SetLucyWorldSprite(_line6.portrait);
+            yield return StartCoroutine(ZoomCameraToLucyRoutine());
+
             advance = false;
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line6"),
                 () => advance = true,
-                _line6);
+                _line6,
+                showUiPortrait: false);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
+
+            // Zoom camera back out so player can see and click phone
+            yield return StartCoroutine(ResetCameraZoomRoutine());
 
             // Safety delay so dialogue advance click does not bleed into objects
             yield return new WaitForSeconds(0.2f);
@@ -284,15 +397,22 @@ namespace CivilGame.DayCycle
 
             // --- REPLICA 7 (Nice job & Nighty-Night) ---
             _currentState = TutorialState.DispatchReaction;
+            SetLucyWorldSprite(_line7.portrait);
+            yield return StartCoroutine(ZoomCameraToLucyRoutine());
+
             advance = false;
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line7"),
                 () => advance = true,
-                _line7);
+                _line7,
+                showUiPortrait: false);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
+
+            // Zoom camera back out so player can click bed to sleep
+            yield return StartCoroutine(ResetCameraZoomRoutine());
 
             // --- WAIT FOR BED SLEEP TO START ---
             _currentState = TutorialState.WaitSleep;
@@ -305,15 +425,26 @@ namespace CivilGame.DayCycle
             yield return new WaitForSeconds(1.2f);
 
             _currentState = TutorialState.Day2MorningFarewell;
+            SetLucyWorldSprite(_line8.portrait);
+            yield return StartCoroutine(ZoomCameraToLucyRoutine());
+
             advance = false;
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line8"),
                 () => advance = true,
-                _line8);
+                _line8,
+                showUiPortrait: false);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
+
+            // Zoom back out and Lucy leaves
+            yield return StartCoroutine(ResetCameraZoomRoutine());
+            if (_lucyStandPoint != null)
+            {
+                _lucyStandPoint.SetActive(false);
+            }
 
             // Tutorial successfully completed!
             PlayerPrefs.SetInt(TutorialPrefKey, 1);

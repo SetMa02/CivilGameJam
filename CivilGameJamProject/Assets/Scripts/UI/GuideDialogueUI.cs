@@ -91,17 +91,17 @@ namespace CivilGame.UI
 
         public void ShowDialogue(string speaker, string message, Action onComplete = null)
         {
-            ShowDialogue(speaker, message, onComplete, null, null);
+            ShowDialogue(speaker, message, onComplete, null, null, true);
         }
 
-        public void ShowDialogue(string speaker, string message, Action onComplete, DialogueLineData lineData)
+        public void ShowDialogue(string speaker, string message, Action onComplete, DialogueLineData lineData, bool showUiPortrait = true)
         {
             Sprite p = lineData != null ? lineData.portrait : null;
             AudioClip v = lineData != null ? lineData.voiceClip : null;
-            ShowDialogue(speaker, message, onComplete, p, v);
+            ShowDialogue(speaker, message, onComplete, p, v, showUiPortrait);
         }
 
-        public void ShowDialogue(string speaker, string message, Action onComplete, Sprite customPortrait, AudioClip voiceClip)
+        public void ShowDialogue(string speaker, string message, Action onComplete, Sprite customPortrait, AudioClip voiceClip, bool showUiPortrait = true)
         {
             if (_dialogueRoot != null)
             {
@@ -110,14 +110,17 @@ namespace CivilGame.UI
 
             if (_characterPortrait != null)
             {
-                _characterPortrait.gameObject.SetActive(true);
-                if (customPortrait != null)
+                _characterPortrait.gameObject.SetActive(showUiPortrait);
+                if (showUiPortrait)
                 {
-                    _characterPortrait.sprite = customPortrait;
-                }
-                else if (_defaultPortrait != null)
-                {
-                    _characterPortrait.sprite = _defaultPortrait;
+                    if (customPortrait != null)
+                    {
+                        _characterPortrait.sprite = customPortrait;
+                    }
+                    else if (_defaultPortrait != null)
+                    {
+                        _characterPortrait.sprite = _defaultPortrait;
+                    }
                 }
             }
 
