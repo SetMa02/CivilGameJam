@@ -1858,6 +1858,7 @@ GameObject:
   - component: {fileID: 211214838}
   - component: {fileID: 211214840}
   - component: {fileID: 211214839}
+  - component: {fileID: 211214841}
   m_Layer: 0
   m_Name: NavigationCanvas
   m_TagString: Untagged
@@ -1994,6 +1995,30 @@ MonoBehaviour:
   _bookCtrl: {fileID: 1582728195}
   _phoneCtrl: {fileID: 1448595360}
   _dayCycle: {fileID: 1017903614}
+  _line1:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: ecb10ab11ce7d924c847e8027ce6d4b2, type: 3}
+  _line2:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 05322e4aa519722419b828b72db9afcb, type: 3}
+  _line3:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 9a5770a5868e2974eaf97b4f98658470, type: 3}
+  _line4:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: bfe7f62f8569da445837a6db65b923ee, type: 3}
+  _line5:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 24502504535eeb345ba30db5ba8279af, type: 3}
+  _line6:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: f4160e77f8013ea48951b5dc2eddea12, type: 3}
+  _line7:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: bd173a0d9b227ab43bf617456ea1368b, type: 3}
+  _line8:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 2abe4ad6c324e114f858cfa0c21ad26f, type: 3}
   _currentState: 0
   _isTutorialActive: 0
 --- !u!114 &211214840
@@ -2014,8 +2039,107 @@ MonoBehaviour:
   _messageText: {fileID: 1483984195}
   _continuePromptText: {fileID: 934055343}
   _clickToAdvanceButton: {fileID: 1975435405}
+  _defaultPortrait: {fileID: 21300000, guid: 715e6aed720136646856f1418e6e90a6, type: 3}
+  _voiceAudioSource: {fileID: 211214841}
   _typewriterSpeed: 0.02
   _speechBlipSound: {fileID: 0}
+--- !u!82 &211214841
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211214833}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &212942305
 GameObject:
   m_ObjectHideFlags: 0
@@ -11175,7 +11299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &934055342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11391,6 +11515,15 @@ MonoBehaviour:
   _baseThreats: 1
   _threatGrowthPerDay: 0.5
   _endGameSceneName: NewScene
+  _endingPerfect:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 0}
+  _endingRestored:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 0}
+  _endingFailed:
+    portrait: {fileID: 0}
+    voiceClip: {fileID: 0}
   _dayCounterText: {fileID: 1603966965}
   _fadeCanvasGroup: {fileID: 201929515}
   _fadeDayAnnouncementText: {fileID: 1428647877}
@@ -14590,7 +14723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ah, my-my, hello! Welcome aboard, new ranger. My name is Lucy, you will be working with me.
+  m_text: T
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35cc148fe9178144fae8c1f08c44e710, type: 2}
   m_sharedMaterial: {fileID: -6915468833598196822, guid: 35cc148fe9178144fae8c1f08c44e710, type: 2}
@@ -23950,7 +24083,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1975435403}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []

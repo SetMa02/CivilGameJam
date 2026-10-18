@@ -40,6 +40,24 @@ namespace CivilGame.DayCycle
         [SerializeField] private PhoneUIController _phoneCtrl;
         [SerializeField] private DayCycleManager _dayCycle;
 
+        [Header("Tutorial Dialogue Customization (Day 1 & Day 2)")]
+        [Tooltip("Replica 1: Welcome aboard, new ranger...")]
+        [SerializeField] private DialogueLineData _line1 = new DialogueLineData();
+        [Tooltip("Replica 2: Our job is to keep an eye on nature...")]
+        [SerializeField] private DialogueLineData _line2 = new DialogueLineData();
+        [Tooltip("Replica 3: You can click on windows... check left window")]
+        [SerializeField] private DialogueLineData _line3 = new DialogueLineData();
+        [Tooltip("Replica 4: My-my! We have a little situation here... check right")]
+        [SerializeField] private DialogueLineData _line4 = new DialogueLineData();
+        [Tooltip("Replica 5: Looks calm... drought on left, open book")]
+        [SerializeField] private DialogueLineData _line5 = new DialogueLineData();
+        [Tooltip("Replica 6: As it says here, report by phone")]
+        [SerializeField] private DialogueLineData _line6 = new DialogueLineData();
+        [Tooltip("Replica 7: Nice job, pal! Shift is over, rest / shop")]
+        [SerializeField] private DialogueLineData _line7 = new DialogueLineData();
+        [Tooltip("Replica 8 (Day 2 morning): Hello-hello! Leaving for 7 days...")]
+        [SerializeField] private DialogueLineData _line8 = new DialogueLineData();
+
         [Header("Tutorial State")]
         [SerializeField] private TutorialState _currentState = TutorialState.None;
         [SerializeField] private bool _isTutorialActive = false;
@@ -113,7 +131,8 @@ namespace CivilGame.DayCycle
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line1"),
-                () => advance = true);
+                () => advance = true,
+                _line1);
             while (!advance) yield return null;
 
             // --- REPLICA 2 ---
@@ -122,7 +141,8 @@ namespace CivilGame.DayCycle
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line2"),
-                () => advance = true);
+                () => advance = true,
+                _line2);
             while (!advance) yield return null;
 
             // --- REPLICA 3 (Prompt Left Window) ---
@@ -131,7 +151,8 @@ namespace CivilGame.DayCycle
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line3"),
-                () => advance = true);
+                () => advance = true,
+                _line3);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
@@ -152,7 +173,8 @@ namespace CivilGame.DayCycle
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line4"),
-                () => advance = true);
+                () => advance = true,
+                _line4);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
@@ -172,7 +194,8 @@ namespace CivilGame.DayCycle
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line5"),
-                () => advance = true);
+                () => advance = true,
+                _line5);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
@@ -219,7 +242,8 @@ namespace CivilGame.DayCycle
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line6"),
-                () => advance = true);
+                () => advance = true,
+                _line6);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
@@ -264,7 +288,8 @@ namespace CivilGame.DayCycle
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line7"),
-                () => advance = true);
+                () => advance = true,
+                _line7);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();
@@ -284,7 +309,8 @@ namespace CivilGame.DayCycle
             GuideDialogueUI.Instance.ShowDialogue(
                 LocalizationManager.Get("guide.name"),
                 LocalizationManager.Get("guide.line8"),
-                () => advance = true);
+                () => advance = true,
+                _line8);
             while (!advance) yield return null;
 
             GuideDialogueUI.Instance.HideDialogue();

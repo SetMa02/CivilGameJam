@@ -6,6 +6,16 @@ using TMPro;
 
 namespace CivilGame.UI
 {
+    [System.Serializable]
+    public class DialogueLineData
+    {
+        [Tooltip("Optional custom portrait for this replica. If null, the default Lucy sprite will be used.")]
+        public Sprite portrait;
+
+        [Tooltip("Voiceover audio clip that plays when this replica appears.")]
+        public AudioClip voiceClip;
+    }
+
     public class GuideDialogueUI : MonoBehaviour
     {
         public static GuideDialogueUI Instance { get; private set; }
@@ -17,6 +27,12 @@ namespace CivilGame.UI
         [SerializeField] private TextMeshProUGUI _messageText;
         [SerializeField] private TextMeshProUGUI _continuePromptText;
         [SerializeField] private Button _clickToAdvanceButton;
+
+        [Header("Audio & Portrait Settings")]
+        [Tooltip("Default sprite used when custom portrait is null.")]
+        [SerializeField] private Sprite _defaultPortrait;
+        [Tooltip("AudioSource used to play line voice acting.")]
+        [SerializeField] private AudioSource _voiceAudioSource;
 
         [Header("Settings")]
         [SerializeField] private float _typewriterSpeed = 0.025f;
@@ -39,6 +55,21 @@ namespace CivilGame.UI
             }
             Instance = this;
 
+            if (_defaultPortrait == null && _characterPortrait != null)
+            {
+                _defaultPortrait = _characterPortrait.sprite;
+            }
+
+            if (_voiceAudioSource == null)
+            {
+                _voiceAudioSource = GetComponent<AudioSource>();
+                if (_voiceAudioSource == null)
+                {
+                    _voiceAudioSource = gameObject.AddComponent<AudioSource>();
+                    _voiceAudioSource.playOnAwake = false;
+                }
+            }
+
             if (_clickToAdvanceButton != null)
             {
                 _clickToAdvanceButton.onClick.AddListener(OnAdvanceClicked);
@@ -60,6 +91,18 @@ namespace CivilGame.UI
 
         public void ShowDialogue(string speaker, string message, Action onComplete = null)
         {
+            ShowDialogue(speaker, message, onComplete, null, null);
+        }
+
+        public void ShowDialogue(string speaker, string message, Action onComplete, DialogueLineData lineData)
+        {
+            Sprite p = lineData != null ? lineData.portrait : null;
+            AudioClip v = lineData != null ? lineData.voiceClip : null;
+            ShowDialogue(speaker, message, onComplete, p, v);
+        }
+
+        public void ShowDialogue(string speaker, string message, Action onComplete, Sprite customPortrait, AudioClip voiceClip)
+        {
             if (_dialogueRoot != null)
             {
                 _dialogueRoot.SetActive(true);
@@ -68,6 +111,24 @@ namespace CivilGame.UI
             if (_characterPortrait != null)
             {
                 _characterPortrait.gameObject.SetActive(true);
+                if (customPortrait != null)
+                {
+                    _characterPortrait.sprite = customPortrait;
+                }
+                else if (_defaultPortrait != null)
+                {
+                    _characterPortrait.sprite = _defaultPortrait;
+                }
+            }
+
+            if (_voiceAudioSource != null)
+            {
+                _voiceAudioSource.Stop();
+                if (voiceClip != null)
+                {
+                    _voiceAudioSource.clip = voiceClip;
+                    _voiceAudioSource.Play();
+                }
             }
 
             if (_speakerNameText != null)
@@ -157,6 +218,11 @@ namespace CivilGame.UI
             {
                 StopCoroutine(_typewriterCoroutine);
                 _typewriterCoroutine = null;
+            }
+
+            if (_voiceAudioSource != null && _voiceAudioSource.isPlaying)
+            {
+                _voiceAudioSource.Stop();
             }
 
             _isTyping = false;

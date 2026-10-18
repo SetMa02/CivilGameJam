@@ -20,6 +20,14 @@ namespace CivilGame.DayCycle
         [Header("Ending Settings")]
         [SerializeField] private string _endGameSceneName = "NewScene";
 
+        [Header("Ending Dialogue Customization (Day 8)")]
+        [Tooltip("Ending 1 (Perfect run): Hello-hello! All preserved...")]
+        [SerializeField] private DialogueLineData _endingPerfect = new DialogueLineData();
+        [Tooltip("Ending 2 (Restored): High price for mistakes...")]
+        [SerializeField] private DialogueLineData _endingRestored = new DialogueLineData();
+        [Tooltip("Ending 3 (Failed zones): RANGER! What is this?! Why is a zone dead?!")]
+        [SerializeField] private DialogueLineData _endingFailed = new DialogueLineData();
+
         [Header("UI References")]
         [SerializeField] private TextMeshProUGUI _dayCounterText;
         [SerializeField] private CanvasGroup _fadeCanvasGroup;
@@ -387,20 +395,24 @@ namespace CivilGame.DayCycle
             }
 
             string endingKey;
+            DialogueLineData selectedLineData = null;
             if (hasCurrentlyDestroyedZone)
             {
                 // Ending 3: Bad ending (some zones dead)
                 endingKey = "ending.failed_zones";
+                selectedLineData = _endingFailed;
             }
             else if (_hasAnyZoneEverBeenRestored)
             {
                 // Ending 2: Zones were destroyed but restored
                 endingKey = "ending.restored";
+                selectedLineData = _endingRestored;
             }
             else
             {
                 // Ending 1: Perfect run (all preserved)
                 endingKey = "ending.perfect";
+                selectedLineData = _endingPerfect;
             }
 
             bool advanceDialogue = false;
@@ -409,7 +421,8 @@ namespace CivilGame.DayCycle
                 GuideDialogueUI.Instance.ShowDialogue(
                     CivilGame.Localization.LocalizationManager.Get("guide.name"),
                     CivilGame.Localization.LocalizationManager.Get(endingKey),
-                    () => advanceDialogue = true);
+                    () => advanceDialogue = true,
+                    selectedLineData);
             }
             else
             {
