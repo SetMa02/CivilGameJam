@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using CivilGame.Threats;
+using CivilGame.UI;
 
 namespace CivilGame.DayCycle
 {
@@ -15,6 +16,9 @@ namespace CivilGame.DayCycle
         [SerializeField] private int _currentDay = 1;
         [SerializeField] private float _baseThreats = 1.0f;
         [SerializeField] private float _threatGrowthPerDay = 0.5f;
+
+        [Header("Ending Settings")]
+        [SerializeField] private string _endGameSceneName = "NewScene";
 
         [Header("UI References")]
         [SerializeField] private TextMeshProUGUI _dayCounterText;
@@ -33,6 +37,15 @@ namespace CivilGame.DayCycle
         private List<ThreatDefinition> _threatDefinitions = new List<ThreatDefinition>();
         private bool _isTransitioning = false;
         private bool _isGameOver = false;
+
+        private bool _hasAnyZoneEverBeenDestroyed = false;
+        private bool _hasAnyZoneEverBeenRestored = false;
+
+        public bool HasAnyZoneEverBeenDestroyed => _hasAnyZoneEverBeenDestroyed;
+        public bool HasAnyZoneEverBeenRestored => _hasAnyZoneEverBeenRestored;
+
+        public void SetZoneEverRestored(bool val) => _hasAnyZoneEverBeenRestored = val;
+        public void SetZoneEverDestroyed(bool val) => _hasAnyZoneEverBeenDestroyed = val;
 
         [System.Serializable]
         public struct SquadDispatchOrder
@@ -122,12 +135,20 @@ namespace CivilGame.DayCycle
                 _fadeCanvasGroup.blocksRaycasts = false;
             }
 
-            // Spawn initial threats for Day 1
-            SpawnThreatsForCurrentDay();
-            UpdateUIAndViews();
+            bool isTutorial = PlayerPrefs.GetInt(DayOneTutorialDirector.TutorialPrefKey, 0) == 0;
+            if (isTutorial)
+            {
+                _currentDay = 1;
+                // Scripted Day 1: DayOneTutorialDirector handles the single scripted threat (Drought)
+            }
+            else
+            {
+                _currentDay = 2; // Starts directly on Day 2 if restarting or tutorial completed
+                SpawnThreatsForCurrentDay();
+                TriggerMorningThreatAudioAndEffects();
+            }
 
-            // Morning sound cues for day 1
-            TriggerMorningThreatAudioAndEffects();
+            UpdateUIAndViews();
         }
 
         private void InitializeThreatDefinitions()
@@ -162,6 +183,11 @@ namespace CivilGame.DayCycle
         public void TrySleep()
         {
             if (_isTransitioning || _isGameOver) return;
+            if (DayOneTutorialDirector.Instance != null && !DayOneTutorialDirector.Instance.CanSleepNow())
+            {
+                Debug.Log("[DayCycle] You cannot sleep yet during tutorial until shift is completed!");
+                return;
+            }
             StartCoroutine(DayTransitionRoutine());
         }
 
@@ -229,6 +255,13 @@ namespace CivilGame.DayCycle
 
             // 1. Разрешаем отправленный днем отряд спасения
             ResolvePendingDispatch();
+
+            // Проверка достижения 8-го дня (Конец игры)
+            if (_currentDay >= 8)
+            {
+                yield return StartCoroutine(EndGameRoutine(parallaxCtrl));
+                yield break;
+            }
 
             if (_fadeDayAnnouncementText != null)
             {
@@ -298,6 +331,120 @@ namespace CivilGame.DayCycle
             TriggerMorningThreatAudioAndEffects();
 
             _isTransitioning = false;
+        }
+
+        private IEnumerator EndGameRoutine(CivilGame.CameraEffects.WindowParallaxController parallaxCtrl)
+        {
+            if (_fadeDayAnnouncementText != null)
+            {
+                string dayHeader = CivilGame.Localization.LocalizationManager.Get("hud.day", _currentDay);
+                if (!string.IsNullOrEmpty(_lastNightReport))
+                {
+                    _fadeDayAnnouncementText.text = $"{dayHeader}\n\n<size=20><color=#e2e8f0>{_lastNightReport}</color></size>";
+                }
+                else
+                {
+                    _fadeDayAnnouncementText.text = dayHeader;
+                }
+            }
+
+            UpdateUIAndViews();
+
+            yield return new WaitForSeconds(2.8f);
+
+            // Fade in morning
+            if (_fadeCanvasGroup != null)
+            {
+                float duration = 1.0f;
+                float elapsed = 0f;
+                while (elapsed < duration)
+                {
+                    elapsed += Time.deltaTime;
+                    _fadeCanvasGroup.alpha = Mathf.Clamp01(1f - (elapsed / duration));
+                    yield return null;
+                }
+                _fadeCanvasGroup.alpha = 0f;
+                _fadeCanvasGroup.blocksRaycasts = false;
+            }
+
+            if (parallaxCtrl != null)
+            {
+                parallaxCtrl.IsLockedBySequence = false;
+            }
+
+            yield return new WaitForSeconds(0.8f);
+
+            // Determine which ending to play:
+            // 1. Any zone currently destroyed?
+            bool hasCurrentlyDestroyedZone = false;
+            foreach (var kvp in _zones)
+            {
+                if (kvp.Value.isDestroyed)
+                {
+                    hasCurrentlyDestroyedZone = true;
+                    break;
+                }
+            }
+
+            string endingKey;
+            if (hasCurrentlyDestroyedZone)
+            {
+                // Ending 3: Bad ending (some zones dead)
+                endingKey = "ending.failed_zones";
+            }
+            else if (_hasAnyZoneEverBeenRestored)
+            {
+                // Ending 2: Zones were destroyed but restored
+                endingKey = "ending.restored";
+            }
+            else
+            {
+                // Ending 1: Perfect run (all preserved)
+                endingKey = "ending.perfect";
+            }
+
+            bool advanceDialogue = false;
+            if (GuideDialogueUI.Instance != null)
+            {
+                GuideDialogueUI.Instance.ShowDialogue(
+                    CivilGame.Localization.LocalizationManager.Get("guide.name"),
+                    CivilGame.Localization.LocalizationManager.Get(endingKey),
+                    () => advanceDialogue = true);
+            }
+            else
+            {
+                advanceDialogue = true;
+            }
+
+            while (!advanceDialogue)
+            {
+                yield return null;
+            }
+
+            if (GuideDialogueUI.Instance != null)
+            {
+                GuideDialogueUI.Instance.HideDialogue();
+            }
+
+            // Fade out to black before loading NewScene
+            if (_fadeCanvasGroup != null)
+            {
+                _fadeCanvasGroup.blocksRaycasts = true;
+                float duration = 1.2f;
+                float elapsed = 0f;
+                while (elapsed < duration)
+                {
+                    elapsed += Time.deltaTime;
+                    _fadeCanvasGroup.alpha = Mathf.Clamp01(elapsed / duration);
+                    yield return null;
+                }
+                _fadeCanvasGroup.alpha = 1f;
+            }
+
+            yield return new WaitForSeconds(0.4f);
+
+            Debug.Log($"[DayCycle] End Game reached. Transitioning to '{_endGameSceneName}'...");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(_endGameSceneName);
         }
 
         private void TriggerMorningThreatAudioAndEffects()
@@ -393,6 +540,7 @@ namespace CivilGame.DayCycle
                     // Угроза достигла предела и не была устранена -> регион уничтожен!
                     zone.isDestroyed = true;
                     zone.activeThreat = null;
+                    _hasAnyZoneEverBeenDestroyed = true;
                     Debug.Log($"[DayCycle] Зона {zone.zoneName} ПОЛНОСТЬЮ УНИЧТОЖЕНА!");
                 }
                 else
@@ -696,6 +844,7 @@ namespace CivilGame.DayCycle
                 zone.isDestroyed = false;
                 zone.activeThreat = null;
                 zone.immuneUntilDay = _currentDay; // 1 день защиты
+                _hasAnyZoneEverBeenRestored = true;
                 UpdateUIAndViews();
                 Debug.Log($"[Shop] Зона {zone.zoneName} полностью восстановлена!");
                 return true;
@@ -811,6 +960,8 @@ namespace CivilGame.DayCycle
 
         public void RestartGame()
         {
+            PlayerPrefs.SetInt(DayOneTutorialDirector.TutorialPrefKey, 1);
+            PlayerPrefs.Save();
             UnityEngine.SceneManagement.SceneManager.LoadScene(
                 UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }

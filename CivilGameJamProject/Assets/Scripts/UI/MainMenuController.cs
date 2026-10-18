@@ -132,7 +132,9 @@ namespace CivilGame.UI
 
         public void OnNewGameClicked()
         {
-            Debug.Log($"[MainMenu] Starting New Game, loading scene: {_gameSceneName}");
+            PlayerPrefs.SetInt("TutorialCompleted", 0);
+            PlayerPrefs.Save();
+            Debug.Log($"[MainMenu] Starting New Game (Tutorial reset), loading scene: {_gameSceneName}");
             SceneManager.LoadScene(_gameSceneName);
         }
 

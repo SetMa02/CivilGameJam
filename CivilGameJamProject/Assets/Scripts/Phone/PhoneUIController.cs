@@ -75,7 +75,12 @@ namespace CivilGame.Phone
         private string _selectedSquadName;
         private Coroutine _feedbackCoroutine;
 
+        private float _lastOpenedTime = -1f;
+
         public bool IsOpen => _rootPanel != null && _rootPanel.activeSelf;
+        public event System.Action OnPhoneOpened;
+        public event System.Action OnPhoneClosed;
+        public event System.Action<ZoneType, SquadType> OnSquadDispatchedSuccess;
 
         private void Awake()
         {
@@ -92,7 +97,7 @@ namespace CivilGame.Phone
         private void WireListeners()
         {
             // Wire main buttons
-            if (_outsideCloseButton != null) { _outsideCloseButton.onClick.RemoveAllListeners(); _outsideCloseButton.onClick.AddListener(ClosePhone); }
+            if (_outsideCloseButton != null) { _outsideCloseButton.onClick.RemoveAllListeners(); _outsideCloseButton.onClick.AddListener(OnBackdropClicked); }
             if (_reportButton != null) { _reportButton.onClick.RemoveAllListeners(); _reportButton.onClick.AddListener(OnReportClicked); }
             if (_shopButton != null) { _shopButton.onClick.RemoveAllListeners(); _shopButton.onClick.AddListener(OnShopClicked); }
             if (_squadBackButton != null) { _squadBackButton.onClick.RemoveAllListeners(); _squadBackButton.onClick.AddListener(ShowMainMenu); }
@@ -126,6 +131,12 @@ namespace CivilGame.Phone
         public void TriggerBuyPauseGrowth() => OnBuyPauseGrowth();
         public void TriggerBuyRollback() => OnBuyRollback();
 
+        private void OnBackdropClicked()
+        {
+            if (Time.unscaledTime - _lastOpenedTime < 0.15f) return;
+            ClosePhone();
+        }
+
         private void Start()
         {
             ClosePhone();
@@ -133,15 +144,18 @@ namespace CivilGame.Phone
 
         public void OpenPhone()
         {
+            _lastOpenedTime = Time.unscaledTime;
             if (_rootPanel != null) _rootPanel.SetActive(true);
             ShowMainMenu();
             ClearFeedback();
+            OnPhoneOpened?.Invoke();
         }
 
         public void ClosePhone()
         {
             if (_rootPanel != null) _rootPanel.SetActive(false);
             ClearFeedback();
+            OnPhoneClosed?.Invoke();
         }
 
         public void ShowMainMenu()
@@ -222,6 +236,7 @@ namespace CivilGame.Phone
             if (success)
             {
                 ShowFeedback($"<color=#38bdf8>{message}</color>");
+                OnSquadDispatchedSuccess?.Invoke(zone, _selectedSquad);
             }
             else
             {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 namespace CivilGame.Lighthouse
 {
@@ -72,6 +73,17 @@ namespace CivilGame.Lighthouse
                 if (_mainCamera == null) return;
             }
 
+            // If mouse pointer is over a UI element (e.g. Dialogue, Menu, Buttons), do not interact with 2D world objects
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                if (_isHovered)
+                {
+                    _isHovered = false;
+                    SetHoverState(false);
+                }
+                return;
+            }
+
             Vector2 mouseScreenPos = Vector2.zero;
             bool mouseWasPressed = false;
             if (Mouse.current != null)
@@ -80,10 +92,21 @@ namespace CivilGame.Lighthouse
                 mouseWasPressed = Mouse.current.leftButton.wasPressedThisFrame;
             }
 
-            Vector3 worldPos = _mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPos.x, mouseScreenPos.y, -_mainCamera.transform.position.z));
-            Vector2 worldPos2D = new Vector2(worldPos.x, worldPos.y);
+            // Accurate Perspective-to-2D detection using Camera.ScreenPointToRay:
+            Ray ray = _mainCamera.ScreenPointToRay(mouseScreenPos);
+            RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+            bool hoveringNow = (hit.collider == _collider);
 
-            bool hoveringNow = _collider.OverlapPoint(worldPos2D);
+            // Fallback for edge cases with direct plane point
+            if (!hoveringNow && _collider != null)
+            {
+                float distanceToPlane = transform.position.z - _mainCamera.transform.position.z;
+                if (distanceToPlane > 0f)
+                {
+                    Vector3 worldPointOnPlane = _mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPos.x, mouseScreenPos.y, distanceToPlane));
+                    hoveringNow = _collider.OverlapPoint(new Vector2(worldPointOnPlane.x, worldPointOnPlane.y));
+                }
+            }
 
             if (hoveringNow != _isHovered)
             {
@@ -128,3 +151,4 @@ namespace CivilGame.Lighthouse
         }
     }
 }
+

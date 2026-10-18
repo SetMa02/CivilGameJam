@@ -132,6 +132,8 @@ namespace CivilGame.UI
         public void RestartGame()
         {
             Time.timeScale = 1f;
+            PlayerPrefs.SetInt(CivilGame.DayCycle.DayOneTutorialDirector.TutorialPrefKey, 1);
+            PlayerPrefs.Save();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 

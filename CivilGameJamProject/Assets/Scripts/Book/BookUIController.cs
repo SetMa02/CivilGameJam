@@ -40,7 +40,11 @@ namespace CivilGame.Book
         [SerializeField] private AudioClip _bookCloseClip;
         [SerializeField] private AudioSource _audioSource;
 
+        private float _lastOpenedTime = -1f;
+
         public bool IsOpen => _bookRootPanel != null && _bookRootPanel.activeSelf;
+        public event System.Action OnBookOpened;
+        public event System.Action OnBookClosed;
 
         private void Awake()
         {
@@ -51,7 +55,7 @@ namespace CivilGame.Book
 
             if (_outsideClickBackdrop != null)
             {
-                _outsideClickBackdrop.onClick.AddListener(() => CloseBook(true));
+                _outsideClickBackdrop.onClick.AddListener(OnBackdropClicked);
             }
 
             if (_prevPageButton != null)
@@ -63,6 +67,13 @@ namespace CivilGame.Book
             {
                 _nextPageButton.onClick.AddListener(NextPage);
             }
+        }
+
+        private void OnBackdropClicked()
+        {
+            // Ignore click if book was opened in the exact same frame (prevents accidental immediate close)
+            if (Time.unscaledTime - _lastOpenedTime < 0.15f) return;
+            CloseBook(true);
         }
 
         private void Start()
@@ -90,12 +101,14 @@ namespace CivilGame.Book
 
         public void OpenBook()
         {
+            _lastOpenedTime = Time.unscaledTime;
             if (_bookRootPanel != null)
             {
                 _bookRootPanel.SetActive(true);
             }
             UpdatePageDisplay();
             PlayPageFoldSound();
+            OnBookOpened?.Invoke();
         }
 
         public void CloseBook()
@@ -111,9 +124,10 @@ namespace CivilGame.Book
                 _bookRootPanel.SetActive(false);
             }
 
-            if (wasOpen && playSound)
+            if (wasOpen)
             {
-                PlayBookCloseSound();
+                if (playSound) PlayBookCloseSound();
+                OnBookClosed?.Invoke();
             }
         }
 

@@ -73,6 +73,34 @@ namespace CivilGame.Localization
             { "settings.lang_en", ("English", "English") },
             { "settings.lang_tr", ("Türkçe", "Türkçe") },
 
+            // Guide Dialogue (Lucy)
+            { "guide.name", ("LUCY", "LUCY") },
+            { "guide.continue_prompt", ("Click to continue ▶", "Devam etmek için tıklayın ▶") },
+            { "guide.line1", ("Ah, my-my, hello! Welcome aboard, new ranger. My name is Lucy, you will be working with me.",
+                              "Ah, merhaba! Hoş geldin, yeni bekçi. Benim adım Lucy, benimle birlikte çalışacaksın.") },
+            { "guide.line2", ("Our job is to keep an eye on nature and report if something unusual happens.",
+                              "İşimiz doğayı yakından gözlemlemek ve olağandışı bir durum olursa rapor etmek.") },
+            { "guide.line3", ("You can click on windows to explore some areas. Since the central window is blocked by a massive tree, we won't see a thing... So how about checking the left window first?",
+                              "Bölgeleri incelemek için pencerelere tıklayabilirsin. Orta pencere koca bir ağaçla kapalı olduğu için hiçbir şey göremeyiz... İlk önce sol pencereye bakmaya ne dersin?") },
+            { "guide.line4", ("My-my! We have a little situation here... Let's check the Right window now.",
+                              "Vay canına! Burada ufak bir sorunumuz var... Şimdi de Sağ pencereyi kontrol edelim.") },
+            { "guide.line5", ("Looks calm. Hmm.... So on the left window we have drought... See, leaves are yellow, it's one of the signs. I have a textbook with all clues and solutions to events, open it.",
+                              "Sakin görünüyor. Hmm.... Demek ki sol pencerede kuraklık var... Bak, yapraklar sararmış, bu belirtilerden biri. Olayların tüm ipuçları ve çözümlerini içeren bir el kitabım var, onu aç.") },
+            { "guide.line6", ("As it says here, we need to report the situation to headquarters... You can do it by phone.",
+                              "Burada yazdığı gibi, durumu merkeze bildirmemiz gerekiyor... Bunu telefonla yapabilirsin.") },
+            { "guide.line7", ("Nice job, pal! Your shift is over for today, you can rest. If your shift was successful, you will earn money; from the online shop you can order plenty of stuff for yourself. Nighty-night.",
+                              "Harika iş çıkardın, dostum! Bugünkü nöbetin bitti, dinlenebilirsin. Vardiyan başarılı geçerse para kazanacaksın, çevrimiçi mağazadan kendine pek çok şey sipariş edebilirsin. İyi geceler.") },
+            { "guide.line8", ("Hello-hello, ranger! Unfortunately I have to leave for 7 days straight, I want you to take care of everything yourself. Don't forget to use the diary and my advice for you... listen and observe. See you soon!",
+                              "Merhaba, bekçi! Ne yazık ki 7 gün boyunca ayrılmak zorundayım, her şeyle senin ilgilenmeni istiyorum. Günlüğü kullanmayı ve sana verdiğim tavsiyeyi unutma... dinle ve gözlemle. Yakında görüşürüz!") },
+
+            // End Game Dialogues (Day 8)
+            { "ending.perfect", ("Hello-hello, ranger! I'm finally home. You did a good job checking everything! Be proud of yourself. Knowing signs of danger — a key to survival.",
+                                 "Merhaba, bekçi! Sonunda eve döndüm. Her şeyi kontrol ederek harika bir iş çıkardın! Kendinle gurur duy. Tehlike işaretlerini bilmek hayatta kalmanın anahtarıdır.") },
+            { "ending.restored", ("Hello, ranger. You paid a high price for your mistakes... I think now you know about the importance of our job.",
+                                  "Merhaba, bekçi. Hataların için ağır bir bedel ödedin... Sanırım artık işimizin ne kadar önemli olduğunu anlamışsındır.") },
+            { "ending.failed_zones", ("RANGER! What is this?! Why is one of the zones dead?! You.... You are not ready for this job! Now these zones are beyond repairing!",
+                                      "BEKÇİ! Bu da ne?! Neden bölgelerden biri yok oldu?! Sen.... Sen bu iş için hazır değilsin! Artık bu bölgeler onarılamaz!") },
+
             // HUD & General Game
             { "hud.day", ("DAY {0}", "GÜN {0}") },
             { "hud.pause", ("PAUSE", "DURAKLAT") },

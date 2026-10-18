@@ -51,6 +51,8 @@ namespace CivilGame.Lighthouse
         private bool _isSwitchingView = false;
 
         public bool IsSwitchingView => _isSwitchingView;
+        public LighthouseView CurrentView => _currentView;
+        public event System.Action<LighthouseView> OnViewChanged;
 
         private void Awake()
         {
@@ -330,6 +332,8 @@ namespace CivilGame.Lighthouse
                     }
                     break;
             }
+
+            OnViewChanged?.Invoke(_currentView);
         }
 
         private void PlayStepsSound()
