@@ -101,6 +101,11 @@ namespace CivilGame.Localization
             { "ending.failed_zones", ("RANGER! What is this?! Why is one of the zones dead?! You.... You are not ready for this job! Now these zones are beyond repairing!",
                                       "BEKÇİ! Bu da ne?! Neden bölgelerden biri yok oldu?! Sen.... Sen bu iş için hazır değilsin! Artık bu bölgeler onarılamaz!") },
 
+            // Credits Screen
+            { "credits.thanks_title", ("THANKS FOR PLAYING!", "OYUNUMUZU OYNADIĞINIZ İÇİN TEŞEKKÜRLER!") },
+            { "credits.thanks_desc", ("You protected the lighthouse and the island.", "Deniz fenerini ve adayı başarıyla korudun.") },
+            { "credits.main_menu", ("Main Menu", "Ana Menü") },
+
             // HUD & General Game
             { "hud.day", ("DAY {0}", "GÜN {0}") },
             { "hud.pause", ("PAUSE", "DURAKLAT") },
