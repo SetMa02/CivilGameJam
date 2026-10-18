@@ -43,7 +43,7 @@ namespace CivilGame.Lighthouse
         [SerializeField] private AudioSource _audioSource;
 
         [Header("Room Transition Animation")]
-        [SerializeField] private float _transitionDuration = 0.38f;
+        [SerializeField] private float _transitionDuration = 0.65f;
 
         private LighthouseView _currentView = LighthouseView.Hall;
         private bool _isInitialized = false;
@@ -171,20 +171,22 @@ namespace CivilGame.Lighthouse
             else if (oldView == LighthouseView.Hall && newView == LighthouseView.LeftWindow) panDirection = 1f;
             else if (oldView == LighthouseView.LeftWindow && newView == LighthouseView.Hall) panDirection = -1f;
 
-            Vector3 startPos = cam != null ? cam.transform.position : new Vector3(0f, 0f, -10f);
+            Vector3 startPos = cam != null ? cam.transform.position : new Vector3(0f, 0f, -11.44f);
             Quaternion startRot = cam != null ? cam.transform.rotation : Quaternion.identity;
 
             float halfDuration = _transitionDuration * 0.5f;
             float elapsed = 0f;
 
-            Vector3 midPanPos = new Vector3(panDirection * 1.35f, -0.15f, -10.3f);
-            Quaternion midPanRot = Quaternion.Euler(0f, -panDirection * 7.5f, -panDirection * 1.5f);
+            // Мягкий поворот головы и смещение взгляда
+            Vector3 midPanPos = new Vector3(panDirection * 1.8f, -0.08f, -10.9f);
+            Quaternion midPanRot = Quaternion.Euler(0f, -panDirection * 8.5f, -panDirection * 1.2f);
 
-            // Фаза 1: Камера динамично поворачивается в сторону шага
+            // Фаза 1: Камера плавно и кинематографично поворачивается в сторону шага
             while (elapsed < halfDuration)
             {
                 elapsed += Time.deltaTime;
                 float t = Mathf.Clamp01(elapsed / halfDuration);
+                // Плавная кривая SmoothStep
                 float ease = t * t * (3f - 2f * t);
 
                 if (cam != null)
@@ -200,7 +202,7 @@ namespace CivilGame.Lighthouse
 
             // Фаза 2: Камера плавно возвращается и центрируется на новом виде
             elapsed = 0f;
-            Vector3 centerPos = new Vector3(0f, 0f, -10f);
+            Vector3 centerPos = new Vector3(0f, 0f, -11.44f);
             Quaternion centerRot = Quaternion.identity;
 
             while (elapsed < halfDuration)
