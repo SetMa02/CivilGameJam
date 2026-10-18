@@ -11622,13 +11622,13 @@ MonoBehaviour:
   _threatGrowthPerDay: 0.5
   _endGameSceneName: NewScene
   _endingPerfect:
-    portrait: {fileID: 0}
+    portrait: {fileID: 8580352971482666360, guid: eda1bac6c2efe9944aa1ad8cb0f49989, type: 3}
     voiceClip: {fileID: 8300000, guid: 7bcb8e61985a3d940aa4c72d652c95b0, type: 3}
   _endingRestored:
-    portrait: {fileID: 0}
+    portrait: {fileID: 8726783322534400942, guid: 6c43fba95269b574aae7ca9621891d28, type: 3}
     voiceClip: {fileID: 8300000, guid: 1497bb113212de648942562cb6ae4144, type: 3}
   _endingFailed:
-    portrait: {fileID: 0}
+    portrait: {fileID: -6102805860222315482, guid: b5f2aab10699bdf4a94196717da26b48, type: 3}
     voiceClip: {fileID: 8300000, guid: b71058a5427456247ba96322ac67465c, type: 3}
   _dayCounterText: {fileID: 1603966965}
   _fadeCanvasGroup: {fileID: 201929515}
