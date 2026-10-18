@@ -16,26 +16,26 @@ MonoBehaviour:
   _leftPageIllustration: {fileID: 0}
   _leftPageContent: 'There is one particular danger at sea: the tsunami.
 
-    
+
 
     A tsunami usually occurs following an earthquake; in the initial phase, the water recedes sharply from the coastline.
 
-    
+
 
     If you see a wave that obscures the horizon, the resulting destruction will be catastrophic.
 
-    
 
-    The only ways to avert such a disaster are to raise specialized storm barriers and to carry out an urgent evacuation of the coastline.'
+
+    The only way to avert such a disaster is to call divers. '
   _rightPageTitle: COMMUNICATIONS AND SUPPLY
   _rightPageIllustration: {fileID: 0}
   _rightPageContent: 'As you can see, there is a telephone on the table nearby; it will allow you to contact headquarters and the supply store.
 
-    
+
 
     For every successful prevention, you will receive a reward that you can spend at the store.
 
-    
+
 
     Good luck!'
   _pageNumberText: 

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335ac5b8367674445b672501b935617f, type: 3}
   m_Name: Page_01_Intro_Drought
   m_EditorClassIdentifier: Assembly-CSharp::CivilGame.Book.ManualPageData
-  _leftPageTitle: 'WARDEN NOTE '
+  _leftPageTitle: 'RANGER NOTE '
   _leftPageIllustration: {fileID: 0}
-  _leftPageContent: "So, you\u2019ve decided to become a warden. Welcome.\L\LYour task is to keep an eye on the island around the clock\u2014and to notice if anything stands out from the ordinary. Take it from someone who\u2019s been here a long time: everything lies in the details.\L\LRemember that every sector is susceptible to natural disasters. Identify the early warning signs in time to prevent the destruction of these zones.\L\LAnd keep in mind: the total destruction of any one sector will lead to a catastrophe!\n\nNow, let me tell you about the sectors and the dangers they pose."
+  _leftPageContent: "So, you\u2019ve decided to become a ranger. Welcome.\L\LYour task is to keep an eye on the island around the clock\u2014and to notice if anything stands out from the ordinary. Take it from someone who\u2019s been here a long time: everything lies in the details.\L\LRemember that every sector is susceptible to natural disasters. Identify the early warning signs in time to prevent the destruction of these zones.\L\LAnd keep in mind: the total destruction of any one sector will lead to a catastrophe!\n\nNow, let me tell you about the sectors and the dangers they pose."
   _rightPageTitle: 'THREAT: DROUGHT'
   _rightPageIllustration: {fileID: 0}
-  _rightPageContent: "\nLet\u2019s examine the forest and the steppe.\L\LThe forest and the steppe are quite different from one another, as are the threats they face; however, there is one thing that unites them: drought.\L\LDrought begins with the yellowing of leaves and grass.\L\LNext, dry branches, bare patches of ground, and small cracks in the soil become visible.\L\LIn the final stage, all vegetation perishes\u2014an outcome that cannot be reversed.\L\LThe situation can be salvaged through timely irrigation and the management of water drainage."
+  _rightPageContent: "\nLet\u2019s examine the forest and the field.\L\LThe forest and the field are quite different from one another, as are the threats they face; however, there is one thing that unites them: drought.\L\LDrought begins with the yellowing of leaves and grass.\L\LNext, dry branches, bare patches of ground, and small cracks in the soil become visible.\L\LIn the final stage, all vegetation perishes\u2014an outcome that cannot be reversed.\L\LThe situation can be salvaged through timely irrigation squad."
   _pageNumberText: 

@@ -14,24 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CivilGame.Book.ManualPageData
   _leftPageTitle: 'THREAT: WILDFIRE'
   _leftPageIllustration: {fileID: 0}
-  _leftPageContent: 'Another equally significant threat to steppes and forests is the forest fire.
+  _leftPageContent: 'Another equally significant threat to fields and forests is the forest fire.
 
-    
+
 
     It all begins with the appearance of a faint wisp of smoke above the treetops or the dry grass.
 
-    
 
-    Then, concentrated pockets of flame begin to form.
 
-    
+    Then, concentrated pockets of flame begin to form. Firefighters  shoud be called in second stage
+
+
 
     Eventually, this escalates into an uncontrollable blaze that consumes everything in its path.
 
-    
 
-    Preventive and responsive measures include calling in a fire brigade to contain and combat the fire, or deploying specialized firefighting equipment such as airplanes.'
+
+    Preventive and responsive measures include calling in a lamberjacks to prevent fire in first ctage. And finaly rescue helicopter.  '
   _rightPageTitle: 'THREAT: LANDSLIDE'
   _rightPageIllustration: {fileID: 0}
-  _rightPageContent: "While mountains may pose inherent risks, these dangers can sometimes be exacerbated by an earthquake occurring in the vicinity.\r\n\r\nLandslides often follow tremors\u2014which frequently happen at night\u2014and are typically accompanied by rocks falling from the slopes.\r\n\r\nThis is followed by a larger-scale collapse of rock formations, leading to the total destruction of the mountainside.\r\n\r\nTo prevent or minimize such damage, it is advisable to install specialized protective netting and reinforce particularly hazardous slopes."
+  _rightPageContent: "While mountains may pose inherent risks, these dangers can sometimes be exacerbated by an earthquake occurring in the vicinity.\r\n\r\nLandslides often follow tremors\u2014which frequently happen at night\u2014and are typically accompanied by rocks falling from the slopes.\r\n\r\nThis is followed by a larger-scale collapse of rock formations, leading to the total destruction of the mountainside.\r\n\r\nTo prevent or minimize such damage, it is advisable to call in mountaineers in early stages. In critical stage you must call rescue helicopter. "
   _pageNumberText: 
